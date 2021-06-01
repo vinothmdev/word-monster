@@ -39,6 +39,19 @@ The game is aimed at children as a way of helping them to learn words and how th
     - #### Colour scheme
     - #### Typography
 - ### Wireframes
+    - Desktop/tablet wireframes:
+        - [Homepage](docs/wireframes/home-desktop-tablet.png)
+        - [Instructions](docs/wireframes/instructions-desktop-tablet.png)
+        - [Won game](docs/wireframes/won-game-desktop.png)
+        - [Lost game](docs/wireframes/lost-game-desktop.png)
+
+    - Mobile wireframes:
+        - [Homepage](docs/wireframes/home-mobile.png)
+        - [Instructions](docs/wireframes/instructions-mobile.png)
+        - [Won game](docs/wireframes/won-game-mobile.png)
+        - [Lost game](docs/wireframes/lost-game-mobile.png)
+    - [View all wireframes in pdf here.](docs/wireframes/wireframes-all.pdf)
+    
 ## Features
 - ### Existing Features
 - ### Future Features
