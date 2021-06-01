@@ -53,8 +53,18 @@ The game is aimed at children as a way of helping them to learn words and how th
     - [View all wireframes in pdf here.](docs/wireframes/wireframes-all.pdf)
     
 ## Features
-- ### Existing Features
-- ### Future Features
+### Existing Features
+- #### Header
+    - Instructions: when clicked displays the instructions on how to play the game
+    - Score: shows the user how many trophies they have won. Each trophy is a correct word guessed i.e. a game won.
+- #### Game area:
+    - Word Category: Two options for the user to choose from: Adjectives or Verbs. The default if the user doesn't select one is Adjectives. When selected, a random word is chosen from the list and this is the word the user must guess
+    - Word to be guessed: dashes representing each letter in the word to be guessed
+    - Keyboard for letter choice: letters A to Z displayed in boxes underneath the word to be guessed, user clicks on the letter for each turn
+    - Correct letters displayed in the relevant place once guessed
+    - Letters already guessed cannot be clicked again and turn a different colour to indicate to the user that they were already used
+    - Wrong guesses are represented visually by the 'monster' character getting closer to the trophy icon
+### Future Features
 ## Technology
 - ### Languages
 - ### Frameworks, Libraries, Programmes and Tools
