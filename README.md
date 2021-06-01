@@ -24,6 +24,17 @@ The game is aimed at children as a way of helping them to learn words and how th
 
 ## User Experience (UX)
 - ### User stories
+1. As a visiting user, I want to find out how to play the game so that I can start to play
+2. As a visiting user, I want to be able to select the category from which the random word will be chosen so that I know which type of word it is
+3. As a visting user, I want to know how many letters are in the word to be guessed so that I can make a decision on which letters might be in the word
+4. As a visiting user, I want to know which letters I have already guessed when playing the game so that I can decide my next guess
+5. As a visting user, I want to know if my guess was correct or not so that I can plan my next guess
+6. As a visiting user, I want to see the correctly guessed letters displayed in the correct place in the word, so that I can plan my next guess
+7. As a visiting user, I want to know how many chances I have left to guess incorrectly so that I can try and avoid losing the game
+8. As a visting user, I want to be able to get a hint to help me guess the word
+9. As a visiting user, I want to know what the word was, if I lose the game, so that I can learn the word or see how it is spelled
+10. As a visiting user, I want to know how many games I have won
+
 - ### Design
     - #### Colour scheme
     - #### Typography
