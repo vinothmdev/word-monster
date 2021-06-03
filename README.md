@@ -88,8 +88,16 @@ Note: there is no login or registered users on this site so each user story is f
 - #### Footer:
   - contains the social media links: Facebook, Instagram and Twitter, represented by icons. 
 
-
 ### Future Features
+- Extend the range of available word categories to choose from 
+- An option to choose the level of difficulty before selecting a category so that harder words are included as the difficulty level increases
+- Possibly retrieve the random words from an external resource so that there is a greater selection of words. Not in scope currently due to level of experience of the developer.
+- The option for a user to register with a username and have a user profile where they can see their score among other things
+- The option to have a Scoreboard showing different user's scores in particular categories/difficulty levels
+- The option for a user to be awarded with a 'badge' on successful completion of a certain number of games in a particular difficulty level and particular category. The badge would be added to their profile.
+- Contact form, to contact site owner
+- Add a timer to the game so that it has to be completed in a certain time. Higher scores could be awarded for winning the game in a shorter amount of time
+
 ## Technology
 - ### Languages
 - ### Frameworks, Libraries, Programmes and Tools
