@@ -12,13 +12,13 @@ Word Monster is a game based on the classic 'hangman' game, where the user has t
 
 The game is aimed at children as a way of helping them to learn words and how they are spelled, in a fun way. It is also designed to appeal to adults in a nostalgic way, since many played hangman as children and the style of the game is reminiscent of old video games.
 
-####    User’s goals:
+#### User’s goals:
 - the game's users want to practice their spelling
 - they want to improve their vocabulary
 - they want to exercise their brain in a fun way
 - they want a fun, nostalgic game to divert attention for a few minutes of their day
 
-####    Site owner’s goal:
+#### Site owner’s goal:
 - the goal of the website is to provide a game for use by children to help with learning the correct spelling of words, and to improve their vocabulary by exposing them to different words in the game. 
 - And to provide a game for adults who want to brush up on their spelling and/or vocabulary, or just want to exercise their brain a little bit, or play the game for a few minutes of distraction from daily life.
 
@@ -57,15 +57,38 @@ Note: there is no login or registered users on this site so each user story is f
 ## Features
 ### Existing Features
 - #### Header
-    - Instructions: when clicked displays the instructions on how to play the game
-    - Score: shows the user how many trophies they have won. Each trophy is a correct word guessed i.e. a game won.
+  - Top of the page, contains game name on the left, Score and Instructions on the right.
+  - Fixed to the top of the page so that score is always visible
+  - Instructions: when clicked displays the instructions on how to play the game, X in top right corner to close and return to game page
+  - Score: displays a number and a trophy beside it, the number indicates to the user how many games they have won during this session of playing. Each trophy is a correct word guessed i.e. a game won. Display only, not clickable.
 - #### Game area:
-    - Word Category: Two options for the user to choose from: Adjectives or Verbs. The default if the user doesn't select one is Adjectives. When selected, a random word is chosen from the list and this is the word the user must guess
-    - Word to be guessed: dashes representing each letter in the word to be guessed
-    - Keyboard for letter choice: letters A to Z displayed in boxes underneath the word to be guessed, user clicks on the letter for each turn
-    - Correct letters displayed in the relevant place once guessed
-    - Letters already guessed cannot be clicked again and turn a different colour to indicate to the user that they were already used
-    - Wrong guesses are represented visually by the 'monster' character getting closer to the trophy icon
+  - Consists of three sections: Monster/guesses section; Word section; Keyboard section. The features of each vary depending on which stage the game is in: not-started, in-play, or over.
+  - the full game area should always be visible on the screen without having to scroll down
+- #### Game area - 'Monster/guesses remaining' section:
+  - At the 'not-started' stage of the game there is a 'monster' character and 6 obstacles between it and the trophy icon
+  - During the 'in-play' stage, wrong guesses are represented visually by this monster character getting closer to the trophy icon
+  - For each wrong guess, one obstacle disappears and the monster moves into its place, thereby getting closer to the trophy
+  - On the seventh wrong guess, the trophy disappears, meaning the game has been lost. The game is now in the 'over' state and a message is displayed: "Game Over. You Lost"
+  - If the user guessed the letters correctly before the monster gets to the trophy, the game also enters the 'over' state and a message is displayed: "Game Over! You Won the Trophy!". 
+- #### Game area - 'Word' section:
+  - This subsection contains a text box and a button area, again these change depending on the stage of the game
+  - At the 'not-started' stage of the game, the text box instructs user to choose a category from the two buttons below it - Adjective or Verb. These are the word categories from which the random word will be chosen.
+  - Once one of these buttons is pressed/clicked on, the game starts and is in the 'in-play' stage
+  - The text box now displays the chosen word category, and underneath this it shows a number of dashes representing the letters in the word to be guessed. 
+  - When letters are guessed correctly, these are shown in the relevant place in the word, replacing the dash
+  - A Hint button is shown underneath the word to be guessed
+  - When the Hint button is clicked, it displays a hint to help the user determine what the word might be. The hint then remains displayed on the page until the game is over
+  - When the game enters the 'over' stage, the text box shows a message confirming what the word was and its meaning. 
+  - The button is now a "Play Again" button, which re-sets the game back to the 'not-started' stage so that the user can select a category to play a new game
+- #### Game area - 'Keyboard' section:
+  - This section is below the word to be guessed and contains a keyboard of letters from A to Z
+  - The user guesses a letter by pressing/clicking on one of the letters
+  - Once a letter has been guessed it cannot be pressed/clicked on again, and it visually displays a different color to show it was already used
+  - The keyboard letters are always displayed but are only active when the game is in the 'in-play' stage 
+- #### Footer:
+  - contains the social media links: Facebook, Instagram and Twitter, represented by icons. 
+
+
 ### Future Features
 ## Technology
 - ### Languages
