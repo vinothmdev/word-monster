@@ -113,8 +113,26 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
 - Add a timer to the game so that it has to be completed in a certain time. Higher scores could be awarded for winning the game in a shorter amount of time
 
 ## Technology
-- ### Languages
-- ### Frameworks, Libraries, Programmes and Tools
+---
+### Languages
+ - HTML
+ - CSS
+ - JavaScript
+
+### Frameworks, Libraries, Programmes and Tools
+ - [Balsamiq](https://balsamiq.com/) to design the wireframes
+ - The fonts used in the project are imported from [Google Fonts](https://fonts.google.com/)
+ - [Eye Dropper](https://eyedropper.org/) extension for Chrome to pick and generate colours for the project
+- [Coolors](https://coolors.co/) to generate a colour palette/see how colours worked beside each other
+- [Webaim Contrast Checker](https://webaim.org/resources/contrastchecker/) to check the contrast for the colour choices 
+- [Adobe Illustrator](https://www.adobe.com/ie/products/illustrator.html) to create the 'monster' graphic
+- Git for version control, using the [Gitpod](https://www.gitpod.io/) terminal to commit to Git and push to GitHub
+- [GitHub](https://github.com/) to store the project code and host the live project
+- [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) during development and testing to fix issues with the code and check for responsiveness/different device sizes
+- [W3C HTML validator](https://validator.w3.org/) to validate the HTML code
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate the CSS code
+- [Am I Responsive](http://ami.responsivedesign.is/) to generate the mockup image showing the project on different devices
+
 ## Testing
 - ### Code Validation
 - ### Test Cases - user stories
