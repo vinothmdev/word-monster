@@ -23,6 +23,7 @@ The game is aimed at children as a way of helping them to learn words and how th
 - And to provide a game for adults who want to brush up on their spelling and/or vocabulary, or just want to exercise their brain a little bit, or play the game for a few minutes of distraction from daily life.
 
 ## User Experience (UX)
+---
 - ### User stories
 Note: there is no login or registered users on this site so each user story is from the point of view of a visiting user.
 1. As a visiting user, I want to find out how to play the game so that I can start to play
@@ -38,23 +39,25 @@ Note: there is no login or registered users on this site so each user story is f
 11. As a visiting user, I want to know how many games I have won during this session of playing.
 
 - ### Design
-    - #### Colour scheme
-    - #### Typography
+  - #### Colour scheme
+  - #### Typography
 - ### Wireframes
-    - Desktop/tablet wireframes:
-        - [Homepage](docs/wireframes/home-desktop-tablet.png)
-        - [Instructions](docs/wireframes/instructions-desktop-tablet.png)
-        - [Won game](docs/wireframes/won-game-desktop.png)
-        - [Lost game](docs/wireframes/lost-game-desktop.png)
+  - Desktop/tablet wireframes:
+    - [Homepage](docs/wireframes/home-desktop-tablet.png)
+    - [Instructions](docs/wireframes/instructions-desktop-tablet.png)
+    - [Won game](docs/wireframes/won-game-desktop.png)
+    - [Lost game](docs/wireframes/lost-game-desktop.png)
 
-    - Mobile wireframes:
-        - [Homepage](docs/wireframes/home-mobile.png)
-        - [Instructions](docs/wireframes/instructions-mobile.png)
-        - [Won game](docs/wireframes/won-game-mobile.png)
-        - [Lost game](docs/wireframes/lost-game-mobile.png)
-    - [View all wireframes in pdf here.](docs/wireframes/wireframes-all.pdf)
+  - Mobile wireframes:
+    - [Homepage - game not started](docs/wireframes/home-mobile.png)
+    - [Instructions](docs/wireframes/instructions-mobile.png)
+    - [Game in progress](docs/wireframes/game-in-play-mobile.png)
+    - [Game over - user won game](docs/wireframes/game-over-won-mobile.png)
+    - [Game over - user lost game](docs/wireframes/game-over-lost-mobile.png)
+  - [View all wireframes in pdf here.](docs/wireframes/wireframes-all.pdf)
     
 ## Features
+---
 ### Existing Features
 - #### Header
   - Top of the page, contains game name on the left, Score and Instructions on the right.
