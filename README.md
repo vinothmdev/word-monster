@@ -39,8 +39,19 @@ Note: there is no login or registered users on this site so each user story is f
 11. As a visiting user, I want to know how many games I have won during this session of playing.
 
 - ### Design
+The design of the Word Monster site and game takes inspiration from 'old-school' arcade video games like Pac-Man and Space Invaders. The simplicity of the 'hangman' style game is reflected in using the same style of simple graphics from these 80s video games. It also brings a sense of nostalgia for older visitors to the site, who may remember both these old video games, as well as playing the paper and pencil version of 'hangman' when they were children. For children, the simple graphics and bright colours should appeal and stand out in a world of realistic graphics and animations! The design of the game will reflect this through the use of colour, typography and graphics. 
+> 
+**Insert note re monster graphic when done.**
+
   - #### Colour scheme
+    In keeping with theme of nostalgic video games, the colour scheme draws on colours similar to those used in these games. A black background, white text and bright primary colours for the graphics. 
+    >
+    **Insert colour palette here**
+    
   - #### Typography
+    - **VT323** is used for the headings. This font is based on square pixels and so fits well with the style of this game
+    - **IBM Plex Mono** is used for the body text. As a monospaced font with a squared off appearance it is reminiscent of old computer typefaces so fits with the theme, while also being readable.
+
 - ### Wireframes
   - Desktop/tablet wireframes:
     - [Homepage](docs/wireframes/home-desktop-tablet.png)
