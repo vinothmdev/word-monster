@@ -1,0 +1,18 @@
+/* reset margin, padding and change box size default */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* base page style and body as flex container */
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'IBM Plex Mono', Courier, monospace;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    background-color: black;
+    color: white;
+}
