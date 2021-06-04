@@ -10,14 +10,52 @@
     <title>Word Monster</title>
 </head>
 <body>
-    <header>header</header>
-    <div>game area
+    <!--header for the page, contain Logo, Score and Instructions button-->
+    <header class="page-header">
+        <h1>Word Monster</h1>
+        <!--ul containing Score and Instructions button-->
+        <ul>
+            <li>Score</li>
+            <li><button>Instructions</button></li>
+        </ul>
+    </header>
+    <!--modal box when the Instructions button is clicked-->
+    <div class="modal" role="dialog">
+        <!--modal header with title and close button-->
+        <header class="modal-header">
+            <h2>Instructions</h2>
+            <button class="modal-close">&times;</button>
+        </header>
+        <!--modal text with intro text and instruction list-->
+        <div class = "modal-text">
+            <p>Guess the word by clicking on the letters and get the trophy before the monster does!</p>
+            <ol>
+                <li>Pick a category: Adjective or Verb</li>
+                <li>A word will be chosen at random which you will need to guess!</li>
+                <li>The number of dashes: _ shows how many letters are in the word that you need to guess</li>
+                <li>Click on one of the letters at the bottom half of the screen to make a guess</li>
+                <li>If you guess correctly, the letter will fill the blank space(s) in the word</li>
+                <li>If you guess incorrectly, the monster will eat one of the obstacles and get one step closer to the
+                    trophy!</li>
+                <li>You can keep guessing but for every wrong guess the monster eats another obstacle and after eating
+                    six obstacles it gets the trophy!</li>
+                <li>You have 7 chances to guess incorrectly</li>
+                <li>If you guess all the correct letters before running out of chances, you get the trophy!</li>
+                <li>If you need a hint, click on the Hint? button and you will get a short hint to help you guess the
+                    word</li>
+                <li>The letters you have already guessed are shown in a different colour, so you know not to choose them
+                    again.</li>
+                <li>The number of trophies you have won, representing the words you have guessed correctly, are shown in
+                    the Score at the top of the page.</li>
+            </ol>
+        </div>
+    </div>
+    <main>game area
         <div>monster area</div>
         <div>word area</div>
         <div>button area</div>
         <div>keyboard area</div>
-    </div>
-    
+    </main>
     <footer></footer>
 </body>
 </html>
