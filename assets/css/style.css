@@ -23,13 +23,14 @@ body {
     color: white;
 }
 
-/*remove background and border and set button text style */
+/*remove background and border and set button text style, set font */
 button {
     cursor: pointer;
     color: #00ffde;
     background: transparent;
     border: none;
     outline: none;
+    font-family: inherit;
 }
 /*============================= header =============================================*/
 .page-header {
@@ -42,6 +43,8 @@ button {
 /* score and instructions in page header display inline */
 .page-header li {
     display: inline;
+    font-size: 1rem;
+    padding-right: 1rem;
 }
 
 .logo {
@@ -50,6 +53,10 @@ button {
     text-transform: uppercase;
     font-size: 1.8rem;
     letter-spacing: .15rem;
+}
+
+.page-header button {
+    font-size: 1rem;
 }
 
 /*==================================== Instructions Modal ==============================================*/
