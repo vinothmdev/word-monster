@@ -32,6 +32,12 @@ button {
     outline: none;
     font-family: inherit;
 }
+
+/*flex settings to it expands to fill the space and push footer to bottom*/
+main {
+    flex: 1 0 auto;
+}
+
 /*============================= header =============================================*/
 .page-header {
     display: flex;
@@ -100,6 +106,31 @@ button {
 }
 
 .modal-close:hover, .modal-close:focus {
+    color: #ff00ff;
+}
+
+/*==================================== Footer ==============================================*/
+/*flex container for ul, centered, font-size for the fontawesome icons*/
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+/*display the social media icons*/
+footer li {
+    display: inline;
+    padding: 0 1rem;
+}
+
+/* social media links color and color on hover and focus below also */
+footer a {
+    color: #00ffde;
+}
+
+footer a:hover,
+footer a:focus {
     color: #ff00ff;
 }
 
