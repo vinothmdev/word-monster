@@ -55,7 +55,7 @@ button {
 /*==================================== Instructions Modal ==============================================*/
 /* modal outer box - not visible by default, fixed position when opened full width and height */
 .modal {
-    /* display: none; */
+    visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,7 +63,12 @@ button {
     height: 100%;
     overflow: auto; /*in case need to scroll down to read all instructions*/
     z-index: 1; /*on top of other content*/
-    background-color: rgba(60, 60, 60, 0.6); /*opacity*/
+    background-color: rgba(60, 60, 60, 0.9); /*opacity*/
+}
+
+/*modal with class visible added, when button clicked*/
+.modal.visible {
+    visibility: visible;
 }
 
 /*box holding the modal header and content */
@@ -87,7 +92,7 @@ button {
     font-size: 3rem;
 }
 
-.modal-close:hover {
+.modal-close:hover, .modal-close:focus {
     color: #ff00ff;
 }
 

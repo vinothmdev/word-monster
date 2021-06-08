@@ -22,17 +22,18 @@
         <ul class="head-item">
             <li>Score: <span id="score" aria-label="number of trophies won">0 <i class="fas fa-trophy"
                         aria-hidden="true"></i></span></li>
+            <!--button to open instructions-modal, js uses data-open attribute-->
             <li><button type="button" id="instructions-open">Instructions</button></li>
         </ul>
     </header>
-    <!--modal when the Instructions button is clicked - outer container covering rest of page -->
+    <!--outer modal when the Instructions button is clicked, id equal to data-open value on button-->
     <div class="modal" role="dialog" id="instructions-modal">
         <!--content of modal box-->
         <div class="modal-content">
             <!--modal header with title and close button-->
             <header class="modal-header">
                 <h2>Instructions</h2>
-                <button type="button" class="modal-close" aria-label="Close instructions box">&times;</button>
+                <button type="button" class="modal-close" aria-label="Close instructions box" id="close-modal">&times;</button>
             </header>
             <!--modal text with intro text and instruction list-->
             <div class="modal-text">
@@ -125,5 +126,7 @@
     </footer>
     <!--script for the fontawesome icons-->
     <script src="https://kit.fontawesome.com/f92ca5e5ec.js" crossorigin="anonymous"></script>
+    <!--script for page functionality-->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
