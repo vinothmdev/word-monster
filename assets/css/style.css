@@ -115,16 +115,21 @@ main {
     color: #ff00ff;
 }
 
-/*==================================== Monster and Game 'lives' ==============================================*/
+/*==================================== Game Area ==============================================*/
+/* general styles for each section of the game area - border, padding, margin */
+.game-section {
+    border: 0.1rem solid #ffff00;
+    border-radius: 0.1rem;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+}
+
+/*========================== Monster and Game 'lives'/guesses ==================================*/
 /* container for the guesses, flex container with border */
 .guesses {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.5rem;
-    border: 0.1rem solid #ffff00;
-    border-radius: 0.1rem;
-    /* width: 90%; */
 }
 
 .guess {
@@ -133,6 +138,9 @@ main {
     width: calc(12.5% - .2rem);
     height: auto;
 }
+
+/*==================================== Word Area ==============================================*/
+
 
 /*==================================== Keyboard ==============================================*/
 /*div holding keyboard - flex container, center the keys within it*/

@@ -66,11 +66,12 @@
             </div>
         </div>
     </div>
+    <!--end of modal section-->
     <!--game area containing monster, word, button and keyboard sections-->
     <main>
         <!--div contains the graphics for the monster and chances for wrong guesses,
         represented by obstacles between it and the trophy-->
-        <div class="guesses">
+        <div class="guesses game-section">
             <img src="assets/images/monster.png" alt="monster" class="monster guess">
             <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess">
             <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess">
@@ -81,17 +82,17 @@
             <img src="assets/images/trophy.png" alt="trophy" class="guess">
         </div>
         <!--word area - content changes depending on game stage-->
-        <div>
+        <div class="game-section">
             <p>Can you guess the word and beat the monster to win the trophy?</p>
             <p>Pick a category below to begin</p>
         </div>
         <!--button area - content of buttons changes depending on game stage-->
-        <div>
+        <div class="game-section">
             <button>Adjective</button>
             <button>Verb</button>
         </div>
         <!--keyboard-->
-        <div class="keyboard">
+        <div class="keyboard game-section">
             <button type="button" class="key">A</button>
             <button type="button" class="key">B</button>
             <button type="button" class="key">C</button>
@@ -117,8 +118,7 @@
             <button type="button" class="key">W</button>
             <button type="button" class="key">X</button>
             <button type="button" class="key">Y</button>
-            <button type="button" class="key">Z</button>
-            
+            <button type="button" class="key">Z</button>  
         </div>
     </main>
     <footer>
