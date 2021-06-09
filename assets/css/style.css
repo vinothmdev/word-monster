@@ -181,6 +181,11 @@ main {
     padding: .5rem 0;
 }
 
+/* for sections that are not shown initally and only shown at different game stages */
+.hidden {
+    display: none;
+}
+
 /*==================================== Keyboard ==============================================*/
 /*div holding keyboard - flex container, center the keys within it*/
 .keyboard {
