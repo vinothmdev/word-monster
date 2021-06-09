@@ -189,6 +189,18 @@ strong {
     border-bottom: 0.1rem solid #ff00ff;
 }
 
+/* to display the correct word when game over */
+.word {
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 0.08rem;
+}
+
+/* to display the correct definition when game over */
+.definition {
+    font-style: italic;
+}
+
 /* buttons in word area - specific styles */
 .word-btn {
     border: 0.1rem solid #ff00ff;

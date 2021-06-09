@@ -95,10 +95,16 @@
                 <p>Can you guess the word and beat the monster to win the trophy?</p>
                 <strong>Pick a category below to start the game!</strong>
             </div>
+            <div class="hidden">
+                <p>The word was: <span class="word">word</span></p>
+                <p>Meaning: <span class="definition">eager to know or learn something</span></p>
+            </div>
             <!--button area - content of buttons changes depending on game stage-->
             <div class="word-button-area">
                 <button type="button" class="word-btn game-btn">Adjective</button>
                 <button type="button" class="word-btn game-btn">Verb</button>
+                <!-- button to reset and play again - visible when game over -->
+                <button type="button" class="word-btn game-btn hidden" id="reset">Play Again</button>
             </div>
             <!--Hint area - initially hidden - only shown when game in play -->
             <div class="word-button-area hidden">
