@@ -116,16 +116,33 @@ main {
 }
 
 /*==================================== Game Area ==============================================*/
-/* general styles for each section of the game area - border, padding, margin */
+/* general styles for each section of the game area - border, padding, margin, full width at mobile size */
 .game-section {
     border: 0.1rem solid #ffff00;
     border-radius: 0.1rem;
     padding: 0.5rem;
     margin: 0.5rem auto;
+    width: 100%;
+}
+
+/* general styles for buttons in game area - border, color, font */
+.game-btn {
+    border: 0.1rem solid #00ffde;
+    border-radius: 0.1rem;
+    background-color: rgba(60, 60, 60, 0.6);
+    color: white;
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+}
+
+/*change font color and background color on hover and focus*/
+.game-btn:hover, .game-btn:focus {
+    background-color: rgba(60, 60, 60, 0.9);
+    color: #00ffde;
 }
 
 /*========================== Monster and Game 'lives'/guesses ==================================*/
-/* container for the guesses, flex container with border */
+/* container for the guesses, flex container */
 .guesses {
     display: flex;
     align-items: center;
@@ -133,14 +150,36 @@ main {
 }
 
 .guess {
-    /* width: 2rem; */
     margin: 0.1rem;
     width: calc(12.5% - .2rem);
     height: auto;
 }
 
 /*==================================== Word Area ==============================================*/
+/* word area - font styles */
+.word-area {
+    font-size: 0.8rem;
+    text-align: center;
+}
 
+/* buttons in word area - specific styles */
+.word-btn {
+    border: 0.1rem solid #ff00ff;
+    padding: 0.6rem;
+    margin: 0.2rem;
+    font-size: 1.1rem;
+    width: calc(50% - .8rem);
+}
+
+/*change font color on hover and focus*/
+.word-btn:hover, .word-btn:focus {
+    color: #ff00ff;
+}
+
+/* container for buttons - padding */
+.word-button-area {
+    padding: .5rem 0;
+}
 
 /*==================================== Keyboard ==============================================*/
 /*div holding keyboard - flex container, center the keys within it*/
@@ -151,21 +190,11 @@ main {
     align-items: center;
 }
 
-/*each letter in keyboad - styles to look like keyboard buttons*/
+/* each letter in keyboad -  specific padding, font size and margin */
 .key {
-    border: 0.1rem solid #ffff00;
-    border-radius: 0.1rem;
     padding: 0.5rem;
     margin: 0.2rem;
     font-size: 1.1rem;
-    background-color: rgba(60, 60, 60, 0.6);
-    font-family: 'VT323', monospace;
-}
-
-/*change font color and background color on hover and focus*/
-.key:hover, .key:focus {
-    background-color: rgba(60, 60, 60, 0.9);
-    color: #ff00ff;
 }
 
 /*==================================== Footer ==============================================*/
