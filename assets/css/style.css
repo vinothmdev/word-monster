@@ -115,7 +115,7 @@ main {
     color: #ff00ff;
 }
 
-/*==================================== Game Area ==============================================*/
+/*==================================== Game Area - general ==============================================*/
 /* general styles for each section of the game area - border, padding, margin, full width at mobile size */
 .game-section {
     border: 0.1rem solid #ffff00;
@@ -141,25 +141,52 @@ main {
     color: #00ffde;
 }
 
+/* for sections that are not shown initally and only shown at different game stages */
+.hidden {
+    display: none;
+}
+
 /*========================== Monster and Game 'lives'/guesses ==================================*/
-/* container for the guesses, flex container */
+/* container for the guesses, flex container, aligned flex-end so monster moves towards trophy */
 .guesses {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
+/* to center the text and img when game is over, class added via js */
+.game-over {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* spacing/sizing for the individual elements in the guesses container */
 .guess {
     margin: 0.1rem;
     width: calc(12.5% - .2rem);
     height: auto;
 }
 
+/* styles for the text-displayed when game over */
+.game-over-text {
+    font-family: 'VT323', monospace;
+    font-size: .9rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    margin: 0 0.5rem;
+}
+
 /*==================================== Word Area ==============================================*/
 /* word area - font styles */
 .word-area {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    line-height: 1.4rem;
     text-align: center;
+}
+
+strong {
+    line-height: 1.8rem;
+    border-bottom: 0.1rem solid #ff00ff;
 }
 
 /* buttons in word area - specific styles */
@@ -179,11 +206,6 @@ main {
 /* container for buttons - padding */
 .word-button-area {
     padding: .5rem 0;
-}
-
-/* for sections that are not shown initally and only shown at different game stages */
-.hidden {
-    display: none;
 }
 
 /*==================================== Keyboard ==============================================*/
