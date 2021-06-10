@@ -10,7 +10,7 @@
 ---
 Word Monster is a game based on the classic 'hangman' game, where the user has to figure out a word by guessing one letter at a time. The game is over when the user has guessed incorrectly 7 times, or when they have revealed the word by guessing all the correct letters. For this version, instead of drawing part of the hangman for each wrong guess, there is a 'monster' character with obstacles between it and the trophy. Each wrong guess erases an obstacle and the monster claims the trophy on the seventh wrong guess. The reason for using this character instead of the classic hangman is to make it a bit more friendly and light-hearted. 
 
-The game is aimed at children as a way of helping them to learn words and how they are spelled, in a fun way. It is also designed to appeal to adults in a nostalgic way, since many played hangman as children and the style of the game is reminiscent of old video games.
+The game is aimed at school-age children as a way of helping them to learn words and how they are spelled, in a fun way. It is also designed to appeal to adults in a nostalgic way, since many played hangman as children and the style of the game is reminiscent of old video games.
 
 #### User’s goals:
 - the game's users want to practice their spelling
@@ -19,7 +19,7 @@ The game is aimed at children as a way of helping them to learn words and how th
 - they want a fun, nostalgic game to divert attention for a few minutes of their day
 
 #### Site owner’s goal:
-- the goal of the website is to provide a game for use by children to help with learning the correct spelling of words, and to improve their vocabulary by exposing them to different words in the game. 
+- the goal of the website is to provide a game for use by school-age children to help with learning the correct spelling of words, and to improve their vocabulary by exposing them to different words in the game. 
 - And to provide a game for adults who want to brush up on their spelling and/or vocabulary, or just want to exercise their brain a little bit, or play the game for a few minutes of distraction from daily life.
 
 ## User Experience (UX)
@@ -111,6 +111,24 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
 - The option for a user to be awarded with a 'badge' on successful completion of a certain number of games in a particular difficulty level and particular category. The badge would be added to their profile.
 - Contact form, to contact site owner
 - Add a timer to the game so that it has to be completed in a certain time. Higher scores could be awarded for winning the game in a shorter amount of time
+
+## Content Requirements
+- Graphic representing the guesses available:
+  - monster character
+  - icon representing the guesses
+  - trophy icon
+
+- Verb and Adjective listings:
+  - a list of words appropriate for the target audience, at least 20 of each type are required in order to have enough words for a player to play several rounds of the game
+  - the lists will be held in a script file within the project, rather than retrieved from an external API, since the developer does not have expertise on APIs at this stage
+  - Each word needs an associated hint stored with it in the list
+  - Each word needs its meaning stored with it in the list
+  - in order to be appropriate to the target market, the words are sourced from a combination of the following:
+    - [Dolch Words List](https://en.wikipedia.org/wiki/Dolch_word_list), also known as 'Sight Words' which is a list of commonly occurring words from children's books. This covers 80% of words in a typical children's books and 50% to 75% of words in ordinary reading material, excluding proper names.
+    - Fry Words List, which is a more modern list of 1,000 common words. These account for about 90% of the words in a typical book, newspaper or website.
+    - Word listings commonly used to teach spelling and reading to children in school.
+
+    Sourcing the words from these lists ensures the words are and relevant for the target market of school-age children, as these are words they are learning or have learnt in school, therefore the game can reinforce or help this learning. These words will also be relevant for the older target market of adults since they are drawn from a list of common words. Further details on the sourcing of words for the project is included in the [Credits section](#content) of this document.
 
 ## Technology
 ---
