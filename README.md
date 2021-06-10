@@ -164,8 +164,16 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
 - ### Forking the GitHub Repository
 - ### Cloning the GitHub Repository
 ## Credits
-- ### Code
-- ### Content
-- ### Media
+### Code
+### Content
+The words chosen for the Verb and Adjective lists were sourced from the following websites (see more explanations on these word lists in the [Content Requirements](#content-requirements) section):
+- [Sight Words, Dolch Words List](https://sightwords.com/sight-words/dolch/) 
+- [Sight Words, Fry Words List](https://sightwords.com/sight-words/fry/#lists)   
+
+- [SpellingCity - Adjectives List](https://www.spellingcity.com/adjectives.html)
+
+### Media
+The simple pixel graphics for the 'guesses' area:  the monster, obstacle and trophy; were created by the developer. As mentioned earlier, the style of these graphics along with the style of the website as a whole, is based on that of video/arcade games from the 1970s/1980s like [Pac-Man](https://en.wikipedia.org/wiki/Pac-Man) and [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) and is therefore indebted to these from a stylistic point of view. 
+
 ## Acknowledgements
 
