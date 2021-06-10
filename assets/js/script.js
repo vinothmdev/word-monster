@@ -56,4 +56,17 @@ function startGame(wordType) {
     //show the words boxes - equal to length of the chosen word
     //put focus on first keyboard item for convenience for keyboard users
     document.getElementsByClassName("key")[0].focus();
+    //when the Hint button is clicked, run the function giveHint
+    document.getElementById("hint").addEventListener("click", giveHint);
+}
+
+/**
+ * shows the text of the hint associated with the word, when the Hint button is clicked
+ */
+function giveHint() {
+    //hide the button that was clicked, i.e. the Hint button
+    this.classList.add("hidden");
+    // show the hint text (sibling of Hint button)
+    let hintText = this.nextElementSibling.classList.remove("hidden");
+    // hintText.innerText = hint associated with the word - add this when word functionality is added
 }
