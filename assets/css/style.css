@@ -220,6 +220,14 @@ strong {
     padding: .5rem 0;
 }
 
+.letter-space {
+    width: 8%;
+    border-bottom: 0.2rem solid #ff00ff;
+    display: inline-block;
+    margin: 0.2rem;
+    padding-top: 2rem;
+}
+
 /*==================================== Keyboard ==============================================*/
 /*div holding keyboard - flex container, center the keys within it*/
 .keyboard {

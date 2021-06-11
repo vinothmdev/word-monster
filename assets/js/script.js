@@ -251,11 +251,19 @@ function startGame(wordType) {
     //get a random word object from the wordsByType array 
     let wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
     console.log(wordObject);
-    
+    // the word from the wordObject
+    let selectedWord = wordObject.word;
+    console.log(selectedWord);
     //show the div with text and hint button, show category
     document.getElementById("word-area-in-play").classList.remove("hidden");
     document.getElementById("category").innerText = `${wordType}`;
     //show the words boxes - equal to length of the chosen word
+    let wordSpaces = document.getElementById("word-to-guess")
+    for (let i = 0; i < selectedWord.length; i++) {
+        let span = document.createElement("span");
+        span.setAttribute("class", "letter-space");
+        wordSpaces.appendChild(span);
+    };
     //put focus on first keyboard item for convenience for keyboard users
     document.getElementsByClassName("key")[0].focus();
     //when the Hint button is clicked, run the function giveHint
