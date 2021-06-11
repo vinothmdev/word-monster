@@ -245,13 +245,13 @@ const words = [{
  * @param {*verb or adjective} wordType 
  */
 function startGame(wordType) {
-    if (wordType === "verb") { //change to ternary conditional?
-        console.log('get a verb'); //replace with function to get random verb to guess
-    } else if (wordType === 'adjective') {
-        console.log('get an adjective'); //replace with function to get random adj to guess
-    } else {
-        return; //if wordType is not either of these, exit
-    }
+    //filter the words array by the chosen type, i.e. verb or adjective
+    let wordsByType = words.filter(word => word.type === wordType);
+    console.log(wordsByType)
+    //get a random word object from the wordsByType array 
+    let wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
+    console.log(wordObject);
+    
     //show the div with text and hint button, show category
     document.getElementById("word-area-in-play").classList.remove("hidden");
     document.getElementById("category").innerText = `${wordType}`;
