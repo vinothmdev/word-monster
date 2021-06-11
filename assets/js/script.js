@@ -239,6 +239,10 @@ const words = [{
     hint: "the third colour of a rainbow",
     meaning: "of a colour like that of a lemon or gold or the sun"
 }]
+//variable for wordObject which will be chosen at random in startGame function 
+let wordObject;
+//variable for wordHint, to be accessed by giveHint function
+let wordHint;
 
 /**
  * start game - get word by type, show blank spaces for word, show hint button, hide wordtype buttons and intro text.
@@ -249,16 +253,19 @@ function startGame(wordType) {
     let wordsByType = words.filter(word => word.type === wordType);
     console.log(wordsByType)
     //get a random word object from the wordsByType array 
-    let wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
+    wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
     console.log(wordObject);
     // the word from the wordObject
     let selectedWord = wordObject.word;
     console.log(selectedWord);
-    //show the div with text and hint button, show category
+    //show the div with text and hint button
     document.getElementById("word-area-in-play").classList.remove("hidden");
+    //show word category
     document.getElementById("category").innerText = `${wordType}`;
-    //show the words boxes - equal to length of the chosen word
+    //show the words spaces - equal to length of the chosen word
+    // div that will contain the span elements
     let wordSpaces = document.getElementById("word-to-guess")
+    //for each letter in the selected word, create a span, add class and append to the div
     for (let i = 0; i < selectedWord.length; i++) {
         let span = document.createElement("span");
         span.setAttribute("class", "letter-space");
@@ -276,7 +283,10 @@ function startGame(wordType) {
 function giveHint() {
     //hide the button that was clicked, i.e. the Hint button
     this.classList.add("hidden");
-    // show the hint text (sibling of Hint button)
-    let hintText = this.nextElementSibling.classList.remove("hidden");
-    // hintText.innerText = hint associated with the word - add this when word functionality is added
+    // show the hint text p tag (sibling of Hint button) by removing hidden class
+    let hintText = this.nextElementSibling;
+    hintText.classList.remove("hidden");
+    wordHint = wordObject.hint;
+    //add the hint to the element so that it shows on screen
+    hintText.innerText = `Hint: ${wordHint}`;
 }
