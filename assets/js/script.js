@@ -290,3 +290,14 @@ function giveHint() {
     //add the hint to the element so that it shows on screen
     hintText.innerText = `Hint: ${wordHint}`;
 }
+
+//keyboard keys
+const keys = document.querySelectorAll(".key");
+//add event listener to each one, on click run the checkLetter function
+keys.forEach(key => key.addEventListener("click", checkLetter));
+
+function checkLetter() {
+    // the guess is the letter inside the clicked key button
+    let guess = this.innerHTML
+    console.log(guess);
+}
