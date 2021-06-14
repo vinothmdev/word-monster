@@ -249,6 +249,8 @@ let selectedWord;
 let wordSpanArray = [];
 //counter for wrong guesses
 let wrongGuesses = 0;
+//keyboard keys
+const keys = document.querySelectorAll(".key");
 
 /**
  * start game - get word by type, show blank spaces for word, show hint button, hide wordtype buttons and intro text.
@@ -287,6 +289,8 @@ function startGame(wordType) {
     };
     //put focus on first keyboard item for convenience for keyboard users
     document.getElementsByClassName("key")[0].focus();
+    //add event listener to each key, on click run the checkLetter function
+    keys.forEach(key => key.addEventListener("click", checkLetter));
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
 }
@@ -304,11 +308,6 @@ function giveHint() {
     //add the hint to the element so that it shows on screen
     hintText.innerText = `Hint: ${wordHint}`;
 }
-
-//keyboard keys
-const keys = document.querySelectorAll(".key");
-//add event listener to each one, on click run the checkLetter function
-keys.forEach(key => key.addEventListener("click", checkLetter));
 
 function checkLetter() {
     //disable the key that was pressed so it can't be pressed again
