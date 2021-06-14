@@ -244,6 +244,13 @@ strong {
     font-size: 1.1rem;
 }
 
+/*style for disabled keys:before game starts, when letter chosen during game. Attribute added and removed by js*/
+/*reduced opacity and no pointer events so no hover effects/tabs etc. */
+.key[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 /*==================================== Footer ==============================================*/
 /*flex container for ul, centered, font-size for the fontawesome icons*/
 footer {
