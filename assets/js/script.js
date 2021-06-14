@@ -326,9 +326,16 @@ function checkLetter() {
         console.log("wrong guesses is: " + wrongGuesses);
         //remove one of the lives from the guess area
         //get the img tag with the data-guess value equal to the wrongGuesses value
-        let guess = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
+        let lifeUsed = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
         //add the hidden class to it
-        guess.classList.add("hidden");
+        lifeUsed.classList.add("hidden");
+        //check if max guesses used up
+        if (wrongGuesses >= 7) {
+            let gameOver = document.querySelector(".game-over-text");
+            gameOver.classList.remove("hidden");
+            let message = `<p>GAME OVER!</p><p>SORRY, YOU LOST!</p>`;
+            gameOver.innerHTML = message;
+        }
     } else {
         // otherwise, loop through the word
         for (let i = 0; i < selectedWord.length; i++) {
