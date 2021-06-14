@@ -324,6 +324,11 @@ function checkLetter() {
         // increase the wrong guesses counter by 1
         wrongGuesses++;
         console.log("wrong guesses is: " + wrongGuesses);
+        //remove one of the lives from the guess area
+        //get the img tag with the data-guess value equal to the wrongGuesses value
+        let guess = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
+        //add the hidden class to it
+        guess.classList.add("hidden");
     } else {
         // otherwise, loop through the word
         for (let i = 0; i < selectedWord.length; i++) {
