@@ -247,6 +247,8 @@ let wordHint;
 let selectedWord;
 //the array of spans showing the letters to user once guessed
 let wordSpanArray = [];
+//counter for wrong guesses
+let wrongGuesses = 0;
 
 /**
  * start game - get word by type, show blank spaces for word, show hint button, hide wordtype buttons and intro text.
@@ -314,10 +316,19 @@ function checkLetter() {
     console.log(guess);
     console.log(selectedWord);
     console.log(selectedWord.indexOf(guess));
-    //loop through the word, if the guess matches at that index, update the wordSpanArray with that letter
-    for (let i = 0; i < selectedWord.length; i++) {
-        if (selectedWord[i] === guess) {
-            wordSpanArray[i].innerText = guess;
+    //first check if the letter is in the word - index of will be -1 if the letter is not in word
+    if (selectedWord.indexOf(guess) === -1) {
+        // increase the wrong guesses counter by 1
+        wrongGuesses++;
+        console.log("wrong guesses is: " + wrongGuesses);
+    } else {
+        // otherwise, loop through the word
+        for (let i = 0; i < selectedWord.length; i++) {
+            //if the guess matches at that index
+            if (selectedWord[i] === guess) {
+                //update the wordSpanArray with that letter
+                wordSpanArray[i].innerText = guess;
+            }
         }
     }
 }
