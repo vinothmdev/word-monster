@@ -289,7 +289,9 @@ function startGame(wordType) {
     };
     //put focus on first keyboard item for convenience for keyboard users
     document.getElementsByClassName("key")[0].focus();
-    //add event listener to each key, on click run the checkLetter function
+    //remove the disabled attribute from the keys so that they can be clicked
+    keys.forEach(key => key.removeAttribute("disabled"));
+    //add event listener to each key in keys, on click run the checkLetter function
     keys.forEach(key => key.addEventListener("click", checkLetter));
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
