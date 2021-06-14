@@ -243,6 +243,10 @@ const words = [{
 let wordObject;
 //variable for wordHint, to be accessed by giveHint function
 let wordHint;
+//the word to be guessed
+let selectedWord;
+//the array of spans showing the letters to user once guessed
+let wordSpanArray = [];
 
 /**
  * start game - get word by type, show blank spaces for word, show hint button, hide wordtype buttons and intro text.
@@ -255,8 +259,8 @@ function startGame(wordType) {
     //get a random word object from the wordsByType array 
     wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
     console.log(wordObject);
-    // the word from the wordObject
-    let selectedWord = wordObject.word;
+    // the word from the wordObject, in uppercase
+    selectedWord = wordObject.word.toUpperCase();
     console.log(selectedWord);
     //show the div with text and hint button
     document.getElementById("word-area-in-play").classList.remove("hidden");
@@ -265,11 +269,19 @@ function startGame(wordType) {
     //show the words spaces - equal to length of the chosen word
     // div that will contain the span elements
     let wordSpaces = document.getElementById("word-to-guess")
-    //for each letter in the selected word, create a span, add class and append to the div
+    //for each letter in the selected word, create a span, add class and append to the div, and push to wordSpanArray
     for (let i = 0; i < selectedWord.length; i++) {
-        let span = document.createElement("span");
+        //create span element
+        span = document.createElement("span");
+        //set the innerText to blank space
+        span.innerText = " ";
+        //add the class of letter-space to each span
         span.setAttribute("class", "letter-space");
+        //add the spans to the wordSpaces div
         wordSpaces.appendChild(span);
+        //add the span to the wordSpanArray (used later to show letters to user when correct)
+        wordSpanArray.push(span);
+        console.log(wordSpanArray);
     };
     //put focus on first keyboard item for convenience for keyboard users
     document.getElementsByClassName("key")[0].focus();
@@ -300,4 +312,12 @@ function checkLetter() {
     // the guess is the letter inside the clicked key button
     let guess = this.innerHTML
     console.log(guess);
+    console.log(selectedWord);
+    console.log(selectedWord.indexOf(guess));
+    //loop through the word, if the guess matches at that index, update the wordSpanArray with that letter
+    for (let i = 0; i < selectedWord.length; i++) {
+        if (selectedWord[i] === guess) {
+            wordSpanArray[i].innerText = guess;
+        }
+    }
 }
