@@ -220,12 +220,22 @@ strong {
     padding: .5rem 0;
 }
 
+/*div holding the spans for the letters to guess when game has started*/
+.word-span-container {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* spans for letters to be guessed - shown when game starts. Correct letters displayed here when guessed*/
 .letter-space {
     width: 8%;
     border-bottom: 0.2rem solid #ff00ff;
     display: inline-block;
     margin: 0.2rem;
-    padding-top: 2rem;
+    padding-bottom: 0.2rem;
+    height: 1.5rem;
 }
 
 /*==================================== Keyboard ==============================================*/
