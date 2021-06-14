@@ -311,6 +311,8 @@ const keys = document.querySelectorAll(".key");
 keys.forEach(key => key.addEventListener("click", checkLetter));
 
 function checkLetter() {
+    //disable the key that was pressed so it can't be pressed again
+    this.setAttribute("disabled", true);
     // the guess is the letter inside the clicked key button
     let guess = this.innerHTML
     console.log(guess);
