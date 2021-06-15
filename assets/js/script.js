@@ -337,6 +337,8 @@ function checkLetter() {
             gameOver.classList.remove("hidden");
             let message = `<p>GAME OVER!</p><p>SORRY, YOU LOST!</p>`;
             gameOver.innerHTML = message;
+            // add class to parent div, to center the text and icon
+            gameOver.parentElement.classList.add("game-over");
             // show the Game Over div
             document.getElementById("word-area-game-over").classList.remove("hidden");
             // show the word
@@ -372,6 +374,8 @@ function checkLetter() {
             gameOver.classList.remove("hidden");
             let message = `<p>GAME OVER!</p><p>YOU WON A TROPHY!</p>`;
             gameOver.innerHTML = message;
+            // add class to parent div, to center the text and icon
+            gameOver.parentElement.classList.add("game-over");
             // hide the monster and lives from guesses area, leaving the trophy icon 
             let guesses = document.querySelectorAll("img.guess:not(.trophy)");
             guesses.forEach(guess => guess.classList.add("hidden"));
