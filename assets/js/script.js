@@ -31,9 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         type.addEventListener('click', function () {
             let wordType = this.innerHTML;
             startGame(wordType);
-            //add hidden class to the div holding these two buttons (verb and adjective)
-            this.parentElement.classList.add("hidden");
-            this.parentElement.previousElementSibling.classList.add("hidden");
+            //add hidden class to the parent of parent div holding these two buttons + at start text
+            this.parentElement.parentElement.classList.add("hidden");
         })
     }
 })
