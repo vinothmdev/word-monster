@@ -262,21 +262,16 @@ let guessesDiv = document.querySelector(".guesses");
 function startGame(wordType) {
     //filter the words array by the chosen type, i.e. verb or adjective
     let wordsByType = words.filter(word => word.type === wordType);
-    console.log(wordsByType)
     //get a random word object from the wordsByType array 
     wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
-    console.log(wordObject);
     // the word from the wordObject, in uppercase
     selectedWord = wordObject.word.toUpperCase();
-    console.log(selectedWord);
     //show the div with text and hint button
     document.getElementById("word-area-in-play").classList.remove("hidden");
     //show word category
     document.getElementById("category").innerText = `${wordType}`;
     //show the words spaces - equal to length of the chosen word
-    // div that will contain the span elements
-    // let wordSpaces = document.getElementById("word-to-guess")
-    //for each letter in the selected word, create a span, add class and append to the div, and push to wordSpanArray
+    //for each letter in the selected word, create a span, add class and append to the wordSpaces div, and push to wordSpanArray
     for (let i = 0; i < selectedWord.length; i++) {
         //create span element
         span = document.createElement("span");
@@ -309,9 +304,8 @@ function giveHint() {
     // show the hint text p tag (sibling of Hint button) by removing hidden class
     let hintText = this.nextElementSibling;
     hintText.classList.remove("hidden");
-    wordHint = wordObject.hint;
     //add the hint to the element so that it shows on screen
-    hintText.innerText = `Hint: ${wordHint}`;
+    hintText.innerText = `Hint: ${wordObject.hint}`;
 }
 
 function checkLetter() {
