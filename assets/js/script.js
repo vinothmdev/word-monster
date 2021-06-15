@@ -240,8 +240,6 @@ const words = [{
 }]
 //variable for wordObject which will be chosen at random in startGame function 
 let wordObject;
-//variable for wordHint, to be accessed by giveHint function
-let wordHint;
 //the word to be guessed
 let selectedWord;
 //the array of spans showing the letters to user once guessed
@@ -312,12 +310,12 @@ function checkLetter() {
     //disable the key that was pressed so it can't be pressed again
     this.setAttribute("disabled", true);
     // the guess is the letter inside the clicked key button
-    let guess = this.innerHTML
-    console.log(guess);
+    let guessedLetter = this.innerHTML
+    console.log(guessedLetter);
     console.log(selectedWord);
-    console.log(selectedWord.indexOf(guess));
+    console.log(selectedWord.indexOf(guessedLetter));
     //first check if the letter is in the word - index of will be -1 if the letter is not in word
-    if (selectedWord.indexOf(guess) === -1) {
+    if (selectedWord.indexOf(guessedLetter) === -1) {
         // increase the wrong guesses counter by 1
         wrongGuesses++;
         console.log("wrong guesses is: " + wrongGuesses);
@@ -352,9 +350,9 @@ function checkLetter() {
         // otherwise, loop through the word
         for (let i = 0; i < selectedWord.length; i++) {
             //if the guess matches at that index
-            if (selectedWord[i] === guess) {
+            if (selectedWord[i] === guessedLetter) {
                 //update the wordSpanArray with that letter
-                wordSpanArray[i].innerText = guess;
+                wordSpanArray[i].innerText = guessedLetter;
             }
         }
         // then check if game is won or not
