@@ -382,6 +382,12 @@ function checkLetter() {
             document.getElementById("word-area-in-play").classList.add("hidden");
             //lock the keyboard
             keys.forEach(key => key.setAttribute("disabled", true));
+            // update the score
+            // get the number from the span with id of score
+            let score = parseInt(document.getElementById("score").textContent);
+            // add one to it
+            document.getElementById("score").textContent = ++score;
+            console.log(score);
         } else console.log("no win");
     }
 }
