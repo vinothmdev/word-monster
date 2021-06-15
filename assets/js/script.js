@@ -313,42 +313,63 @@ function checkLetter() {
     let guessedLetter = this.innerHTML;
     //first check if the letter is in the word - index of will be -1 if the letter is not in word
     if (selectedWord.indexOf(guessedLetter) === -1) {
-        // increase the wrong guesses counter by 1
-        wrongGuesses++;
-        //remove one of the lives from the guess area
-        //get the img tag with the data-guess value equal to the wrongGuesses value
-        let lifeUsed = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
-        //add the hidden class to it
-        lifeUsed.classList.add("hidden");
-        //check if max guesses used up
-        if (wrongGuesses >= 7) {
-            //set status and run the gameOver function using this status
-            let status = "lost";
-            gameOver(status);
-        }
+        //run the wrongGuess function
+        wrongGuess();
     } else {
-        // otherwise, loop through the word
-        for (let i = 0; i < selectedWord.length; i++) {
-            //if the guess matches at that index
-            if (selectedWord[i] === guessedLetter) {
-                //update the wordSpanArray with that letter
-                wordSpanArray[i].innerText = guessedLetter;
-            }
-        }
-        // then check if game is won or not
-        console.log("won check needed");
-        // wordCheck is the text from each span element in the word-to-guess div
-        let wordCheck = document.getElementById("word-to-guess").textContent;
-        console.log(wordCheck);
-        // if wordCheck is same as selectedWord then the word has been guessed and game is won
-        if (wordCheck === selectedWord) {
-            //set status and run the gameOver function using this status
-            status = "won";
-            gameOver(status);
-        } else console.log("no win");
+        // otherwise, run the correctGuess function, taking in the guessedLetter
+        correctGuess(guessedLetter);
     }
 }
 
+/**
+ * increase wrongGuesses counter, show lives used up, check if game lost, if all lives used up
+ */
+function wrongGuess() {
+    // increase the wrong guesses counter by 1
+    wrongGuesses++;
+    //remove one of the lives from the guess area
+    //get the img tag with the data-guess value equal to the wrongGuesses value
+    let lifeUsed = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
+    //add the hidden class to it
+    lifeUsed.classList.add("hidden");
+    //check if max guesses used up
+    if (wrongGuesses >= 7) {
+        //set status and run the gameOver function using this status
+        let status = "lost";
+        gameOver(status);
+    }
+}
+
+/**
+ * update the letter on screen, check if game won, if all letters now guessed
+ * @param {*} guessedLetter - the letter clicked on
+ */
+function correctGuess(guessedLetter) {
+    // loop through the word
+    for (let i = 0; i < selectedWord.length; i++) {
+        //if the guess matches at that index
+        if (selectedWord[i] === guessedLetter) {
+            //update the wordSpanArray with that letter
+            wordSpanArray[i].innerText = guessedLetter;
+        }
+    }
+    // then check if game is won or not
+    console.log("won check needed");
+    // wordCheck is the text from each span element in the word-to-guess div
+    let wordCheck = document.getElementById("word-to-guess").textContent;
+    console.log(wordCheck);
+    // if wordCheck is same as selectedWord then the word has been guessed and game is won
+    if (wordCheck === selectedWord) {
+        //set status and run the gameOver function using this status
+        status = "won";
+        gameOver(status);
+    }
+}
+
+/**
+ * show the game over text, show the Play Again button and hide divs from game-in-play
+ * @param {*} status - game status, won or lost
+ */
 function gameOver(status) {
     //get the game-over-text div and remove hidden class
     let gameOverText = document.querySelector(".game-over-text");
