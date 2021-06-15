@@ -356,5 +356,14 @@ function checkLetter() {
                 wordSpanArray[i].innerText = guess;
             }
         }
+        // then check if game is won or not
+        console.log("won check needed");
+        // wordCheck is the text from each span element in the word-to-guess div
+        let wordCheck = document.getElementById("word-to-guess").textContent;
+        console.log(wordCheck);
+        // if wordCheck is same as selectedWord then the word has been guessed and game is won
+        if (wordCheck === selectedWord) {
+            console.log("won");
+        } else console.log("no win");
     }
 }
