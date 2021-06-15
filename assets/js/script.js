@@ -306,19 +306,18 @@ function giveHint() {
     hintText.innerText = `Hint: ${wordObject.hint}`;
 }
 
+/**
+ * when the key click event, disable the key, check if wrong or right guess and run appropriate function
+ */
 function checkLetter() {
     //disable the key that was pressed so it can't be pressed again
     this.setAttribute("disabled", true);
     // the guess is the letter inside the clicked key button
     let guessedLetter = this.innerHTML;
-    //first check if the letter is in the word - index of will be -1 if the letter is not in word
-    if (selectedWord.indexOf(guessedLetter) === -1) {
-        //run the wrongGuess function
-        wrongGuess();
-    } else {
-        // otherwise, run the correctGuess function, taking in the guessedLetter
-        correctGuess(guessedLetter);
-    }
+    //wrong guess will be if indexOf is -1, i.e. letter is not in the word
+    let isWrongGuess = selectedWord.indexOf(guessedLetter) === -1;
+    // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function with guessedLetter
+    isWrongGuess ? wrongGuess() : correctGuess(guessedLetter);
 }
 
 /**
