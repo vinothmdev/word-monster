@@ -100,9 +100,14 @@
                 <button type="button" class="word-btn game-btn type">adjective</button>
                 <button type="button" class="word-btn game-btn type">verb</button>
             </div>
-            <div class="word-button-area">
-                <!-- button to reset and play again - visible when game over -->
-                <button type="button" class="word-btn game-btn hidden" id="reset">Play Again</button>
+            <!--word area when game over-->
+            <div class="word-button-area hidden" id="word-area-game-over">
+                <p>The word was: <span class="word"></span></p>
+                <p>Meaning: <span class="definition"></span></p>
+                <div class="word-button-area">
+                    <!-- button to reset and play again - visible when game over -->
+                    <button type="button" class="word-btn game-btn" id="reset">Play Again</button>
+                </div>
             </div>
             <!--Hint area - initially hidden - only shown when game in play -->
             <div class="word-button-area hidden" id="word-area-in-play">

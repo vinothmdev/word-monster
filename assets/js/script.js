@@ -331,10 +331,21 @@ function checkLetter() {
         lifeUsed.classList.add("hidden");
         //check if max guesses used up
         if (wrongGuesses >= 7) {
+            //show the losing message in the guesses area
             let gameOver = document.querySelector(".game-over-text");
             gameOver.classList.remove("hidden");
             let message = `<p>GAME OVER!</p><p>SORRY, YOU LOST!</p>`;
             gameOver.innerHTML = message;
+            // show the Game Over div
+            document.getElementById("word-area-game-over").classList.remove("hidden");
+            // show the word
+            document.querySelector(".word").textContent = `${selectedWord}`;
+            // show the word meaning
+            document.querySelector(".definition").textContent = `${wordObject.meaning}`;
+            // hide the word-area-in-play div
+            document.getElementById("word-area-in-play").classList.add("hidden");
+            //lock the keyboard
+            keys.forEach(key => key.setAttribute("disabled", true));
         }
     } else {
         // otherwise, loop through the word
