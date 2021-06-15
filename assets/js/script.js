@@ -250,6 +250,8 @@ let wordSpanArray = [];
 let wrongGuesses = 0;
 //keyboard keys
 const keys = document.querySelectorAll(".key");
+// div that will contain the span elements
+let wordSpaces = document.getElementById("word-to-guess")
 
 /**
  * start game - get word by type, show blank spaces for word, show hint button, hide wordtype buttons and intro text.
@@ -271,7 +273,7 @@ function startGame(wordType) {
     document.getElementById("category").innerText = `${wordType}`;
     //show the words spaces - equal to length of the chosen word
     // div that will contain the span elements
-    let wordSpaces = document.getElementById("word-to-guess")
+    // let wordSpaces = document.getElementById("word-to-guess")
     //for each letter in the selected word, create a span, add class and append to the div, and push to wordSpanArray
     for (let i = 0; i < selectedWord.length; i++) {
         //create span element
@@ -345,6 +347,8 @@ function checkLetter() {
             document.getElementById("word-area-in-play").classList.add("hidden");
             //lock the keyboard
             keys.forEach(key => key.setAttribute("disabled", true));
+            // add event listener for Play Again button to run reset function
+            document.getElementById("reset").addEventListener("click", resetGame);
         }
     } else {
         // otherwise, loop through the word
@@ -387,6 +391,28 @@ function checkLetter() {
             // add one to it
             document.getElementById("score").textContent = ++score;
             console.log(score);
+            // add event listener for Play Again button to run reset function
+            document.getElementById("reset").addEventListener("click", resetGame);
         } else console.log("no win");
     }
+}
+
+function resetGame() {
+    //show the div for game at start
+    document.getElementById("word-area-at-start").classList.remove("hidden");
+    // hide the div that was previously shown at game over stage
+    document.getElementById("word-area-game-over").classList.add("hidden");
+    // re-set the wrong guesses back to 0
+    wrongGuesses = 0;
+    // remove the game over text
+    document.querySelector(".game-over-text").classList.add("hidden");
+    // show the monster icon, guesses and trophy
+    let lives = document.querySelectorAll(".guess");
+    lives.forEach(life => life.classList.remove("hidden"));
+    // remove the spans from word-spaces div (spans were created during game, for each letter of word to guess)
+    while(wordSpaces.hasChildNodes()) {
+        wordSpaces.removeChild(wordSpaces.firstChild);
+    } 
+    // clear the wordSpanArray back to empty
+    wordSpanArray = [];
 }
