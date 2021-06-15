@@ -364,6 +364,24 @@ function checkLetter() {
         // if wordCheck is same as selectedWord then the word has been guessed and game is won
         if (wordCheck === selectedWord) {
             console.log("won");
+            //show the losing message in the guesses area
+            let gameOver = document.querySelector(".game-over-text");
+            gameOver.classList.remove("hidden");
+            let message = `<p>GAME OVER!</p><p>YOU WON A TROPHY!</p>`;
+            gameOver.innerHTML = message;
+            // hide the monster and lives from guesses area, leaving the trophy icon 
+            let guesses = document.querySelectorAll("img.guess:not(.trophy)");
+            guesses.forEach(guess => guess.classList.add("hidden"));
+            // show the Game Over div
+            document.getElementById("word-area-game-over").classList.remove("hidden");
+            // show the word
+            document.querySelector(".word").textContent = `${selectedWord}`;
+            // show the word meaning
+            document.querySelector(".definition").textContent = `${wordObject.meaning}`;
+            // hide the word-area-in-play div
+            document.getElementById("word-area-in-play").classList.add("hidden");
+            //lock the keyboard
+            keys.forEach(key => key.setAttribute("disabled", true));
         } else console.log("no win");
     }
 }
