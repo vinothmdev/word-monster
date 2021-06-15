@@ -252,6 +252,8 @@ let wrongGuesses = 0;
 const keys = document.querySelectorAll(".key");
 // div that will contain the span elements
 let wordSpaces = document.getElementById("word-to-guess")
+// div containing the guesses representation
+let guessesDiv = document.querySelector(".guesses");
 
 /**
  * start game - get word by type, show blank spaces for word, show hint button, hide wordtype buttons and intro text.
@@ -401,7 +403,7 @@ function checkLetter() {
     }
 }
 
-function resetGame() {
+function resetGame(gameOver) {
     //show the div for game at start
     document.getElementById("word-area-at-start").classList.remove("hidden");
     // hide the div that was previously shown at game over stage
@@ -423,4 +425,5 @@ function resetGame() {
     let hintButton = document.getElementById("hint");
     hintButton.classList.remove("hidden");
     hintButton.nextElementSibling.classList.add("hidden");
+    guessesDiv.classList.remove("game-over");
 }

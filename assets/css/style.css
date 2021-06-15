@@ -154,10 +154,15 @@ main {
     justify-content: flex-end;
 }
 
-/* to center the text and img when game is over, class added via js */
+/* to center the text and img when game is over, class added via js to guesses div */
 .game-over {
     justify-content: center;
     flex-wrap: wrap;
+}
+
+/* to increase the size of the icon when game over (only one icon remains at this stage)*/
+.game-over > .guess {
+    width: 20%;
 }
 
 /* spacing/sizing for the individual elements in the guesses container */
