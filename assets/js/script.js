@@ -419,4 +419,8 @@ function resetGame() {
     } 
     // clear the wordSpanArray back to empty
     wordSpanArray = [];
+    // hide the hint text and show the Hint button
+    let hintButton = document.getElementById("hint");
+    hintButton.classList.remove("hidden");
+    hintButton.nextElementSibling.classList.add("hidden");
 }
