@@ -310,15 +310,11 @@ function checkLetter() {
     //disable the key that was pressed so it can't be pressed again
     this.setAttribute("disabled", true);
     // the guess is the letter inside the clicked key button
-    let guessedLetter = this.innerHTML
-    console.log(guessedLetter);
-    console.log(selectedWord);
-    console.log(selectedWord.indexOf(guessedLetter));
+    let guessedLetter = this.innerHTML;
     //first check if the letter is in the word - index of will be -1 if the letter is not in word
     if (selectedWord.indexOf(guessedLetter) === -1) {
         // increase the wrong guesses counter by 1
         wrongGuesses++;
-        console.log("wrong guesses is: " + wrongGuesses);
         //remove one of the lives from the guess area
         //get the img tag with the data-guess value equal to the wrongGuesses value
         let lifeUsed = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
@@ -326,25 +322,9 @@ function checkLetter() {
         lifeUsed.classList.add("hidden");
         //check if max guesses used up
         if (wrongGuesses >= 7) {
-            //show the losing message in the guesses area
-            let gameOver = document.querySelector(".game-over-text");
-            gameOver.classList.remove("hidden");
-            let message = `<p>GAME OVER!</p><p>SORRY, YOU LOST!</p>`;
-            gameOver.innerHTML = message;
-            // add class to parent div, to center the text and icon
-            gameOver.parentElement.classList.add("game-over");
-            // show the Game Over div
-            document.getElementById("word-area-game-over").classList.remove("hidden");
-            // show the word
-            document.querySelector(".word").textContent = `${selectedWord}`;
-            // show the word meaning
-            document.querySelector(".definition").textContent = `${wordObject.meaning}`;
-            // hide the word-area-in-play div
-            document.getElementById("word-area-in-play").classList.add("hidden");
-            //lock the keyboard
-            keys.forEach(key => key.setAttribute("disabled", true));
-            // add event listener for Play Again button to run reset function
-            document.getElementById("reset").addEventListener("click", resetGame);
+            //set status and run the gameOver function using this status
+            let status = "lost";
+            gameOver(status);
         }
     } else {
         // otherwise, loop through the word
@@ -362,40 +342,50 @@ function checkLetter() {
         console.log(wordCheck);
         // if wordCheck is same as selectedWord then the word has been guessed and game is won
         if (wordCheck === selectedWord) {
-            console.log("won");
-            //show the losing message in the guesses area
-            let gameOver = document.querySelector(".game-over-text");
-            gameOver.classList.remove("hidden");
-            let message = `<p>GAME OVER!</p><p>YOU WON A TROPHY!</p>`;
-            gameOver.innerHTML = message;
-            // add class to parent div, to center the text and icon
-            gameOver.parentElement.classList.add("game-over");
-            // hide the monster and lives from guesses area, leaving the trophy icon 
-            let guesses = document.querySelectorAll("img.guess:not(.trophy)");
-            guesses.forEach(guess => guess.classList.add("hidden"));
-            // show the Game Over div
-            document.getElementById("word-area-game-over").classList.remove("hidden");
-            // show the word
-            document.querySelector(".word").textContent = `${selectedWord}`;
-            // show the word meaning
-            document.querySelector(".definition").textContent = `${wordObject.meaning}`;
-            // hide the word-area-in-play div
-            document.getElementById("word-area-in-play").classList.add("hidden");
-            //lock the keyboard
-            keys.forEach(key => key.setAttribute("disabled", true));
-            // update the score
-            // get the number from the span with id of score
-            let score = parseInt(document.getElementById("score").textContent);
-            // add one to it
-            document.getElementById("score").textContent = ++score;
-            console.log(score);
-            // add event listener for Play Again button to run reset function
-            document.getElementById("reset").addEventListener("click", resetGame);
+            //set status and run the gameOver function using this status
+            status = "won";
+            gameOver(status);
         } else console.log("no win");
     }
 }
 
-function resetGame(gameOver) {
+function gameOver(status) {
+    //get the game-over-text div and remove hidden class
+    let gameOverText = document.querySelector(".game-over-text");
+    gameOverText.classList.remove("hidden");
+    // add class to parent div, to center the text and icon
+    gameOverText.parentElement.classList.add("game-over");
+    let message;
+    if (status === "lost") {
+        message = `<p>GAME OVER!</p><p>SORRY, YOU LOST!</p>`;
+    } else {
+        message = `<p>GAME OVER!</p><p>YOU WON A TROPHY!</p>`;
+        // hide the monster and lives from guesses area, leaving the trophy icon 
+        let guesses = document.querySelectorAll("img.guess:not(.trophy)");
+        guesses.forEach(guess => guess.classList.add("hidden"));
+        // update the score
+        // get the number from the span with id of score
+        let score = parseInt(document.getElementById("score").textContent);
+        // add one to it
+        document.getElementById("score").textContent = ++score;
+    }
+    //set innerHTML of gameOver div to message
+    gameOverText.innerHTML = message;
+    // show the Game Over div
+    document.getElementById("word-area-game-over").classList.remove("hidden");
+    // show the word
+    document.querySelector(".word").textContent = `${selectedWord}`;
+    // show the word meaning
+    document.querySelector(".definition").textContent = `${wordObject.meaning}`;
+    // hide the word-area-in-play div
+    document.getElementById("word-area-in-play").classList.add("hidden");
+    //lock the keyboard
+    keys.forEach(key => key.setAttribute("disabled", true));
+    // add event listener for Play Again button to run reset function
+    document.getElementById("reset").addEventListener("click", resetGame);
+}
+
+function resetGame() {
     //show the div for game at start
     document.getElementById("word-area-at-start").classList.remove("hidden");
     // hide the div that was previously shown at game over stage
