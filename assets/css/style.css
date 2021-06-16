@@ -14,7 +14,7 @@ ul {
 /* colour variables */
 :root {
     --green: #32ff00;
-    --red: #fb1307;
+    --orange: #f78c0e;
     --yellow: #ffff00;
     --blue: #00ffde;
     --pink: #ff00ff;
@@ -74,11 +74,12 @@ main {
 /* instructions button in page header */
 .page-header button {
     font-size: .8rem;
+    color: var(--blue);
 }
 
 /* font styles for logo in header */
 .logo {
-    color: var(--red);
+    color: var(--green);
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     font-size: 1.8rem;
@@ -137,7 +138,7 @@ main {
 /*==================================== Game Area - general ==============================================*/
 /* general styles for each section of the game area - border, padding, margin, full width at mobile size */
 .game-section {
-    border: 0.1rem solid var(--yellow);
+    border: 0.1rem solid var(--blue);
     border-radius: 0.1rem;
     padding: 0.5rem;
     margin: 0.5rem auto;
@@ -146,7 +147,7 @@ main {
 
 /* general styles for buttons in game area - border, color, font */
 .game-btn {
-    border: 0.1rem solid var(--blue);
+    border: 0.1rem solid var(--green);
     border-radius: 0.1rem;
     background-color: rgba(60, 60, 60, 0.6);
     color: white;
@@ -157,7 +158,7 @@ main {
 /*change font color and background color on hover and focus*/
 .game-btn:hover, .game-btn:focus {
     background-color: rgba(60, 60, 60, 0.9);
-    color: var(--blue);
+    color: var(--green);
 }
 
 /* for sections that are not shown initally and only shown at different game stages */
@@ -210,7 +211,7 @@ main {
 
 strong {
     line-height: 1.8rem;
-    border-bottom: 0.1rem solid var(--pink);
+    /* border-bottom: 0.1rem solid var(--pink); */
 }
 
 /* to display the correct word when game over */
