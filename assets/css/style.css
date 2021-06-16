@@ -286,7 +286,7 @@ strong {
 
 /* each letter in keyboad -  specific padding, font size and margin */
 .key {
-    padding: 0.5rem;
+    padding: 0.5rem 0.6rem;
     margin: 0.2rem;
     font-size: 1.1rem;
 }
@@ -410,4 +410,35 @@ footer a:focus {
         line-height: 3rem;
     }
 
+    /*==================== Game Area =======================*/
+    main {
+        width: 70%;
+    }
+
+    .word-area {
+        font-size: .9rem;
+    }
+
+    /* keys larger font-size and more padding */
+    .key {
+        font-size: 1.4rem;
+        padding: .8rem 1rem;
+        margin: .4rem;
+    }
 }
+
+/*============================= tablet width and height ======================================*/
+@media screen and (min-width: 768px) and (min-height: 900px) {
+
+    /*==================== Game Area =======================*/
+    /* more space added since there is more vertical space */
+    main {
+        padding-top: 1.8rem;
+    }
+
+    .game-section {
+        padding: 1.8rem;
+        margin: 1.8rem auto;
+    } 
+}
+
