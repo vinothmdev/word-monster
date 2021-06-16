@@ -363,13 +363,34 @@ footer a:focus {
     }
 }
 
+/*================================ tablet width ==========================================*/
 @media screen and (min-width: 768px) {
+
+    /*======================== Page header ==========================*/
     /* show the Score and Instructions text that was hidden at mobile size */
     .hide-text {
         display: inline;
     }
 
-    /*============================ Instructions Modal box ===============================*/
+    /* increase padding, font size in header items below */
+    .page-header {
+        padding: 2rem;
+    }
+
+    .logo {
+        font-size: 3rem;
+    }
+
+    .page-header li {
+        padding: 0.8rem;
+        font-size: 1.2rem;
+    }
+
+    .page-header button {
+        font-size: 1.2rem;
+    }
+
+    /*==================== Instructions Modal box =======================*/
     /* increased font-size, padding and margin container box */
     .modal-content {
         padding: 2rem 3rem;
