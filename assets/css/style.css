@@ -361,6 +361,11 @@ footer a:focus {
         font-size: .8rem;
         line-height: 1.6rem;
     }
+
+    /* container for buttons - extra padding at this size */
+    .word-button-area {
+        padding: .8rem 0;
+    }
 }
 
 /*================================ tablet width ==========================================*/
@@ -417,6 +422,16 @@ footer a:focus {
 
     .word-area {
         font-size: .9rem;
+    }
+
+    /* container for word buttons - extra padding at this size */
+    .word-button-area {
+        padding: 1.2rem 0 .4rem;
+    }
+
+    /* word buttons - smaller width at this size */
+    .word-btn {
+        width: calc(40% - .8rem);
     }
 
     /* keys larger font-size and more padding */
