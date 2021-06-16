@@ -368,4 +368,25 @@ footer a:focus {
     .hide-text {
         display: inline;
     }
+
+    /*============================ Instructions Modal box ===============================*/
+    /* increased font-size, padding and margin container box */
+    .modal-content {
+        padding: 2rem 3rem;
+        font-size: 1rem;
+        line-height: 2rem;
+    }
+
+    /* increased font size and padding underneath */
+    .modal-header {
+        font-size: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    /* increased font-size */
+    .modal-close {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
 }
