@@ -353,6 +353,16 @@ footer a:focus {
     }
 }
 
+@media screen and (min-width: 400px) {
+    /* increased font-size, padding and margin for instructions modal box */
+    .modal-content {
+        margin: 2rem auto;
+        padding: 1.2rem 1rem;
+        font-size: .8rem;
+        line-height: 1.6rem;
+    }
+}
+
 @media screen and (min-width: 768px) {
     /* show the Score and Instructions text that was hidden at mobile size */
     .hide-text {
