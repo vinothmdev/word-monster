@@ -45,30 +45,39 @@ main {
 }
 
 /*============================= header =============================================*/
+/* flex container for logo and li - li has score and instructions button */
 .page-header {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: .5rem;
+    justify-content: space-between;
+    padding: 1rem;
 }
 
-/* score and instructions in page header display inline */
+/* score and instructions in page header font, layout styles */
 .page-header li {
     display: inline;
-    font-size: 1rem;
-    padding-right: 1rem;
+    font-size: .8rem;
+    padding: .5rem 0.2rem;
+    color: #ffff00;
 }
 
+/* instructions button in page header */
+.page-header button {
+    font-size: .8rem;
+}
+
+/* font styles for logo in header */
 .logo {
-    color: #ffff00;
+    color: #fb1307;
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     font-size: 1.8rem;
     letter-spacing: .15rem;
 }
 
-.page-header button {
-    font-size: 1rem;
+/* text for Score and Instructions - hidden at small screen size */
+.hide-text {
+    display: none;
 }
 
 /*==================================== Instructions Modal ==============================================*/

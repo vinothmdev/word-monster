@@ -18,16 +18,21 @@
     <header class="page-header">
         <h1 class="logo head-item">Word Monster</h1>
         <!--ul containing Score and Instructions button-->
-        <!--head item class added for styling - remove if not used-->
-        <ul class="head-item">
-            <li>Score: <span id="score" aria-label="number of trophies won">0 <i class="fas fa-trophy"
-                        aria-hidden="true"></i></span></li>
-            <!--button to open instructions-modal, js uses id to access-->
-            <li><button type="button" id="instructions-open"><i class="fas fa-lightbulb" aria-hidden="true"></i>
-                    Instructions</button></li>
+        <ul>
+            <!--only icon and number shown initially, word 'Score' shown at large size -->
+            <li>
+                <i class="fas fa-trophy" aria-label="Score"></i> <span class="hide-text" aria-hidden="true">Score: 
+                </span><span id="score" aria-label="number of trophies won">0</span>
+            </li>
+            <!--button to open instructions-modal, js uses id to access. Only icon shown initially-->
+            <li>
+                <button type="button" id="instructions-open" aria-label="Click to open instructions box"><i
+                        class="fas fa-lightbulb" aria-hidden="true"></i><span class="hide-text"
+                        aria-hidden="true">Instructions</span></button>
+            </li>
         </ul>
     </header>
-    <!--outer modal when the Instructions button is clicked, id equal to data-open value on button-->
+    <!--outer modal when the Instructions button is clicked, retrieved by id in js-->
     <div class="modal" role="dialog" id="instructions-modal">
         <!--content of modal box-->
         <div class="modal-content">
