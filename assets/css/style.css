@@ -302,7 +302,26 @@ footer a:focus {
 
 /*==================================== MEDIA QUERIES ==============================================*/
 @media screen and (min-width: 400px) {
+    /* increased padding on header */
     .page-header {
-        justify-content: space-between;
+        padding: 1.5rem;
+    }
+    
+    /* larger font size on Score icon and text, and padding around score + instructions */
+    .page-header li {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    /* larger font size for Instructions icon and text */
+    .page-header button {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    /* show the Score and Instructions text that was hidden at mobile size */
+    .hide-text {
+        display: inline;
     }
 }
