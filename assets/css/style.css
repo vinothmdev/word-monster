@@ -113,27 +113,38 @@ main {
 
 /*box holding the modal header and content */
 .modal-content {
-    margin: 2rem auto;
-    padding: 2rem 3rem;
+    margin: 1.5rem auto;
+    padding: 1rem .8rem;
     width: 90%;
     background-color: var(--black);
-    font-size: .9rem;
+    font-size: .7rem;
+    line-height: 1.3rem;
 }
 
 /* heading and close button contained in this - flex container */
 .modal-header {
     display: flex;
     justify-content: space-between;
-    line-height: 3rem;
+    align-items: center;
+    font-size: .6rem;
     padding-bottom: .5rem;
 }
 
+/* line-height to match header, this is for x to close the modal */
 .modal-close {
-    font-size: 3rem;
+    font-size: 1.8rem;
+    line-height: 2rem;
 }
 
+/* hover change colour for modal close button */
 .modal-close:hover, .modal-close:focus {
     color: var(--pink);
+}
+
+/* padding for text section of modal*/
+.modal-text ol {
+    padding-left: 1.6rem;
+    padding-right: .4rem;
 }
 
 /*==================================== Game Area - general ==============================================*/
