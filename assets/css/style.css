@@ -28,7 +28,7 @@ body {
     flex-direction: column;
     font-family: 'IBM Plex Mono', Courier, monospace;
     font-size: 1rem;
-    line-height: 1.8rem;
+    line-height: 1.6rem;
     background-color: var(--black);
     color: white;
 }
@@ -312,7 +312,7 @@ footer a:focus {
 }
 
 /*==================================== MEDIA QUERIES ==============================================*/
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 360px) {
     /* increased padding on header */
     .page-header {
         padding: 1.5rem;
@@ -327,6 +327,17 @@ footer a:focus {
     /* larger font size for Instructions icon and text */
     .page-header button {
         font-size: 1rem;
+    }
+
+    /* extra margin and padding for game-sections as more space available*/
+    .game-section {
+        padding: .6rem;
+        margin: .6rem auto;
+    }
+
+    /* slighlty larger margin between keys */
+    .key {
+        margin: 0.3rem;
     }
 }
 
