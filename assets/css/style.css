@@ -41,6 +41,7 @@ button {
     border: none;
     outline: none;
     font-family: inherit;
+    letter-spacing: .1rem;
 }
 
 /*flex settings so it expands to fill the space and push footer to bottom*/
@@ -71,10 +72,10 @@ main {
     color: var(--yellow);
 }
 
-/* instructions button in page header */
+/* instructions button in page header, font, remove letter spacing set on other btns */
 .page-header button {
     font-size: .8rem;
-    color: var(--blue);
+    letter-spacing: initial;
 }
 
 /* font styles for logo in header */
