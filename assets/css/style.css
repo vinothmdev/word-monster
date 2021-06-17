@@ -523,3 +523,11 @@ footer a:focus {
     }
 }
 
+/*============================= large screen ======================================*/
+@media screen and (min-width: 1440px) {
+    /* constrain game area again at this size in the 2 column layout */
+    main {
+        width: 70%;
+        padding-top: 2rem;
+    }
+}
