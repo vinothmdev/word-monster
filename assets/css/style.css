@@ -374,8 +374,15 @@ footer a:focus {
         padding: .8rem 0;
     }
 
+    /* text in monster/guesses section when game over */
     .game-over-text {
         font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    main {
+        width: 70%;
     }
 }
 
@@ -427,10 +434,6 @@ footer a:focus {
     }
 
     /*==================== Game Area =======================*/
-    main {
-        width: 70%;
-    }
-
     .word-area {
         font-size: .9rem;
     }
