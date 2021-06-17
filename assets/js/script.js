@@ -107,19 +107,20 @@ function giveHint() {
  */
 function checkLetter() {
     //disable the key that was pressed so it can't be pressed again
-    this.setAttribute("disabled", true);
-    // the guess is the letter inside the clicked key button
-    let guessedLetter = this.innerHTML;
+    let keyPressed = this;
+    keyPressed.setAttribute("disabled", true);
     //wrong guess will be if indexOf is -1, i.e. letter is not in the word
-    let isWrongGuess = selectedWord.indexOf(guessedLetter) === -1;
+    let isWrongGuess = selectedWord.indexOf(keyPressed.innerHTML) === -1;
     // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function with guessedLetter
-    isWrongGuess ? wrongGuess() : correctGuess(guessedLetter);
+    isWrongGuess ? wrongGuess(keyPressed) : correctGuess(keyPressed);
 }
 
 /**
  * increase wrongGuesses counter, show lives used up, check if game lost, if all lives used up
  */
-function wrongGuess() {
+function wrongGuess(keyPressed) {
+    // console.log(keyPressed);
+    keyPressed.classList.add("incorrect");
     // increase the wrong guesses counter by 1
     wrongGuesses++;
     //remove one of the lives from the guess area
@@ -147,7 +148,9 @@ function wrongGuess() {
  * update the letter on screen, check if game won, if all letters now guessed
  * @param {*} guessedLetter - the letter clicked on
  */
-function correctGuess(guessedLetter) {
+function correctGuess(keyPressed) {
+    keyPressed.classList.add("correct");
+    let guessedLetter = keyPressed.innerHTML
     // loop through the word
     for (let i = 0; i < selectedWord.length; i++) {
         //if the guess matches at that index
@@ -232,4 +235,7 @@ function resetGame() {
     hintButton.classList.remove("hidden");
     hintButton.nextElementSibling.classList.add("hidden");
     guessesDiv.classList.remove("game-over");
+    //remove colours from pressedKeys
+    keys.forEach(key => key.classList.remove("correct"));
+    keys.forEach(key => key.classList.remove("incorrect"));
 }

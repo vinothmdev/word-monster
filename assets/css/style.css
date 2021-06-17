@@ -315,6 +315,16 @@ main {
     pointer-events: none;
 }
 
+/* font colour on key when incorrect letter guessed */
+.incorrect {
+    color: red;
+}
+
+/* font colour on key when correct letter guessed */
+.correct {
+    color: var(--green);
+}
+
 /*==================================== Footer ==============================================*/
 /*flex container for ul, centered, font-size for the fontawesome icons*/
 footer {
