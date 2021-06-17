@@ -14,21 +14,18 @@ let wordSpaces = document.getElementById("word-to-guess")
 const guessesDiv = document.querySelector(".guesses");
 
 /**
- * listen for click on wordCategory buttons
+ * listen for click on Category Buttons in word-area
  */
 function initialiseCategories() {
-    // variable to get elements with class name type - these are the category buttons in word area
-    let types = document.getElementsByClassName("type");
-    // iterate and listen for click, on click check the innerHTML, to determine word type
-    for (let type of types) {
-        type.addEventListener('click', function () {
-            let wordType = this.innerHTML;
-            // run the startGame function, passing wordType parameter
-            startGame(wordType);
-            //add hidden class to the parent of parent div holding these two buttons + at start text
-            this.parentElement.parentElement.classList.add("hidden");
-        });
-    }
+    let categoryButtons = document.getElementsByClassName("category-btn");
+    // iterate and listen for click, on click run getWordType
+    Array.from(categoryButtons).forEach(button => button.addEventListener("click", getWordType));
+}
+
+function getWordType (event) {
+    let wordType = this.innerHTML;
+    startGame(wordType);
+    this.parentElement.parentElement.classList.add("hidden");
 }
 
 /**
