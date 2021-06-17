@@ -267,7 +267,7 @@ function startGame(wordType) {
     //show the div with text and hint button
     document.getElementById("word-area-in-play").classList.remove("hidden");
     //show word category
-    document.getElementById("category").innerText = `${wordType}`;
+    document.getElementById("category").innerText = `${wordType.toUpperCase()}`;
     //show the words spaces - equal to length of the chosen word
     //for each letter in the selected word, create a span, add class and append to the wordSpaces div, and push to wordSpanArray
     for (let i = 0; i < selectedWord.length; i++) {
@@ -300,10 +300,9 @@ function giveHint() {
     //hide the button that was clicked, i.e. the Hint button
     this.classList.add("hidden");
     // show the hint text p tag (sibling of Hint button) by removing hidden class
-    let hintText = this.nextElementSibling;
-    hintText.classList.remove("hidden");
+    this.nextElementSibling.classList.remove("hidden");
     //add the hint to the element so that it shows on screen
-    hintText.innerText = `Hint: ${wordObject.hint}`;
+    this.nextElementSibling.children[1].innerText = `${wordObject.hint}`;
 }
 
 /**
