@@ -1,39 +1,37 @@
-//open modal
-const open = document.getElementById("instructions-open")
-//close modal
-const close = document.getElementById("close-modal")
 
-// on click of Instructions button, get the instructions-modal el and add visible class to it
-open.addEventListener("click", function() {
-    document.getElementById("instructions-modal").classList.add("visible");
-    //add focus to close button so user can press enter to close
-    close.focus();
-});
-
-// on click of close button, remove the visible class from modal
-close.addEventListener("click", function() {
-    document.getElementById("instructions-modal").classList.remove("visible");
-});
-
-// to close the modal if user clicks anywhere on window
-window.onclick = function(event) {
-    if (event.target == document.querySelector(".modal.visible")) {
-        document.querySelector(".modal.visible").classList.remove("visible");
-    }
-}
-
-//when DOM has loaded, listen for button click on Adjective/Verb buttons to start game
+//when DOM has loaded, listen for button click on Adjective/Verb buttons to start game, or click on open Modal
 document.addEventListener("DOMContentLoaded", function () {
-    // variable holding html collection of elements with class name type - these are the category buttons in word area
+    // variable to get elements with class name type - these are the category buttons in word area
     let types = document.getElementsByClassName("type");
     // iterate and listen for click, on click check the innerHTML, to determine word type
     for (let type of types) {
         type.addEventListener('click', function () {
             let wordType = this.innerHTML;
+            // run the startGame function, passing wordType parameter
             startGame(wordType);
             //add hidden class to the parent of parent div holding these two buttons + at start text
             this.parentElement.parentElement.classList.add("hidden");
         })
+    }
+    //open modal button variable
+    const open = document.getElementById("instructions-open")
+    //close modal button variable
+    const close = document.getElementById("close-modal")
+    // on click of Instructions button, get the instructions-modal el and add visible class to it
+    open.addEventListener("click", function () {
+        document.getElementById("instructions-modal").classList.add("visible");
+        //add focus to close button so user can press enter to close
+        close.focus();
+    });
+    // on click of close button, remove the visible class from modal
+    close.addEventListener("click", function () {
+        document.getElementById("instructions-modal").classList.remove("visible");
+    });
+    // to close the modal if user clicks anywhere on window
+    window.onclick = function (event) {
+        if (event.target == document.querySelector(".modal.visible")) {
+            document.querySelector(".modal.visible").classList.remove("visible");
+        }
     }
 })
 
