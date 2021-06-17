@@ -550,4 +550,10 @@ footer a:focus {
         width: 70%;
         padding-top: 2rem;
     }
+
+    /* modal box - constrain width at larger screen size */
+    .modal-content {
+        width: 80%;
+        padding: 4rem 6rem;
+    }
 }
