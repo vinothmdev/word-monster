@@ -127,6 +127,14 @@ function wrongGuess() {
     let lifeUsed = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
     //add the hidden class to it
     lifeUsed.classList.add("hidden");
+    // get the monster graphic
+    let monster = document.querySelector(".monster");
+    // add the jump class to animate it with transforms
+    monster.classList.add("jump");
+    // timeout to remove the jump class 
+    setTimeout (() => {
+        monster.classList.remove("jump");
+    }, 150);
     //check if max guesses used up
     if (wrongGuesses >= 7) {
         //set status and run the gameOver function using this status

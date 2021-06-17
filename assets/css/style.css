@@ -187,6 +187,16 @@ main {
     justify-content: flex-end;
 }
 
+/* monster graphic - transition for transform */
+.monster {
+    transition: all .15s ease;
+}
+
+/* class added to monster graphic by js when a life is lost, to animate it */
+.jump {
+    transform: scale(1.25) translateY(-12%);
+}
+
 /* to center the text and img when game is over, class added via js to guesses div */
 .game-over {
     justify-content: center;
