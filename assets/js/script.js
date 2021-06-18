@@ -22,7 +22,10 @@ function initialiseCategories() {
     Array.from(categoryButtons).forEach(button => button.addEventListener("click", getWordType));
 }
 
-function getWordType (event) {
+/**
+ * get word type category from button click, hide button, run startGame()
+ */
+function getWordType() {
     let wordType = this.innerHTML;
     startGame(wordType);
     this.parentElement.parentElement.classList.add("hidden");
@@ -58,14 +61,18 @@ function startGame(wordType) {
         wordSpanArray.push(span);
         console.log(wordSpanArray);
     };
-    //remove the disabled attribute from the keys so that they can be clicked
-    keys.forEach(key => key.removeAttribute("disabled"));
-    //put focus on first keyboard item for convenience for keyboard users
-    keys[0].focus();
-    //add event listener to each key in keys, on click run the checkLetter function
-    keys.forEach(key => key.addEventListener("click", checkLetter));
+    enableKeyboard();
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
+}
+
+/**
+ * remove disabled attribute from keys, put focus on first key, add event listener
+ */
+function enableKeyboard() {
+    keys.forEach(key => key.removeAttribute("disabled"));
+    keys[0].focus();
+    keys.forEach(key => key.addEventListener("click", checkLetter));
 }
 
 /**
