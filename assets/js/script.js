@@ -6,8 +6,7 @@ let wordSpanArray = [];
 let wrongGuesses = 0;
 // div that will contain the span elements
 let wordSpaces = document.getElementById("word-to-guess")
-// div containing the guesses representation
-const guessesDiv = document.querySelector(".guesses");
+
 
 /**
  * listen for click on Category Buttons in word-area
@@ -193,7 +192,7 @@ function endGame(status) {
     //get the game-over-text div and remove hidden class
     showOrHideElement("game-over-text-box");
     // add class to parent div, to center the text and icon
-    document.getElementById("game-over-text-box").parentElement.classList.add("game-over");
+    document.getElementById("game-over-text-box").parentElement.classList.add("centered");
     let message = document.getElementById("won-or-lost-msg");
     if (status === "lost") {
         message.textContent = "SORRY, YOU LOST!"
@@ -244,7 +243,8 @@ function resetGame() {
     let hintButton = document.getElementById("hint");
     hintButton.classList.remove("hidden");
     hintButton.nextElementSibling.classList.add("hidden");
-    guessesDiv.classList.remove("game-over");
+    //remove class from .guesses div that centered the element
+    document.querySelector(".guesses").classList.remove("centered");
     //remove colours from pressedKeys
     updateKeyboard("revertColours");
 }

@@ -198,7 +198,7 @@ main {
 }
 
 /* to center the text and img when game is over, class added via js to guesses div */
-.game-over {
+.centered {
     justify-content: center;
     flex-wrap: wrap;
 }
