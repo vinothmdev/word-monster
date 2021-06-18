@@ -47,8 +47,7 @@ function startGame(wordType) {
     // the word from the wordObject, in uppercase
     let selectedWord = getWordToGuess();
     //show the div with text and hint button
-    showElement("word-area-in-play");
-    // document.getElementById("word-area-in-play").classList.remove("hidden");
+    showOrHideElement("word-area-in-play");
     //show word category
     document.getElementById("category").innerText = `${wordType.toUpperCase()}`;
     //show the words spaces - equal to length of the chosen word
@@ -72,11 +71,11 @@ function startGame(wordType) {
 }
 
 /**
- * remove the "hidden" class from element
+ * add or remove the "hidden" class from element
  * @param {string} elementId 
  */
-function showElement(elementId) {
-    document.getElementById(elementId).classList.remove("hidden");
+function showOrHideElement(elementId) {
+    document.getElementById(elementId).classList.toggle("hidden");
 }
 
 /**
@@ -211,14 +210,13 @@ function gameOver(status) {
     //set innerHTML of gameOver div to message
     gameOverText.innerHTML = message;
     // show the Game Over div
-    // document.getElementById("word-area-game-over").classList.remove("hidden");
-    showElement("word-area-game-over");
+    showOrHideElement("word-area-game-over");
     // show the word
     document.querySelector(".word").textContent = `${wordObject.word}`;
     // show the word meaning
     document.querySelector(".definition").textContent = `${wordObject.meaning}`;
     // hide the word-area-in-play div
-    document.getElementById("word-area-in-play").classList.add("hidden");
+    showOrHideElement("word-area-in-play");
     //lock the keyboard
     updateKeyboard("disable");
     // add event listener for Play Again button to run reset function
@@ -227,10 +225,9 @@ function gameOver(status) {
 
 function resetGame() {
     //show the div for game at start
-    // document.getElementById("word-area-at-start").classList.remove("hidden");
-    showElement("word-area-at-start");
+    showOrHideElement("word-area-at-start");
     // hide the div that was previously shown at game over stage
-    document.getElementById("word-area-game-over").classList.add("hidden");
+    showOrHideElement("word-area-game-over");
     // re-set the wrong guesses back to 0
     wrongGuesses = 0;
     // remove the game over text
