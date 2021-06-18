@@ -1,7 +1,5 @@
 //variable for wordObject which will be chosen at random in startGame function 
 let wordObject;
-//the word to be guessed
-let selectedWord;
 //the array of spans showing the letters to user once guessed
 let wordSpanArray = [];
 //counter for wrong guesses
@@ -17,29 +15,37 @@ const guessesDiv = document.querySelector(".guesses");
 function initialiseCategories() {
     let categoryButtons = document.getElementsByClassName("category-btn");
     // iterate and listen for click, on click run getWordType
-    Array.from(categoryButtons).forEach(button => button.addEventListener("click", getWordType));
+    Array.from(categoryButtons).forEach(button => button.addEventListener("click", getWord));
 }
 
 /**
- * get word type category from button click, hide button, run startGame()
+ * get word type category from button click, hide button, get random wordObject by type, run startGame()
  */
-function getWordType() {
+function getWord() {
     let wordType = this.innerHTML;
-    startGame(wordType);
     this.parentElement.parentElement.classList.add("hidden");
-}
-
-/**
- * start game - get word by type, show blank spaces for word, show hint button, hide wordtype buttons and intro text.
- * @param {*verb or adjective} wordType 
- */
-function startGame(wordType) {
     //filter the words array by the chosen type, i.e. verb or adjective
     let wordsByType = words.filter(word => word.type === wordType);
     //get a random word object from the wordsByType array 
     wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
+    startGame(wordType);
+}
+
+/**
+ * to get word to be guessed at various stages in game
+ * @returns word from wordObject in uppercase
+ */
+ function getWordToGuess() {
+    return wordObject.word.toUpperCase();
+}
+
+/**
+ * show blank spaces for word, show hint button, hide wordtype buttons and intro text.
+ * @param {*verb or adjective} wordType 
+ */
+function startGame(wordType) {
     // the word from the wordObject, in uppercase
-    selectedWord = wordObject.word.toUpperCase();
+    let selectedWord = getWordToGuess();
     //show the div with text and hint button
     document.getElementById("word-area-in-play").classList.remove("hidden");
     //show word category
@@ -59,8 +65,7 @@ function startGame(wordType) {
         wordSpanArray.push(span);
         console.log(wordSpanArray);
     };
-    let keys = document.querySelectorAll(".key");
-    enableKeyboard(keys);
+    enableKeyboard();
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
 }
@@ -68,7 +73,8 @@ function startGame(wordType) {
 /**
  * remove disabled attribute from keys, put focus on first key, add event listener
  */
-function enableKeyboard(keys) {
+function enableKeyboard() {
+    let keys = document.querySelectorAll(".key");
     keys.forEach(key => key.removeAttribute("disabled"));
     keys[0].focus();
     keys.forEach(key => key.addEventListener("click", checkLetter));
@@ -93,8 +99,11 @@ function checkLetter() {
     //disable the key that was pressed so it can't be pressed again
     let keyPressed = this;
     keyPressed.setAttribute("disabled", true);
+    let wordToGuess = getWordToGuess();
+    console.log(wordToGuess);
     //wrong guess will be if indexOf is -1, i.e. letter is not in the word
-    let isWrongGuess = selectedWord.indexOf(keyPressed.innerHTML) === -1;
+    console.log(wordToGuess.indexOf(keyPressed.innerHTML));
+    let isWrongGuess = wordToGuess.indexOf(keyPressed.innerHTML) === -1;
     // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function with guessedLetter
     isWrongGuess ? wrongGuess(keyPressed) : correctGuess(keyPressed);
 }
@@ -135,10 +144,12 @@ function wrongGuess(keyPressed) {
 function correctGuess(keyPressed) {
     keyPressed.classList.add("correct");
     let guessedLetter = keyPressed.innerHTML
+    let wordToGuess = getWordToGuess();
+    console.log(wordToGuess);
     // loop through the word
-    for (let i = 0; i < selectedWord.length; i++) {
+    for (let i = 0; i < wordToGuess.length; i++) {
         //if the guess matches at that index
-        if (selectedWord[i] === guessedLetter) {
+        if (wordToGuess[i] === guessedLetter) {
             //update the wordSpanArray with that letter
             wordSpanArray[i].innerText = guessedLetter;
         }
@@ -149,7 +160,7 @@ function correctGuess(keyPressed) {
     let wordCheck = document.getElementById("word-to-guess").textContent;
     console.log(wordCheck);
     // if wordCheck is same as selectedWord then the word has been guessed and game is won
-    if (wordCheck === selectedWord) {
+    if (wordCheck === wordToGuess) {
         //set status and run the gameOver function using this status
         status = "won";
         gameOver(status);
@@ -185,7 +196,7 @@ function gameOver(status) {
     // show the Game Over div
     document.getElementById("word-area-game-over").classList.remove("hidden");
     // show the word
-    document.querySelector(".word").textContent = `${selectedWord}`;
+    document.querySelector(".word").textContent = `${wordObject.word}`;
     // show the word meaning
     document.querySelector(".definition").textContent = `${wordObject.meaning}`;
     // hide the word-area-in-play div
