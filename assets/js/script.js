@@ -6,8 +6,6 @@ let selectedWord;
 let wordSpanArray = [];
 //counter for wrong guesses
 let wrongGuesses = 0;
-//keyboard keys
-const keys = document.querySelectorAll(".key");
 // div that will contain the span elements
 let wordSpaces = document.getElementById("word-to-guess")
 // div containing the guesses representation
@@ -61,7 +59,8 @@ function startGame(wordType) {
         wordSpanArray.push(span);
         console.log(wordSpanArray);
     };
-    enableKeyboard();
+    let keys = document.querySelectorAll(".key");
+    enableKeyboard(keys);
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
 }
@@ -69,7 +68,7 @@ function startGame(wordType) {
 /**
  * remove disabled attribute from keys, put focus on first key, add event listener
  */
-function enableKeyboard() {
+function enableKeyboard(keys) {
     keys.forEach(key => key.removeAttribute("disabled"));
     keys[0].focus();
     keys.forEach(key => key.addEventListener("click", checkLetter));
@@ -192,7 +191,7 @@ function gameOver(status) {
     // hide the word-area-in-play div
     document.getElementById("word-area-in-play").classList.add("hidden");
     //lock the keyboard
-    keys.forEach(key => key.setAttribute("disabled", true));
+    document.querySelectorAll(".key").forEach(key => key.setAttribute("disabled", true));
     // add event listener for Play Again button to run reset function
     document.getElementById("reset").addEventListener("click", resetGame);
 }
@@ -221,6 +220,7 @@ function resetGame() {
     hintButton.nextElementSibling.classList.add("hidden");
     guessesDiv.classList.remove("game-over");
     //remove colours from pressedKeys
+    let keys = document.querySelectorAll(".key");
     keys.forEach(key => key.classList.remove("correct"));
     keys.forEach(key => key.classList.remove("incorrect"));
 }
