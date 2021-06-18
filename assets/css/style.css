@@ -275,7 +275,7 @@ main {
 }
 
 /*div holding the spans for the letters to guess when game has started*/
-.word-span-container {
+.letter-space-container {
     padding: .5rem 0 1rem;
     display: flex;
     justify-content: center;

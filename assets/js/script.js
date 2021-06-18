@@ -4,9 +4,6 @@ let wordObject;
 let wordSpanArray = [];
 //counter for wrong guesses
 let wrongGuesses = 0;
-// div that will contain the span elements
-let wordSpaces = document.getElementById("word-to-guess")
-
 
 /**
  * listen for click on Category Buttons in word-area
@@ -54,19 +51,22 @@ function startGame(wordType) {
     document.getElementById("hint").addEventListener("click", giveHint);
 }
 
+/**
+ * create spans for each letter in word to be guessed, push them to wordSpanArray used later to check letter
+ */
 function createLetterSpaces() {
     // the word from the wordObject, in uppercase
     let selectedWord = getWordToGuess();
     //for each letter in the selected word, create a span, add class and append to the wordSpaces div, and push to wordSpanArray
     for (let i = 0; i < selectedWord.length; i++) {
         //create span element
-        span = document.createElement("span");
+        let span = document.createElement("span");
         //set the innerText to blank space
         span.innerText = " ";
         //add the class of letter-space to each span
         span.setAttribute("class", "letter-space");
-        //add the spans to the wordSpaces div
-        wordSpaces.appendChild(span);
+        //add the spans to the div
+        document.getElementById("span-container").appendChild(span);
         //add the span to the wordSpanArray (used later to show letters to user when correct)
         wordSpanArray.push(span);
         console.log(wordSpanArray);
@@ -119,11 +119,9 @@ function checkLetter() {
     let keyPressed = this;
     keyPressed.setAttribute("disabled", true);
     let wordToGuess = getWordToGuess();
-    console.log(wordToGuess);
     //wrong guess will be if indexOf is -1, i.e. letter is not in the word
-    console.log(wordToGuess.indexOf(keyPressed.innerHTML));
     let isWrongGuess = wordToGuess.indexOf(keyPressed.innerHTML) === -1;
-    // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function with guessedLetter
+    // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function
     isWrongGuess ? wrongGuess(keyPressed) : correctGuess(keyPressed);
 }
 
@@ -131,7 +129,7 @@ function checkLetter() {
  * increase wrongGuesses counter, show lives used up, check if game lost, if all lives used up
  */
 function wrongGuess(keyPressed) {
-    // console.log(keyPressed);
+    //add class to turn letter red
     keyPressed.classList.add("incorrect");
     // increase the wrong guesses counter by 1
     wrongGuesses++;
@@ -148,9 +146,8 @@ function wrongGuess(keyPressed) {
     setTimeout (() => {
         monster.classList.remove("jump");
     }, 150);
-    //check if max guesses used up
+    //check if max guesses used up, if they are then run endGame
     if (wrongGuesses >= 7) {
-        //set status and run the endGame function using this status
         endGame("lost");
     }
 }
@@ -175,7 +172,7 @@ function correctGuess(keyPressed) {
     // then check if game is won or not
     console.log("won check needed");
     // wordCheck is the text from each span element in the word-to-guess div
-    let wordCheck = document.getElementById("word-to-guess").textContent;
+    let wordCheck = document.getElementById("span-container").textContent;
     console.log(wordCheck);
     // if wordCheck is same as selectedWord then the word has been guessed and game is won
     if (wordCheck === wordToGuess) {
@@ -234,6 +231,7 @@ function resetGame() {
     let lives = document.querySelectorAll(".guess");
     lives.forEach(life => life.classList.remove("hidden"));
     // remove the spans from word-spaces div (spans were created during game, for each letter of word to guess)
+    let wordSpaces = document.getElementById("span-container");
     while(wordSpaces.hasChildNodes()) {
         wordSpaces.removeChild(wordSpaces.firstChild);
     } 
