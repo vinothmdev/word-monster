@@ -47,7 +47,8 @@ function startGame(wordType) {
     // the word from the wordObject, in uppercase
     let selectedWord = getWordToGuess();
     //show the div with text and hint button
-    document.getElementById("word-area-in-play").classList.remove("hidden");
+    showElement("word-area-in-play");
+    // document.getElementById("word-area-in-play").classList.remove("hidden");
     //show word category
     document.getElementById("category").innerText = `${wordType.toUpperCase()}`;
     //show the words spaces - equal to length of the chosen word
@@ -68,6 +69,14 @@ function startGame(wordType) {
     updateKeyboard("enable");
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
+}
+
+/**
+ * remove the "hidden" class from element
+ * @param {string} elementId 
+ */
+function showElement(elementId) {
+    document.getElementById(elementId).classList.remove("hidden");
 }
 
 /**
@@ -202,7 +211,8 @@ function gameOver(status) {
     //set innerHTML of gameOver div to message
     gameOverText.innerHTML = message;
     // show the Game Over div
-    document.getElementById("word-area-game-over").classList.remove("hidden");
+    // document.getElementById("word-area-game-over").classList.remove("hidden");
+    showElement("word-area-game-over");
     // show the word
     document.querySelector(".word").textContent = `${wordObject.word}`;
     // show the word meaning
@@ -217,7 +227,8 @@ function gameOver(status) {
 
 function resetGame() {
     //show the div for game at start
-    document.getElementById("word-area-at-start").classList.remove("hidden");
+    // document.getElementById("word-area-at-start").classList.remove("hidden");
+    showElement("word-area-at-start");
     // hide the div that was previously shown at game over stage
     document.getElementById("word-area-game-over").classList.add("hidden");
     // re-set the wrong guesses back to 0
