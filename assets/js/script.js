@@ -44,13 +44,20 @@ function getWord() {
  * @param {*verb or adjective} wordType 
  */
 function startGame(wordType) {
-    // the word from the wordObject, in uppercase
-    let selectedWord = getWordToGuess();
     //show the div with text and hint button
     showOrHideElement("word-area-in-play");
     //show word category
     document.getElementById("category").innerText = `${wordType.toUpperCase()}`;
     //show the words spaces - equal to length of the chosen word
+    createLetterSpaces();
+    updateKeyboard("enable");
+    //when the Hint button is clicked, run the function giveHint
+    document.getElementById("hint").addEventListener("click", giveHint);
+}
+
+function createLetterSpaces() {
+    // the word from the wordObject, in uppercase
+    let selectedWord = getWordToGuess();
     //for each letter in the selected word, create a span, add class and append to the wordSpaces div, and push to wordSpanArray
     for (let i = 0; i < selectedWord.length; i++) {
         //create span element
@@ -65,9 +72,6 @@ function startGame(wordType) {
         wordSpanArray.push(span);
         console.log(wordSpanArray);
     };
-    updateKeyboard("enable");
-    //when the Hint button is clicked, run the function giveHint
-    document.getElementById("hint").addEventListener("click", giveHint);
 }
 
 /**
@@ -147,9 +151,8 @@ function wrongGuess(keyPressed) {
     }, 150);
     //check if max guesses used up
     if (wrongGuesses >= 7) {
-        //set status and run the gameOver function using this status
-        let status = "lost";
-        gameOver(status);
+        //set status and run the endGame function using this status
+        endGame("lost");
     }
 }
 
@@ -177,27 +180,25 @@ function correctGuess(keyPressed) {
     console.log(wordCheck);
     // if wordCheck is same as selectedWord then the word has been guessed and game is won
     if (wordCheck === wordToGuess) {
-        //set status and run the gameOver function using this status
-        status = "won";
-        gameOver(status);
+        //set status and run the endGame function using this status
+        endGame("won");
     }
 }
 
 /**
  * show the game over text, show the Play Again button and hide divs from game-in-play
- * @param {*} status - game status, won or lost
+ * @param {string} status won or lost
  */
-function gameOver(status) {
+function endGame(status) {
     //get the game-over-text div and remove hidden class
-    let gameOverText = document.querySelector(".game-over-text");
-    gameOverText.classList.remove("hidden");
+    showOrHideElement("game-over-text-box");
     // add class to parent div, to center the text and icon
-    gameOverText.parentElement.classList.add("game-over");
-    let message;
+    document.getElementById("game-over-text-box").parentElement.classList.add("game-over");
+    let message = document.getElementById("won-or-lost-msg");
     if (status === "lost") {
-        message = `<p>GAME OVER!</p><p>SORRY, YOU LOST!</p>`;
+        message.textContent = "SORRY, YOU LOST!"
     } else {
-        message = `<p>GAME OVER!</p><p>YOU WON A TROPHY!</p>`;
+        message.textContent = "YOU WON A TROPHY!";
         // hide the monster and lives from guesses area, leaving the trophy icon 
         let guesses = document.querySelectorAll("img.guess:not(.trophy)");
         guesses.forEach(guess => guess.classList.add("hidden"));
@@ -207,8 +208,6 @@ function gameOver(status) {
         // add one to it
         document.getElementById("score").textContent = ++score;
     }
-    //set innerHTML of gameOver div to message
-    gameOverText.innerHTML = message;
     // show the Game Over div
     showOrHideElement("word-area-game-over");
     // show the word
