@@ -65,19 +65,27 @@ function startGame(wordType) {
         wordSpanArray.push(span);
         console.log(wordSpanArray);
     };
-    enableKeyboard();
+    updateKeyboard("enable");
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
 }
 
 /**
- * remove disabled attribute from keys, put focus on first key, add event listener
+ * change keyboard state, depending on the value of update
+ * @param {string} update can be enable, disable or revertColours 
  */
-function enableKeyboard() {
+function updateKeyboard(update) {
     let keys = document.querySelectorAll(".key");
-    keys.forEach(key => key.removeAttribute("disabled"));
-    keys[0].focus();
-    keys.forEach(key => key.addEventListener("click", checkLetter));
+    if (update === "enable") {
+        keys.forEach(key => key.removeAttribute("disabled"));
+        keys[0].focus();
+        keys.forEach(key => key.addEventListener("click", checkLetter));
+    } else if (update === "disable") {
+        keys.forEach(key => key.setAttribute("disabled", true));
+    } else if (update === "revertColours") {
+        keys.forEach(key => key.classList.remove("correct"));
+        keys.forEach(key => key.classList.remove("incorrect"));
+    }
 }
 
 /**
@@ -202,7 +210,7 @@ function gameOver(status) {
     // hide the word-area-in-play div
     document.getElementById("word-area-in-play").classList.add("hidden");
     //lock the keyboard
-    document.querySelectorAll(".key").forEach(key => key.setAttribute("disabled", true));
+    updateKeyboard("disable");
     // add event listener for Play Again button to run reset function
     document.getElementById("reset").addEventListener("click", resetGame);
 }
@@ -231,9 +239,7 @@ function resetGame() {
     hintButton.nextElementSibling.classList.add("hidden");
     guessesDiv.classList.remove("game-over");
     //remove colours from pressedKeys
-    let keys = document.querySelectorAll(".key");
-    keys.forEach(key => key.classList.remove("correct"));
-    keys.forEach(key => key.classList.remove("incorrect"));
+    updateKeyboard("revertColours");
 }
 
 /**
