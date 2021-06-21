@@ -1,7 +1,5 @@
 //variable for wordObject which will be chosen at random in startGame function 
 let wordObject;
-//the array of spans showing the letters to user once guessed
-let wordSpanArray = [];
 //counter for wrong guesses
 let wrongGuesses = 0;
 
@@ -27,40 +25,33 @@ function initialiseCategories() {
 }
 
 /**
- * show blank spaces for word, show hint button, hide wordtype buttons and intro text.
+ * show blank spaces for letters in word to guess, show wordCategory, enable keyboard, eventListener on Hint btn 
  * @param {*string} wordCategory Verb or Adjective
  */
-function startGame(wordCategory) {
+function startGame(wordCategory, wordObject) {
     //show the div with text and hint button
     showOrHideElement("word-area-in-play");
     //show word category
     document.getElementById("category").innerText = `${wordCategory.toUpperCase()}`;
-    //show the words spaces - equal to length of the chosen word
-    createLetterSpaces();
+    createLetterSpaces(wordObject);
     updateKeyboard("enable");
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
 }
 
 /**
- * create spans for each letter in word to be guessed, push them to wordSpanArray used later to check letter
+ * create span for letters in word to be guessed, add the letter as a data-attribute, used later to check guesses
+ * @param {Object} wordObject word, type, hint, meaning
  */
-function createLetterSpaces() {
-    // the word from the wordObject, in uppercase
-    let selectedWord = getWordToGuess();
-    //for each letter in the selected word, create a span, add class and append to the wordSpaces div, and push to wordSpanArray
+function createLetterSpaces(wordObject) {
+    let selectedWord = wordObject.word.toUpperCase();
+    console.log(selectedWord);
+    //for each letter in selected word, create a span, add class, add data-letter equal to that letter, append to the container div
     for (let i = 0; i < selectedWord.length; i++) {
-        //create span element
         let span = document.createElement("span");
-        //set the innerText to blank space
-        span.innerText = " ";
-        //add the class of letter-space to each span
         span.setAttribute("class", "letter-space");
-        //add the spans to the div
+        span.setAttribute("data-letter", selectedWord[i]);
         document.getElementById("span-container").appendChild(span);
-        //add the span to the wordSpanArray (used later to show letters to user when correct)
-        wordSpanArray.push(span);
-        console.log(wordSpanArray);
     };
 }
 
@@ -113,7 +104,7 @@ function checkLetter() {
     //wrong guess will be if indexOf is -1, i.e. letter is not in the word
     let isWrongGuess = wordToGuess.indexOf(keyPressed.innerHTML) === -1;
     // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function
-    isWrongGuess ? wrongGuess(keyPressed) : correctGuess(keyPressed);
+    isWrongGuess ? wrongGuess(keyPressed) : handleCorrectGuess(keyPressed);
 }
 
 /**
@@ -144,30 +135,31 @@ function wrongGuess(keyPressed) {
 }
 
 /**
- * update the letter on screen, check if game won, if all letters now guessed
- * @param {*} guessedLetter - the letter clicked on
+ * add correct colour to keyPressed, update letter on screen in appropriate span space, check if game won
+ * @param {*} keyPressed the letter clicked on
  */
-function correctGuess(keyPressed) {
+function handleCorrectGuess(keyPressed) {
     keyPressed.classList.add("correct");
     let guessedLetter = keyPressed.innerHTML
-    let wordToGuess = getWordToGuess();
-    console.log(wordToGuess);
-    // loop through the word
-    for (let i = 0; i < wordToGuess.length; i++) {
-        //if the guess matches at that index
-        if (wordToGuess[i] === guessedLetter) {
-            //update the wordSpanArray with that letter
-            wordSpanArray[i].innerText = guessedLetter;
+    //get the data-letter values from letter-space spans, put into array representing word to guess
+    let letterSpans = document.querySelectorAll(".letter-space");
+    let lettersArray = [];
+    letterSpans.forEach(letter => lettersArray.push(letter.dataset.letter));
+    console.log(lettersArray);
+    // loop through the word, check if guessedLetter matches at that index, update innerText when it does
+    for (let i = 0; i < lettersArray.length; i++) {
+        if (lettersArray[i] === guessedLetter) {
+            letterSpans[i].innerText = guessedLetter;
         }
     }
     // then check if game is won or not
     console.log("won check needed");
-    // wordCheck is the text from each span element in the word-to-guess div
-    let wordCheck = document.getElementById("span-container").textContent;
-    console.log(wordCheck);
-    // if wordCheck is same as selectedWord then the word has been guessed and game is won
-    if (wordCheck === wordToGuess) {
-        //set status and run the endGame function using this status
+    // guessedLetters is the text from each span element i.e. letters already guessed correctly
+    let guessedLetters = document.getElementById("span-container").textContent;
+    console.log(guessedLetters);
+    // if guessedLetters is same as the data-letter values then the word has been guessed and game is won
+    if (guessedLetters === lettersArray.join("")) {
+        //run the endGame function using this "won" status
         endGame("won");
     }
 }
@@ -227,7 +219,7 @@ function resetGame() {
         wordSpaces.removeChild(wordSpaces.firstChild);
     } 
     // clear the wordSpanArray back to empty
-    wordSpanArray = [];
+    // wordSpanArray = [];
     // hide the hint text and show the Hint button
     let hintButton = document.getElementById("hint");
     hintButton.classList.remove("hidden");

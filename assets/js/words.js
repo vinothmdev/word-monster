@@ -1,6 +1,6 @@
 /**
  * Get random word from array of Word Objects(word, type, hint, meaning) then run startGame
- * @param {string} wordCategory 
+ * @param {string} wordCategory Verb or Adjective
  */
 function getWord(wordCategory) {
 
@@ -209,6 +209,6 @@ const words = [{
 let wordsByType = words.filter(word => word.type === wordCategory);
     //get a random word object from the wordsByType array 
     wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
-    startGame(wordCategory);
+    startGame(wordCategory, wordObject);
 
 }
