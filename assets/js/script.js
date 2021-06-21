@@ -159,8 +159,10 @@ function handleCorrectGuess(keyPressed) {
     console.log(guessedLetters);
     // if guessedLetters is same as the data-letter values then the word has been guessed and game is won
     if (guessedLetters === lettersArray.join("")) {
-        //run the endGame function using this "won" status
-        endGame("won");
+        //run the endGame function using "won" status, after short timeout so user can see last letter added to word
+        setTimeout(() => {
+            endGame("won");
+        }, 300);
     }
 }
 
