@@ -181,6 +181,13 @@ function endGame(status) {
         // hide the monster and lives from guesses area, leaving the trophy icon 
         let guesses = document.querySelectorAll("img.guess:not(.trophy)");
         guesses.forEach(guess => guess.classList.add("hidden"));
+        let trophy = document.querySelector(".trophy");
+        //animate trophy by adding shake class, remove after 1 second
+        trophy.classList.add("shake");
+        // timeout to remove the shake class 
+        setTimeout(() => {
+            trophy.classList.remove("shake");
+        }, 1000);
         // update the score
         // get the number from the span with id of score
         let score = parseInt(document.getElementById("score").textContent);

@@ -187,6 +187,13 @@ main {
     justify-content: flex-end;
 }
 
+/* spacing/sizing for the individual elements in the guesses container */
+.guess {
+    margin: 0.1rem;
+    width: calc(12.5% - .2rem);
+    height: auto;
+}
+
 /* monster graphic - transition for transform */
 .monster {
     transition: all .15s ease;
@@ -197,6 +204,27 @@ main {
     transform: scale(1.25) translateY(-12%);
 }
 
+/* class added by js, to animate trophy graphic when game won, shake for 0.3s, infinite as js will remove class */
+.shake {
+    animation: shake 0.4s;
+    animation-iteration-count: infinite;
+}
+
+/*keyframes to create the shake animation, from w3schools https://www.w3schools.com/howto/howto_css_shake_image.asp */
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
 /* to center the text and img when game is over, class added via js to guesses div */
 .centered {
     justify-content: center;
@@ -204,15 +232,8 @@ main {
 }
 
 /* to increase the size of the icon when game over (only one icon remains at this stage)*/
-.game-over > .guess {
+.centered > .guess {
     width: 20%;
-}
-
-/* spacing/sizing for the individual elements in the guesses container */
-.guess {
-    margin: 0.1rem;
-    width: calc(12.5% - .2rem);
-    height: auto;
 }
 
 /* styles for the text-displayed when game over */
