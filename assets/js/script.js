@@ -6,25 +6,16 @@ let wordSpanArray = [];
 let wrongGuesses = 0;
 
 /**
- * listen for click on Category Buttons in word-area
+ * listen for click on Category Buttons in word-area, on click hide button and run getWord using wordCategory
  */
 function initialiseCategories() {
     let categoryButtons = document.getElementsByClassName("category-btn");
-    // iterate and listen for click, on click run getWordType
-    Array.from(categoryButtons).forEach(button => button.addEventListener("click", getWord));
-}
-
-/**
- * get word type category from button click, hide button, get random wordObject by type, run startGame()
- */
-function getWord() {
-    let wordType = this.innerHTML;
-    this.parentElement.parentElement.classList.add("hidden");
-    //filter the words array by the chosen type, i.e. verb or adjective
-    let wordsByType = words.filter(word => word.type === wordType);
-    //get a random word object from the wordsByType array 
-    wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
-    startGame(wordType);
+    //listen for click, on click set wordTyp e run getWordType and hide button. Using forEach to allow for more categories in future
+    Array.from(categoryButtons).forEach(button => button.addEventListener("click", function () {
+        let wordCategory = this.innerHTML;
+        this.parentElement.parentElement.classList.add("hidden");
+        getWord(wordCategory);
+    }));
 }
 
 /**
@@ -37,13 +28,13 @@ function getWord() {
 
 /**
  * show blank spaces for word, show hint button, hide wordtype buttons and intro text.
- * @param {*verb or adjective} wordType 
+ * @param {*string} wordCategory Verb or Adjective
  */
-function startGame(wordType) {
+function startGame(wordCategory) {
     //show the div with text and hint button
     showOrHideElement("word-area-in-play");
     //show word category
-    document.getElementById("category").innerText = `${wordType.toUpperCase()}`;
+    document.getElementById("category").innerText = `${wordCategory.toUpperCase()}`;
     //show the words spaces - equal to length of the chosen word
     createLetterSpaces();
     updateKeyboard("enable");

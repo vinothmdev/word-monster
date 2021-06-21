@@ -1,5 +1,9 @@
-// array of Word Objects where random word will be chosen from. 
-//Each Word Object has word, type (verb/adjective), hint and meaning.
+/**
+ * Get random word from array of Word Objects(word, type, hint, meaning) then run startGame
+ * @param {string} wordCategory 
+ */
+function getWord(wordCategory) {
+
 const words = [{
     word: "eat",
     type: "verb",
@@ -201,3 +205,10 @@ const words = [{
     hint: "the third colour of a rainbow",
     meaning: "of a colour like that of a lemon or gold or the sun"
 }];
+
+let wordsByType = words.filter(word => word.type === wordCategory);
+    //get a random word object from the wordsByType array 
+    wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
+    startGame(wordCategory);
+
+}
