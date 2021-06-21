@@ -234,19 +234,14 @@ function resetGame() {
  * listen for click to open Instructions Modal box
  */
 function initialiseModal() {
-    //open modal button variable
-    const open = document.getElementById("instructions-open")
-    //close modal button variable
-    const close = document.getElementById("close-modal")
-    // on click of Instructions button, get the instructions-modal el and add visible class to it
-    open.addEventListener("click", function () {
-        document.getElementById("instructions-modal").classList.add("visible");
-        //add focus to close button so user can press enter to close
-        close.focus();
+    // on click add visible class to instructions-modal, put focus on close btn so user can press enter to close
+    document.getElementById("instructions-open").addEventListener("click", function () {
+        toggleModalVisibility();
+        document.getElementById("close-modal").focus();
     });
-    // on click of close button, remove the visible class from modal
-    close.addEventListener("click", function () {
-        document.getElementById("instructions-modal").classList.remove("visible");
+    // on click of close button, remove the visible class from instructions-modal
+    document.getElementById("close-modal").addEventListener("click", function () {
+        toggleModalVisibility();
     });
     // to close the modal if user clicks anywhere on window
     window.onclick = function (event) {
@@ -254,9 +249,15 @@ function initialiseModal() {
             document.querySelector(".modal.visible").classList.remove("visible");
         }
     }
+    /**
+     * add or remove visible class to instructions-modal
+     */
+    function toggleModalVisibility() {
+        document.getElementById("instructions-modal").classList.toggle("visible");
+    }
 }
 
-//when DOM has loaded, listen for button click on Adjective/Verb buttons to start game, or click on open Modal
+//when DOM has loaded, listen for button click on Adjective/Verb buttons to start game, or click on instructions-open button
 document.addEventListener("DOMContentLoaded", function () {
     initialiseCategories();
     initialiseModal();
