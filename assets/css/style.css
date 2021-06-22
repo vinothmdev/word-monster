@@ -543,6 +543,11 @@ footer a:focus {
         margin: 1rem auto;
     }
 
+    /* container for guesses - extra padding at sides to keep centered and adjust icon sizes */    
+    .guesses {
+        padding: 1rem 3rem;
+    }
+
     /* font sizing adjustments for word area and game over text */
     .word-area {
         line-height: 1.4rem;
