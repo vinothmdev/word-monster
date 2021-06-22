@@ -210,37 +210,50 @@ function endGame(status) {
     document.getElementById("reset").addEventListener("click", resetGame);
 }
 
+/**
+ * show 'at-start', hide 'game-over' word areas, resetGuesses, removeLetterSpaces, resetHintBtn, remove colours from pressedKeys
+ */
 function resetGame() {
-    //show the div for game at start
     showOrHideElement("word-area-at-start");
-    // hide the div that was previously shown at game over stage
     showOrHideElement("word-area-game-over");
-    // re-set the wrong guesses back to 0
-    wrongGuesses = 0;
-    // remove the game over text
-    document.querySelector(".game-over-text").classList.add("hidden");
-    // show the monster icon, guesses and trophy
-    let lives = document.querySelectorAll(".guess");
-    lives.forEach(life => life.classList.remove("hidden"));
-    // remove the spans from word-spaces div (spans were created during game, for each letter of word to guess)
-    let wordSpaces = document.getElementById("span-container");
-    while(wordSpaces.hasChildNodes()) {
-        wordSpaces.removeChild(wordSpaces.firstChild);
-    } 
-    // clear the wordSpanArray back to empty
-    // wordSpanArray = [];
-    // hide the hint text and show the Hint button
-    let hintButton = document.getElementById("hint");
-    hintButton.classList.remove("hidden");
-    hintButton.nextElementSibling.classList.add("hidden");
-    //remove class from .guesses div that centered the element
-    document.querySelector(".guesses").classList.remove("centered");
-    //remove colours from pressedKeys
+    resetGuesses();
+    removeLetterSpaces();
+    resetHintBtn();
     updateKeyboard("revertColours");
 }
 
 /**
- * listen for click to open Instructions Modal box
+ * reset Guesses area, hide game-over-text, show all the .guess graphics and remove centred class, re-set wrong guesses counter
+ */
+function resetGuesses() {
+    showOrHideElement("game-over-text-box");
+    let guessImgs = document.querySelectorAll(".guess");
+    guessImgs.forEach(guessImg => guessImg.classList.remove("hidden"));
+    document.querySelector(".guesses").classList.remove("centered");
+    wrongGuesses = 0;
+}
+
+/**
+ * // remove spans for letter spaces that were created at startGame
+ */
+function removeLetterSpaces() {
+    let spanContainer = document.getElementById("span-container");
+    while (spanContainer.hasChildNodes()) {
+        spanContainer.removeChild(spanContainer.firstChild);
+    }
+}
+
+/**
+ * Hide the hint text, show the hint button
+ */
+function resetHintBtn() {
+    let hintButton = document.getElementById("hint");
+    hintButton.classList.remove("hidden");
+    hintButton.nextElementSibling.classList.add("hidden");
+}
+
+/**
+ * open or close instructions Modal when clicked
  */
 function initialiseModal() {
     // on click add visible class to instructions-modal, put focus on close btn so user can press enter to close
