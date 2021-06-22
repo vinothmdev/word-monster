@@ -625,4 +625,88 @@ footer a:focus {
         width: 80%;
         padding: 4rem 6rem;
     }
+
+    /* game area - constrain width */
+    main {
+        width: 50%;
+    }
+}
+
+/*============================= extra large screen ======================================*/
+@media screen and (min-width: 2000px) {
+    /*==================== Modal =======================*/
+    /* modal box - increased font size, margin, padding, decreased width */
+    .modal-content {
+        width: 70%;
+        font-size: 1.4rem;
+        line-height: 3rem;
+        margin: 6rem auto;
+        padding: 6rem 8rem;
+    }
+
+    /*==================== Game Area =======================*/
+    .game-section {
+        margin: 1.5rem auto;
+        padding: 2.5rem;
+    } 
+
+    .guesses {
+        padding: 3rem 6rem;
+    }
+
+    .game-over-text {
+        font-size: 2.6rem;
+        line-height: 3.6rem;
+        letter-spacing: 0.2rem;
+    }
+
+    /* larger font size for main word area */
+    .word-area {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+    }
+
+    /* word buttons - larger font-size and padding */
+    .word-btn {
+        font-size: 2rem;
+        padding: 1.5rem;
+        letter-spacing: 0.2rem;
+        width: 30%;
+        margin: 1rem;
+    }
+
+    /* letters to be guessed - larger font size and spacing */
+    .letter-space {
+        height: 2.8rem;
+        font-size: 1.8rem;
+    }
+
+    .keyboard {
+        padding: 3rem 4rem;
+    }
+
+     /* keys larger font-size and more padding */
+     .key {
+        font-size: 2rem;
+        padding: 1.4rem 1.6rem;
+    }
+
+    /*==================== Footer and Header =======================*/
+    /* increase font size and padding  */
+    footer {
+        padding: 4rem;
+        font-size: 2rem;
+    }
+
+    .page-header {
+        padding: 4rem 4rem 2rem;
+    }
+    
+    .page-header li {
+        font-size: 1.5rem;
+    }
+
+    .page-header button {
+        font-size: 1.5rem;
+    }
 }
