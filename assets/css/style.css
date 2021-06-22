@@ -45,6 +45,11 @@ button {
     letter-spacing: .1rem;
 }
 
+/* hover style for button */
+button:hover, button:focus {
+    color: var(--pink);
+}
+
 /*flex settings so it expands to fill the space and push footer to bottom*/
 /* main is flex container for page content, also width and centered */
 main {
@@ -552,6 +557,13 @@ footer a:focus {
     .game-over-text {
         font-size: 1.5rem;
         line-height: 2rem;
+    }
+
+    /* letters to be guessed - larger font etc at this size */
+    .letter-space {
+        margin: 0.4rem;
+        height: 1.8rem;
+        font-size: 1.2rem;
     }
 }
 
