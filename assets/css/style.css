@@ -524,7 +524,6 @@ footer a:focus {
     /* constrain width at larger size, keep game in vertical layout */
     main {
         width: 55%;
-        /* padding-top: 1rem; */
     }
 
     /* alter spacing/sizing for the individual elements in the guesses container */
@@ -536,11 +535,6 @@ footer a:focus {
     /* adjust size of icon at game-over stage */
     .centered > .guess {
         width: 10%;
-    }
-
-    /* less padding on keyboard buttons at this layout */
-    .key {
-        padding: .6rem .8rem;
     }
 
     /* less padding and margin between sections in this layout */
@@ -566,6 +560,62 @@ footer a:focus {
         font-size: 1.2rem;
     }
 }
+
+/*============================= large tablet - longer screen ======================================*/
+@media screen and (min-width: 900px) and (min-height: 1000px) {
+    /*==================== Header =======================*/
+    /* larger logo size */
+    .logo {
+        font-size: 4rem;
+    }
+
+    /*==================== Game Area =======================*/
+    /* more space added since there is more vertical space */
+    main {
+        padding-top: 2rem;
+    }
+
+    .game-section {
+        padding: 2rem;
+    } 
+
+    /* adjust size of icon at game-over stage - larger than previous media query as box has more space */
+    .centered > .guess {
+        width: 15%;
+    }
+
+    /* larger font size for main word area */
+    .word-area {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+
+    /* container for word buttons - extra padding at this size */
+    .word-button-area {
+        padding: 1.6rem 0 .8rem;
+    }
+
+    /* word buttons - larger font-size and padding */
+    .word-btn {
+        font-size: 1.6rem;
+        padding: 1rem;
+    }
+
+    /* letters to be guessed - larger font size and spacing */
+    .letter-space {
+        margin: 0.6rem;
+        height: 2.4rem;
+        font-size: 1.4rem;
+    }
+
+     /* keys larger font-size and more padding */
+     .key {
+        font-size: 1.6rem;
+        padding: 1.2rem 1.4rem;
+        margin: .6rem;
+    }
+}
+
 
 /*============================= large screen ======================================*/
 @media screen and (min-width: 1440px) {
