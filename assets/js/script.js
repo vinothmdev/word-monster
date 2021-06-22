@@ -128,9 +128,9 @@ function wrongGuess(keyPressed) {
     setTimeout (() => {
         monster.classList.remove("jump");
     }, 150);
-    //check if max guesses used up, if they are then run endGame
+    //check if max guesses used up, if they are then run endGame function with parameter false
     if (wrongGuesses >= 7) {
-        endGame("lost");
+        endGame(false);
     }
 }
 
@@ -161,53 +161,67 @@ function handleCorrectGuess(keyPressed) {
     if (guessedLetters === lettersArray.join("")) {
         //run the endGame function using "won" status, after short timeout so user can see last letter added to word
         setTimeout(() => {
-            endGame("won");
+            endGame(true);
         }, 300);
     }
 }
 
 /**
- * show the game over text, show the Play Again button and hide divs from game-in-play
- * @param {string} status won or lost
+ * show the game over message, show word & meaning, disable keyboad, add evenListener on Play Again button
+ * @param {boolean} gameWon true or false  
  */
-function endGame(status) {
-    //get the game-over-text div and remove hidden class
-    showOrHideElement("game-over-text-box");
-    // add class to parent div, to center the text and icon
-    document.getElementById("game-over-text-box").parentElement.classList.add("centered");
-    let message = document.getElementById("won-or-lost-msg");
-    if (status === "lost") {
-        message.textContent = "SORRY, YOU LOST!"
+function endGame(gameWon) {
+    if (gameWon) {
+        showGameOverMsg("YOU WON A TROPHY!")
+        updateScore();
+        showTrophy();
     } else {
-        message.textContent = "YOU WON A TROPHY!";
-        // hide the monster and lives from guesses area, leaving the trophy icon 
-        let guesses = document.querySelectorAll("img.guess:not(.trophy)");
-        guesses.forEach(guess => guess.classList.add("hidden"));
-        let trophy = document.querySelector(".trophy");
-        //animate trophy by adding shake class, remove after 1 second
-        trophy.classList.add("shake");
-        // timeout to remove the shake class 
-        setTimeout(() => {
-            trophy.classList.remove("shake");
-        }, 1000);
-        // update the score
-        // get the number from the span with id of score
-        let score = parseInt(document.getElementById("score").textContent);
-        // add one to it
-        document.getElementById("score").textContent = ++score;
+        showGameOverMsg("SORRY, YOU LOST!")
     }
-    // show the Game Over div
-    showOrHideElement("word-area-game-over");
-    // show the word
-    document.querySelector(".word").textContent = `${wordObject.word}`;
-    // show the word meaning
-    document.querySelector(".definition").textContent = `${wordObject.meaning}`;
-    // hide the word-area-in-play div
-    showOrHideElement("word-area-in-play");
-    //lock the keyboard
+    showWordMeaning();
     updateKeyboard("disable");
-    // add event listener for Play Again button to run reset function
     document.getElementById("reset").addEventListener("click", resetGame);
+}
+
+/**
+ * show game-over box, add centered class, show text of won or lost msg parameter passed from endGame 
+ * @param {string} msg won or lost message
+ */
+function showGameOverMsg(msg) {
+    showOrHideElement("game-over-text-box");
+    document.getElementById("game-over-text-box").parentElement.classList.add("centered");
+    document.getElementById("won-or-lost-msg").textContent = msg;
+}
+
+/**
+ * Show the word and its meaning in the word-area-game-over div, hide word-area-in-play div
+ */
+function showWordMeaning() {
+    showOrHideElement("word-area-game-over");
+    document.querySelector(".word").textContent = `${wordObject.word}`;
+    document.querySelector(".definition").textContent = `${wordObject.meaning}`;
+    showOrHideElement("word-area-in-play");
+}
+
+/**
+ * add 1 to Score at endGame when status is won. Get previous score and add 1 to it
+ */
+function updateScore() {
+    let score = parseInt(document.getElementById("score").textContent);
+    document.getElementById("score").textContent = ++score;
+}
+
+/**
+ * Show trophy and hide other guess imgs, animate trophy by adding .shake class and removing after 1second
+ */
+function showTrophy() {
+    let guesses = document.querySelectorAll("img.guess:not(.trophy)");
+    guesses.forEach(guess => guess.classList.add("hidden"));
+    let trophy = document.querySelector(".trophy");
+    trophy.classList.add("shake");
+    setTimeout(() => {
+        trophy.classList.remove("shake");
+    }, 1000);
 }
 
 /**
