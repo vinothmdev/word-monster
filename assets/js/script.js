@@ -109,7 +109,7 @@ function handleIncorrectGuess(keyPressed) {
     document.querySelector(`img[data-guess="${chancesRemaining--}"]`).classList.add("hidden");
     console.log(chancesRemaining);
     animateMonster();    
-    //if max guesses used up, game is lost, run endGame function with wonGame value of false
+    //if no chances remaining, game is lost, run endGame function with wonGame value of false
     if (chancesRemaining === 0) {
         endGame(false);
     }
@@ -132,25 +132,22 @@ function animateMonster() {
 function handleCorrectGuess(keyPressed) {
     keyPressed.classList.add("correct");
     let guessedLetter = keyPressed.innerHTML
-    //get the data-letter values from letter-space spans, put into array representing word to guess
+    //update textContent of span if the guessedLetter equals the data-letter value on that span
     let letterSpans = document.querySelectorAll(".letter-space");
-    let lettersArray = [];
-    letterSpans.forEach(letter => lettersArray.push(letter.dataset.letter));
-    console.log(lettersArray);
-    // loop through the word, check if guessedLetter matches at that index, update innerText when it does
-    for (let i = 0; i < lettersArray.length; i++) {
-        if (lettersArray[i] === guessedLetter) {
-            letterSpans[i].innerText = guessedLetter;
+    for (let letters of letterSpans) {
+        if (guessedLetter === letters.dataset.letter) {
+            letters.textContent = guessedLetter;
         }
     }
-    // then check if game is won or not
-    console.log("won check needed");
-    // guessedLetters is the text from each span element i.e. letters already guessed correctly
-    let guessedLetters = document.getElementById("span-container").textContent;
-    console.log(guessedLetters);
-    // if guessedLetters is same as the data-letter values then the word has been guessed and game is won
-    if (guessedLetters === lettersArray.join("")) {
-        //run the endGame function using "won" status, after short timeout so user can see last letter added to word
+    checkIfGameWon();
+}
+
+/**
+ * If all letters have been guessed, show letters for 300ms then run endGame with isWon true
+ */
+function checkIfGameWon() {
+    let correctLetters = document.getElementById("span-container").textContent;
+    if (correctLetters === document.querySelector(".word").textContent.toUpperCase()) {
         setTimeout(() => {
             endGame(true);
         }, 300);
