@@ -19,7 +19,7 @@ function initialiseCategories() {
  * @param {*string} wordCategory Verb or Adjective
  */
 function startGame(wordCategory, wordObject) {
-    showOrHideElement("word-area-in-play");
+    toggleElementVisibility("word-area-in-play");
     document.getElementById("category").innerText = `${wordCategory.toUpperCase()}`;
     let word = wordObject.word.toUpperCase();
     createLetterSpaces(word);
@@ -30,7 +30,7 @@ function startGame(wordCategory, wordObject) {
 
 /**
  * create blank spaces (spans) for letters in word to be guessed in span-container div, add the letter as a data-attribute (used later to check guesses)
- * @param {Object} wordObject
+ * @param {string} word from wordObject
  */
 function createLetterSpaces(word) {
     for (let i = 0; i < word.length; i++) {
@@ -41,6 +41,10 @@ function createLetterSpaces(word) {
     };
 }
 
+/**
+ * store the hint, word and definition properties of wordObject in the relevant html elements, to be shown later at different stages of game
+ * @param {Object} wordObject word, hint, definition
+ */
 function storeWordProperties(wordObject) {
     document.getElementById("hint").nextElementSibling.children[1].textContent = `${wordObject.hint}`;
     document.querySelector(".word").textContent = `${wordObject.word}`;
@@ -51,7 +55,7 @@ function storeWordProperties(wordObject) {
  * add or remove the "hidden" class from element
  * @param {string} elementId 
  */
-function showOrHideElement(elementId) {
+function toggleElementVisibility(elementId) {
     document.getElementById(elementId).classList.toggle("hidden");
 }
 
@@ -177,7 +181,7 @@ function endGame(gameWon) {
  * @param {string} msg won or lost message
  */
 function showGameOverMsg(msg) {
-    showOrHideElement("game-over-text-box");
+    toggleElementVisibility("game-over-text-box");
     document.getElementById("game-over-text-box").parentElement.classList.add("centered");
     document.getElementById("won-or-lost-msg").textContent = msg;
 }
@@ -186,10 +190,8 @@ function showGameOverMsg(msg) {
  * Show the word and its meaning in the word-area-game-over div, hide word-area-in-play div
  */
 function showWordMeaning() {
-    showOrHideElement("word-area-game-over");
-    // document.querySelector(".word").textContent = `${wordObject.word}`;
-    // document.querySelector(".definition").textContent = `${wordObject.meaning}`;
-    showOrHideElement("word-area-in-play");
+    toggleElementVisibility("word-area-game-over");
+    toggleElementVisibility("word-area-in-play");
 }
 
 /**
@@ -217,8 +219,8 @@ function showTrophy() {
  * show 'at-start', hide 'game-over' word areas, resetGuesses, removeLetterSpaces, resetHintBtn, remove colours from pressedKeys
  */
 function resetGame() {
-    showOrHideElement("word-area-at-start");
-    showOrHideElement("word-area-game-over");
+    toggleElementVisibility("word-area-at-start");
+    toggleElementVisibility("word-area-game-over");
     resetGuesses();
     removeLetterSpaces();
     resetHintBtn();
@@ -229,7 +231,7 @@ function resetGame() {
  * reset Guesses area, hide game-over-text, show all the .guess graphics and remove centred class, re-set wrong guesses counter
  */
 function resetGuesses() {
-    showOrHideElement("game-over-text-box");
+    toggleElementVisibility("game-over-text-box");
     let guessImgs = document.querySelectorAll(".guess");
     guessImgs.forEach(guessImg => guessImg.classList.remove("hidden"));
     document.querySelector(".guesses").classList.remove("centered");
@@ -249,6 +251,7 @@ function removeLetterSpaces() {
 /**
  * Hide the hint text, show the hint button
  */
+//Note: not using toggle class because hint btn/text might already be visible/hidden depending on whether hint shown in game
 function resetHintBtn() {
     let hintButton = document.getElementById("hint");
     hintButton.classList.remove("hidden");
