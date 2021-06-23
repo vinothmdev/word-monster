@@ -1,5 +1,3 @@
-//variable for wordObject which will be chosen at random in startGame function 
-let wordObject;
 //counter for wrong guesses
 let wrongGuesses = 0;
 
@@ -21,7 +19,9 @@ function initialiseCategories() {
  * @returns word from wordObject in uppercase
  */
  function getWordToGuess() {
+    console.log(wordObject);
     return wordObject.word.toUpperCase();
+    
 }
 
 /**
@@ -34,6 +34,7 @@ function startGame(wordCategory, wordObject) {
     //show word category
     document.getElementById("category").innerText = `${wordCategory.toUpperCase()}`;
     createLetterSpaces(wordObject);
+    storeWordProperties(wordObject);
     updateKeyboard("enable");
     //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
@@ -53,6 +54,12 @@ function createLetterSpaces(wordObject) {
         span.setAttribute("data-letter", selectedWord[i]);
         document.getElementById("span-container").appendChild(span);
     };
+}
+
+function storeWordProperties(wordObject) {
+    document.getElementById("hint").nextElementSibling.children[1].textContent = `${wordObject.hint}`;
+    document.querySelector(".word").textContent = `${wordObject.word}`;
+    document.querySelector(".definition").textContent = `${wordObject.meaning}`;
 }
 
 /**
@@ -90,7 +97,7 @@ function giveHint() {
     // show the hint text p tag (sibling of Hint button) by removing hidden class
     this.nextElementSibling.classList.remove("hidden");
     //add the hint to the element so that it shows on screen
-    this.nextElementSibling.children[1].innerText = `${wordObject.hint}`;
+    // this.nextElementSibling.children[1].innerText = `${wordObject.hint}`;
 }
 
 /**
@@ -100,7 +107,8 @@ function checkLetter() {
     //disable the key that was pressed so it can't be pressed again
     let keyPressed = this;
     keyPressed.setAttribute("disabled", true);
-    let wordToGuess = getWordToGuess();
+    let wordToGuess = document.querySelector(".word").textContent.toUpperCase();
+    console.log(wordToGuess);
     //wrong guess will be if indexOf is -1, i.e. letter is not in the word
     let isWrongGuess = wordToGuess.indexOf(keyPressed.innerHTML) === -1;
     // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function
@@ -198,8 +206,8 @@ function showGameOverMsg(msg) {
  */
 function showWordMeaning() {
     showOrHideElement("word-area-game-over");
-    document.querySelector(".word").textContent = `${wordObject.word}`;
-    document.querySelector(".definition").textContent = `${wordObject.meaning}`;
+    // document.querySelector(".word").textContent = `${wordObject.word}`;
+    // document.querySelector(".definition").textContent = `${wordObject.meaning}`;
     showOrHideElement("word-area-in-play");
 }
 

@@ -208,7 +208,7 @@ const words = [{
 
 let wordsByType = words.filter(word => word.type === wordCategory);
     //get a random word object from the wordsByType array 
-    wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
+    let wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
     startGame(wordCategory, wordObject);
 
 }
