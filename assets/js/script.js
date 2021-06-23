@@ -1,5 +1,3 @@
-//counter for wrong guesses
-let wrongGuesses = 0;
 
 /**
  * listen for click on Category Buttons, on click hide the clicked button and run getWord using wordCategory
@@ -78,7 +76,7 @@ function updateKeyboard(update) {
 }
 
 /**
- * hide Hint button when clicked, show p tag which holds hint text
+ * hide Hint button, show p tag which holds hint text
  */
 function giveHint() {
     this.classList.add("hidden");
@@ -86,43 +84,38 @@ function giveHint() {
 }
 
 /**
- * when the key click event, disable the key, check if wrong or right guess and run appropriate function
+ * disable the key pressed, check if wrong or right guess and run appropriate handleGuess function
  */
 function checkLetter() {
-    //disable the key that was pressed so it can't be pressed again
     let keyPressed = this;
     keyPressed.setAttribute("disabled", true);
     let wordToGuess = document.querySelector(".word").textContent.toUpperCase();
     console.log(wordToGuess);
     //wrong guess will be if indexOf is -1, i.e. letter is not in the word
     let isWrongGuess = wordToGuess.indexOf(keyPressed.innerHTML) === -1;
-    // if it's a wrong guess, run wrongGuess function, otherwise run correctGuess function
-    isWrongGuess ? wrongGuess(keyPressed) : handleCorrectGuess(keyPressed);
+    // if it's a wrong guess, run handleIncorrectGuess function, otherwise run correctGuess function
+    isWrongGuess ? handleIncorrectGuess(keyPressed) : handleCorrectGuess(keyPressed);
 }
 
 /**
- * increase wrongGuesses counter, show lives used up, check if game lost, if all lives used up
+ * add red colour to keyPressed, decrease chancesRemaining, hide guess element, animate monster, check if game lost
  */
-function wrongGuess(keyPressed) {
-    //add class to turn letter red
+function handleIncorrectGuess(keyPressed) {
     keyPressed.classList.add("incorrect");
-    // increase the wrong guesses counter by 1
-    wrongGuesses++;
-    //remove one of the lives from the guess area
-    //get the img tag with the data-guess value equal to the wrongGuesses value
-    let lifeUsed = document.querySelector(`img[data-guess="${wrongGuesses}"]`);
-    //add the hidden class to it
-    lifeUsed.classList.add("hidden");
-    // get the monster graphic
+    //chances remaining is the number of imgs with data-guess attribute that are not already hidden
+    let chancesRemaining = document.querySelectorAll(`img[data-guess]:not(.hidden)`).length;
+    console.log(chancesRemaining);
+    //decrease chancesRemaining by 1 and hide the element with corresponding data-guess value
+    document.querySelector(`img[data-guess="${chancesRemaining--}"]`).classList.add("hidden");
+    console.log(chancesRemaining);
+    //animate monster graphic by adding jump class, remove jump class after timeout of 150ms
     let monster = document.querySelector(".monster");
-    // add the jump class to animate it with transforms
     monster.classList.add("jump");
-    // timeout to remove the jump class 
     setTimeout (() => {
         monster.classList.remove("jump");
     }, 150);
     //check if max guesses used up, if they are then run endGame function with parameter false
-    if (wrongGuesses >= 7) {
+    if (chancesRemaining === 0) {
         endGame(false);
     }
 }
@@ -235,7 +228,6 @@ function resetGuesses() {
     let guessImgs = document.querySelectorAll(".guess");
     guessImgs.forEach(guessImg => guessImg.classList.remove("hidden"));
     document.querySelector(".guesses").classList.remove("centered");
-    wrongGuesses = 0;
 }
 
 /**
