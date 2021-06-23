@@ -2,11 +2,11 @@
 let wrongGuesses = 0;
 
 /**
- * listen for click on Category Buttons in word-area, on click hide button and run getWord using wordCategory
+ * listen for click on Category Buttons, on click hide the clicked button and run getWord using wordCategory
  */
 function initialiseCategories() {
     let categoryButtons = document.getElementsByClassName("category-btn");
-    //listen for click, on click set wordTyp e run getWordType and hide button. Using forEach to allow for more categories in future
+    //Using forEach instead of if/else to allow for more categories in future
     Array.from(categoryButtons).forEach(button => button.addEventListener("click", function () {
         let wordCategory = this.innerHTML;
         this.parentElement.parentElement.classList.add("hidden");
@@ -15,43 +15,28 @@ function initialiseCategories() {
 }
 
 /**
- * to get word to be guessed at various stages in game
- * @returns word from wordObject in uppercase
- */
- function getWordToGuess() {
-    console.log(wordObject);
-    return wordObject.word.toUpperCase();
-    
-}
-
-/**
- * show blank spaces for letters in word to guess, show wordCategory, enable keyboard, eventListener on Hint btn 
+ * show word-area-in-play, show wordCategory, create letter spaces for word, enable keyboard, eventListener on Hint btn 
  * @param {*string} wordCategory Verb or Adjective
  */
 function startGame(wordCategory, wordObject) {
-    //show the div with text and hint button
     showOrHideElement("word-area-in-play");
-    //show word category
     document.getElementById("category").innerText = `${wordCategory.toUpperCase()}`;
-    createLetterSpaces(wordObject);
+    let word = wordObject.word.toUpperCase();
+    createLetterSpaces(word);
     storeWordProperties(wordObject);
     updateKeyboard("enable");
-    //when the Hint button is clicked, run the function giveHint
     document.getElementById("hint").addEventListener("click", giveHint);
 }
 
 /**
- * create span for letters in word to be guessed, add the letter as a data-attribute, used later to check guesses
- * @param {Object} wordObject word, type, hint, meaning
+ * create blank spaces (spans) for letters in word to be guessed in span-container div, add the letter as a data-attribute (used later to check guesses)
+ * @param {Object} wordObject
  */
-function createLetterSpaces(wordObject) {
-    let selectedWord = wordObject.word.toUpperCase();
-    console.log(selectedWord);
-    //for each letter in selected word, create a span, add class, add data-letter equal to that letter, append to the container div
-    for (let i = 0; i < selectedWord.length; i++) {
+function createLetterSpaces(word) {
+    for (let i = 0; i < word.length; i++) {
         let span = document.createElement("span");
         span.setAttribute("class", "letter-space");
-        span.setAttribute("data-letter", selectedWord[i]);
+        span.setAttribute("data-letter", word[i]);
         document.getElementById("span-container").appendChild(span);
     };
 }
@@ -89,15 +74,11 @@ function updateKeyboard(update) {
 }
 
 /**
- * shows the text of the hint associated with the word, when the Hint button is clicked
+ * hide Hint button when clicked, show p tag which holds hint text
  */
 function giveHint() {
-    //hide the button that was clicked, i.e. the Hint button
     this.classList.add("hidden");
-    // show the hint text p tag (sibling of Hint button) by removing hidden class
     this.nextElementSibling.classList.remove("hidden");
-    //add the hint to the element so that it shows on screen
-    // this.nextElementSibling.children[1].innerText = `${wordObject.hint}`;
 }
 
 /**
