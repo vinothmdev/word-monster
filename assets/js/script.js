@@ -98,26 +98,31 @@ function checkLetter() {
 }
 
 /**
- * add red colour to keyPressed, decrease chancesRemaining, hide guess element, animate monster, check if game lost
+ * add red colour to keyPressed, decrease chancesRemaining, animate monster, check if game lost
  */
 function handleIncorrectGuess(keyPressed) {
     keyPressed.classList.add("incorrect");
     //chances remaining is the number of imgs with data-guess attribute that are not already hidden
     let chancesRemaining = document.querySelectorAll(`img[data-guess]:not(.hidden)`).length;
     console.log(chancesRemaining);
-    //decrease chancesRemaining by 1 and hide the element with corresponding data-guess value
+    //decrease chancesRemaining by 1 and hide the img element with corresponding data-guess value
     document.querySelector(`img[data-guess="${chancesRemaining--}"]`).classList.add("hidden");
     console.log(chancesRemaining);
-    //animate monster graphic by adding jump class, remove jump class after timeout of 150ms
-    let monster = document.querySelector(".monster");
-    monster.classList.add("jump");
-    setTimeout (() => {
-        monster.classList.remove("jump");
-    }, 150);
-    //check if max guesses used up, if they are then run endGame function with parameter false
+    animateMonster();    
+    //if max guesses used up, game is lost, run endGame function with wonGame value of false
     if (chancesRemaining === 0) {
         endGame(false);
     }
+}
+
+/**
+ * animate monster graphic by adding jump class for 150ms
+ */
+function animateMonster() {
+    document.querySelector(".monster").classList.add("jump");
+    setTimeout (() => {
+        document.querySelector(".monster").classList.remove("jump");
+    }, 150);
 }
 
 /**
