@@ -10,6 +10,11 @@ ul {
     list-style: none;
 }
 
+/* remove default underline from links */
+a {
+    text-decoration: none;
+}
+
 /*============================= general =============================================*/
 /* colour variables */
 :root {
@@ -50,6 +55,12 @@ button:hover, button:focus {
     color: var(--pink);
 }
 
+/* contact us link in footer and instructions button in header - border */
+.contact-btn, .page-header button {
+    border: 0.1rem solid var(--pink);
+    padding: 0.2rem 0.4rem;
+}
+
 /*flex settings so it expands to fill the space and push footer to bottom*/
 /* main is flex container for page content, also width and centered */
 main {
@@ -68,13 +79,14 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 1rem;
+    align-items: center;
 }
 
 /* score and instructions in page header font, layout styles */
 .page-header li {
     display: inline;
     font-size: .8rem;
-    padding: .5rem 0.2rem;
+    padding: 0.5rem 0 0.5rem 0.2rem;
     color: var(--yellow);
 }
 
@@ -353,15 +365,15 @@ main {
 /*flex container for ul, centered, font-size for the fontawesome icons*/
 footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
 }
 
 /*display the social media icons*/
 footer li {
     display: inline;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 }
 
 /* social media links color and color on hover and focus below also */
@@ -383,11 +395,11 @@ footer a:focus {
     
     /* larger font size on Score icon and text, and padding around score + instructions */
     .page-header li {
-        padding: 0.5rem;
+        padding-left: 0.5rem;
         font-size: 1rem;
     }
 
-    /* larger font size for Instructions icon and text */
+    /* larger font size for Instructions icon */
     .page-header button {
         font-size: 1rem;
     }
@@ -442,7 +454,7 @@ footer a:focus {
     }
 
     /* increase padding, font size in header items below */
-    .page-header {
+    .page-header, footer {
         padding: 2rem;
     }
 
@@ -450,13 +462,14 @@ footer a:focus {
         font-size: 3rem;
     }
 
-    .page-header li {
-        padding: 0.8rem;
+    .page-header li, footer li {
+        padding-left: 0.8rem;
         font-size: 1.2rem;
     }
 
-    .page-header button {
+    .contact-btn, .page-header button {
         font-size: 1.2rem;
+        padding: 0.4rem 0.6rem;
     }
 
     /*==================== Instructions Modal box =======================*/
@@ -697,19 +710,19 @@ footer a:focus {
     /*==================== Footer and Header =======================*/
     /* increase font size and padding  */
     footer {
-        padding: 4rem;
-        font-size: 2rem;
+        padding: 2rem 4rem;
     }
 
     .page-header {
         padding: 4rem 4rem 2rem;
     }
     
-    .page-header li {
+    .page-header li, footer li {
         font-size: 1.5rem;
     }
 
-    .page-header button {
+    .contact-btn, .page-header button {
         font-size: 1.5rem;
+        padding: 0.6rem 0.8rem;
     }
 }
