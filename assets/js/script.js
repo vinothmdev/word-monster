@@ -190,11 +190,12 @@ function showWordMeaning() {
 }
 
 /**
- * add 1 to Score at endGame when status is won. Get previous score and add 1 to it
+ * add 1 to Score at endGame when status is won. Get previous score and add 1 to it. Set score as a sessionStorage Item
  */
 function updateScore() {
     let score = parseInt(document.getElementById("score").textContent);
     document.getElementById("score").textContent = ++score;
+    window.sessionStorage.setItem("score", score);
 }
 
 /**
@@ -279,8 +280,20 @@ function initialiseModal() {
     }
 }
 
-//when DOM has loaded, listen for button click on Adjective/Verb buttons to start game, or click on instructions-open button
+/**
+ * if score from sessionStorage is more than 0, show it in Score on loading page, for user switching between pages
+ */
+function showStoredScore() {
+    let score = document.getElementById("score");
+    let sessionScore = window.sessionStorage.getItem("score");
+    if (sessionScore > 0) {
+        score.textContent = sessionScore;
+    }
+}
+
+//when DOM has loaded, listen for click on Category Buttons to start game, on instructions-open button to open modal, and show session score
 document.addEventListener("DOMContentLoaded", function () {
     initialiseCategories();
     initialiseModal();
+    showStoredScore();
 })
