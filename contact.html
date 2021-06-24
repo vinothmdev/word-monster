@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="word game based on the classic hangman game">
+    <meta name="keywords"
+        content="word-game, game, spelling, vocabulary, words, retro-video-game, hangman, hangman-game">
+    <!--google fonts link-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=VT323&display=swap" rel="stylesheet">
+    <!-- css link -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- favicon links -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Word Monster</title>
+</head>
+<body>
+    <!--header for the page, contain Logo, Score and Instructions button-->
+    <header class="page-header">
+        <h1 class="logo head-item">Word Monster</h1>
+        <!--ul containing Score and Instructions button-->
+        <ul>
+            <!--only icon and number shown initially, word 'Score' shown at large size -->
+            <li>
+                <i class="fas fa-trophy" aria-label="Score"></i> <span class="hide-text" aria-hidden="true">Score: 
+                </span><span id="score" aria-label="number of trophies won">0</span>
+            </li>
+            <!--button to open instructions-modal, js uses id to access. Only icon shown initially-->
+            <li>
+                <button type="button" id="instructions-open" aria-label="Click to open instructions box"><i
+                        class="fas fa-lightbulb" aria-hidden="true"></i><span class="hide-text"
+                        aria-hidden="true"> Instructions</span></button>
+            </li>
+        </ul>
+    </header>
+    <!--outer modal when the Instructions button is clicked, retrieved by id in js-->
+    <div class="modal" role="dialog" id="instructions-modal">
+        <!--content of modal box-->
+        <div class="modal-content">
+            <!--modal header with title and close button-->
+            <header class="modal-header">
+                <h2>Instructions</h2>
+                <button type="button" class="modal-close" aria-label="Close instructions box" id="close-modal">&times;</button>
+            </header>
+            <!--modal text with intro text and instruction list-->
+            <div class="modal-text">
+                <p>Guess the word by clicking on the letters and get the trophy before the monster does!</p>
+                <ol>
+                    <li>Pick a category: Adjective or Verb</li>
+                    <li>A word will be chosen at random which you will need to guess!</li>
+                    <li>The number of dashes: _ shows how many letters are in the word that you need to guess</li>
+                    <li>Click on one of the letters at the bottom half of the screen to make a guess</li>
+                    <li>If you guess correctly, the letter will fill the blank space(s) in the word</li>
+                    <li>If you guess incorrectly, the monster will eat one of the obstacles and get one step closer to
+                        the
+                        trophy!</li>
+                    <li>You can keep guessing but for every wrong guess the monster eats another obstacle and after
+                        eating
+                        six obstacles it gets the trophy!</li>
+                    <li>You have 7 chances to guess incorrectly</li>
+                    <li>If you guess all the correct letters before running out of chances, you get the trophy!</li>
+                    <li>If you need a hint, click on the Hint? button and you will get a short hint to help you guess
+                        the
+                        word</li>
+                    <li>The letters you have already guessed are shown in a different colour, so you know not to choose
+                        them
+                        again.</li>
+                    <li>The number of trophies you have won, representing the words you have guessed correctly, are
+                        shown in
+                        the Score at the top of the page.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!--end of modal section-->
+    <!--game area containing 3 divs: monster/guesses area, word/button area and keyboard area-->
+    <main>
+        <!--div with form -->
+        <div>
+
+        </div>
+    </main>
+    <!-- footer contains two divs, one for social media links, one for Contact Us link -->
+    <footer>
+        <!-- social media links -->
+        <div>
+            <ul>
+                <li>
+                    <a href="https://instagram.com" target="_blank" rel="noopener"
+                        aria-label="Visit our Instagram page. Link opens in new tab"><i class="fab fa-instagram"
+                            aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="https://facebook.com" target="_blank" rel="noopener"
+                        aria-label="Visit our Facebook page. Link opens in new tab"><i class="fab fa-facebook-f"
+                            aria-hidden="true"></i></a>
+                </li>
+                <li>
+                    <a href="https://twitter.com" target="_blank" rel="noopener"
+                        aria-label="Visit our Twitter page. Link opens in new tab"><i class="fab fa-twitter"
+                            aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </div>
+        <!-- Back to Game link to home page -->
+        <div>
+            <a class="contact-btn" href="index.html">Back to Game</a>
+        </div>
+    </footer>
+    <!--script for the fontawesome icons-->
+    <script src="https://kit.fontawesome.com/f92ca5e5ec.js" crossorigin="anonymous"></script>
+    <!--script holding array of word objects for random word, hint, meaning -->
+    <script src="assets/js/words.js"></script>
+    <!--script for page functionality and game functionality -->
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
