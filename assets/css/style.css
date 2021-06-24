@@ -386,6 +386,51 @@ footer a:focus {
     color: var(--pink);
 }
 
+/*==================================== Contact Form ==============================================*/
+
+.game-section form{
+    padding: 1rem;
+}
+
+/* for input labels to display above inputs */
+label {
+    display: block;
+}
+
+/*for inputs except checkbox; and for textarea - layout, spacing*/
+form input, form textarea {
+	display: block;
+	border: 0.1rem solid var(--orange);
+    background-color: var(--black);
+    color: var(--blue);
+	width: 100%;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+form input,
+textarea {
+	border-radius: 0.05rem;
+	font-family: inherit;
+}
+
+/*placeholder colour*/
+::placeholder {
+	color: var(--blue);
+	opacity: 1;
+}
+
+.form-btn {
+    border: 0.1rem solid var(--blue);
+    padding: 0.2rem 0.4rem;
+}
+
+/* when inputs are in focus - remove default outline, replace with brand colours border */
+form input:focus, textarea:focus {
+    outline: none;
+    border: 0.1rem solid var(--blue);
+}
+
 /*==================================== MEDIA QUERIES ==============================================*/
 @media screen and (min-width: 360px) {
     /* increased padding on header */
