@@ -437,8 +437,9 @@ textarea {
     opacity: 1;
 }
 
+/* submit button styles */
 .form-btn {
-    border: 0.1rem solid var(--blue);
+    border: 0.1rem solid var(--green);
     padding: 0.4rem 0.6rem;
     margin: 0.5rem auto;
     width: 100%;
@@ -449,11 +450,20 @@ textarea {
     font-size: 1.1rem;
 }
 
+/* hover style for submit button */
+.form-btn:hover, .form-btn:focus {
+    color: var(--green);
+}
+
 /* when inputs are in focus - remove default outline, replace with brand colours border */
 form input:focus,
 textarea:focus {
     outline: none;
     border: 0.1rem solid var(--blue);
+}
+
+form input:valid, textarea:valid {
+    border: 0.1rem solid var(--green);
 }
 
 /*==================================== MEDIA QUERIES ==============================================*/
