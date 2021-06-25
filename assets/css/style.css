@@ -451,7 +451,8 @@ textarea {
 }
 
 /* hover style for submit button */
-.form-btn:hover, .form-btn:focus {
+.form-btn:hover,
+.form-btn:focus {
     color: var(--green);
 }
 
@@ -462,8 +463,20 @@ textarea:focus {
     border: 0.1rem solid var(--blue);
 }
 
-form input:valid, textarea:valid {
+form input:valid,
+textarea:valid {
     border: 0.1rem solid var(--green);
+}
+
+/* to amend the browser autocomplete styles to match form styles */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--blue);
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 /*==================================== MEDIA QUERIES ==============================================*/
