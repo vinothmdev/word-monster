@@ -159,10 +159,41 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
 - ### Other Testing (links etc.)
 - ### Supported Screens and Browsers
 ## Deployment
-- ### Gitpod - during development
-- ### GitHub Pages - Deployment
-- ### Forking the GitHub Repository
-- ### Cloning the GitHub Repository
+---
+### Gitpod - during development
+The site was developed on Gitpod, using GitHub for version control and hosting the repository and final site. The repository for this project, and the associated workspace, was created from the [Code Institute tempate](https://github.com/Code-Institute-Org/gitpod-full-template). 
+-   During development, code was written in the Gitpod workspace and previewed by opening the browser via the Terminal in Gitpod, using the command `python3 -m http.server` and then selecting the Open Browser button when the following message appears: "a service is available on Port 8000". 
+-   Files and code were added to the staging area in Gitpod using the command `git add .` and commited using `git commit -m "commit message"`. 
+-   Commited changes were then pushed to GitHub using the `git push` command.
+### GitHub Pages - Deployment
+The following steps were followed to deploy the project to a live website in GitHub, using Github Pages:
+1. Ensure changes have been added and commited in Gitpod and pushed to GitHub
+2. Login to [GitHub](https://github.com/)
+3. Locate the relevant repository on GitHub. [This is the repository for Word Monster](https://fiona-t.github.io/word-monster/).
+4. At the top of the repository, above the green Gitpod button, locate the 'Settings' link and click on this
+5. On the left of the page, under Options, scroll down until you get to Pages and click on Pages
+6. Under Source, in the first box called None, click the dropdown and select either 'main' or 'master'. 
+7. Then press Save
+8. The page will refresh and you will see a link above the Save button. This is the link to the live site. Note that it may take a few minutes for the site to build, so be patient before clicking on the link to view the published site!
+
+There are no differences between the deployed version and the development version of this project.
+### Forking the GitHub Repository
+The repository can be forked on GitHub, this creates a copy of the repository that can be viewed or amended without affecting the original repository. This can be done using the following steps:
+1. Login to [GitHub](https://github.com/) and locate the repository as before
+2. At the top right of the repository (under your avatar) locate the Fork button and click this button
+3. You should now have a copy of the repository in your own GitHub account, to which you can make changes
+### Cloning the GitHub Repository
+You can make a clone of the repository which will create a local copy on your own computer. Again you can make changes to this local copy that will not affect the original repository. Follow these steps to clone the Walk Well repository. 
+1. Login to [GitHub](https://github.com/) and locate the repository as before
+2. Click the button called Code, located to the left of the green Gitpod button
+3. Under HTTPS copy the link provided (in this case https://github.com/Fiona-T/word-monster.git) 
+4. Go to Gitpod or whichever IDE you are using and open the Terminal
+5. Change the current working directory to the location where you want the cloned directory to be made
+6. Type `git clone` followed by the url you copied in step 3:
+`git clone https://github.com/Fiona-T/word-monster.git`
+7. Press Enter to create the local clone
+
+You can refer to the [GitHub documentation](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) for more detailed information on the above process.
 ## Credits
 ### Code
 ### Content
