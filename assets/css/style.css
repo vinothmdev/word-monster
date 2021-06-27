@@ -165,7 +165,7 @@ main {
 
 /*==================================== Game Area - general ==============================================*/
 /* general styles for each section of the game area - border, padding, margin, full width at mobile size */
-.game-section {
+.page-section {
     border: 0.1rem solid var(--blue);
     border-radius: 0.1rem;
     padding: 0.5rem;
@@ -497,8 +497,8 @@ textarea:-webkit-autofill:focus {
         font-size: 1rem;
     }
 
-    /* extra margin and padding for game-sections as more space available*/
-    .game-section {
+    /* extra margin and padding for page-sections as more space available*/
+    .page-section {
         padding: .6rem;
         margin: .6rem auto;
     }
@@ -611,13 +611,13 @@ textarea:-webkit-autofill:focus {
 /*============================= tablet width and height ======================================*/
 @media screen and (min-width: 768px) and (min-height: 900px) {
 
-    /*==================== Game Area =======================*/
+    /*==================== General =======================*/
     /* more space added since there is more vertical space */
     main {
         padding-top: 1.8rem;
     }
 
-    .game-section {
+    .page-section {
         padding: 1.8rem;
         margin: 1.8rem auto;
     } 
@@ -642,7 +642,7 @@ textarea:-webkit-autofill:focus {
     }
 
     /* less padding and margin between sections in this layout */
-    .game-section {
+    .page-section {
         padding: 1rem;
         margin: 1rem auto;
     }
@@ -684,7 +684,7 @@ textarea:-webkit-autofill:focus {
         padding-top: 2rem;
     }
 
-    .game-section {
+    .page-section {
         padding: 2rem;
     } 
 
@@ -754,7 +754,7 @@ textarea:-webkit-autofill:focus {
     }
 
     /*==================== Game Area =======================*/
-    .game-section {
+    .page-section {
         margin: 1.5rem auto;
         padding: 2.5rem;
     } 
