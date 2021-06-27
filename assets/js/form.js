@@ -19,4 +19,4 @@ function handleSubmit(event) {
 //when DOM has loaded, listen for submit on the form
 document.addEventListener("DOMContentLoaded", function () {
     initialiseForm();
-})
+});

@@ -36,7 +36,7 @@ function createLetterSpaces(word) {
         span.setAttribute("class", "letter-space");
         span.setAttribute("data-letter", word[i]);
         document.getElementById("span-container").appendChild(span);
-    };
+    }
 }
 
 /**
@@ -131,7 +131,7 @@ function animateMonster() {
  */
 function handleCorrectGuess(keyPressed) {
     keyPressed.classList.add("correct");
-    let guessedLetter = keyPressed.innerHTML
+    let guessedLetter = keyPressed.innerHTML;
     //update textContent of span if the guessedLetter equals the data-letter value on that span
     let letterSpans = document.querySelectorAll(".letter-space");
     for (let letters of letterSpans) {
@@ -160,11 +160,11 @@ function checkIfGameWon() {
  */
 function endGame(gameWon) {
     if (gameWon) {
-        showGameOverMsg("YOU WON A TROPHY!")
+        showGameOverMsg("YOU WON A TROPHY!");
         updateScore();
         showTrophy();
     } else {
-        showGameOverMsg("SORRY, YOU LOST!")
+        showGameOverMsg("SORRY, YOU LOST!");
     }
     showWordMeaning();
     updateKeyboard("disable");
@@ -271,7 +271,7 @@ function initialiseModal() {
         if (event.target == document.querySelector(".modal.visible")) {
             document.querySelector(".modal.visible").classList.remove("visible");
         }
-    }
+    };
     /**
      * add or remove visible class to instructions-modal
      */
@@ -296,4 +296,4 @@ document.addEventListener("DOMContentLoaded", function () {
     initialiseCategories();
     initialiseModal();
     showStoredScore();
-})
+});

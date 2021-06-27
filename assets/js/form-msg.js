@@ -8,4 +8,4 @@ function showStoredName() {
 //when DOM has loaded, run the showStoredName function
 document.addEventListener("DOMContentLoaded", function () {
     showStoredName();
-})
+});
