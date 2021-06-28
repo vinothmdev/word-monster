@@ -158,11 +158,6 @@ main {
     line-height: 2rem;
 }
 
-/* hover change colour for modal close button */
-.modal-close:hover, .modal-close:focus {
-    color: var(--pink);
-}
-
 /* padding for text section of modal*/
 .modal-text ol {
     padding-left: 1.6rem;
