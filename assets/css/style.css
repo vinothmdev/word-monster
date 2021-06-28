@@ -73,6 +73,32 @@ main {
     align-items: center;
 }
 
+/* border around each page section, padding and margin */
+.page-section {
+    border: 0.1rem solid var(--blue);
+    border-radius: 0.1rem;
+    padding: 0.5rem;
+    margin: 0.5rem auto;
+    width: 100%;
+}
+
+/* general styles for buttons main section (not header/footer) - border, color, font */
+.main-btn {
+    border: 0.1rem solid var(--green);
+    border-radius: 0.1rem;
+    background-color: rgba(60, 60, 60, 0.6);
+    color: white;
+    font-family: 'VT323', monospace;
+    text-transform: uppercase;
+}
+
+/*change font color and background color on hover and focus*/
+.main-btn:hover,
+.main-btn:focus {
+    background-color: rgba(60, 60, 60, 0.9);
+    color: var(--green);
+}
+
 /*============================= header =============================================*/
 /* flex container for logo and li - li has score and instructions button */
 .page-header {
@@ -165,31 +191,6 @@ main {
 }
 
 /*==================================== Game Area - general ==============================================*/
-/* general styles for each section of the game area - border, padding, margin, full width at mobile size */
-.page-section {
-    border: 0.1rem solid var(--blue);
-    border-radius: 0.1rem;
-    padding: 0.5rem;
-    margin: 0.5rem auto;
-    width: 100%;
-}
-
-/* general styles for buttons in game area - border, color, font */
-.game-btn {
-    border: 0.1rem solid var(--green);
-    border-radius: 0.1rem;
-    background-color: rgba(60, 60, 60, 0.6);
-    color: white;
-    font-family: 'VT323', monospace;
-    text-transform: uppercase;
-}
-
-/*change font color and background color on hover and focus*/
-.game-btn:hover, .game-btn:focus {
-    background-color: rgba(60, 60, 60, 0.9);
-    color: var(--green);
-}
-
 /* for sections that are not shown initally and only shown at different game stages */
 .hidden {
     display: none;
@@ -428,16 +429,11 @@ textarea {
     opacity: 1;
 }
 
-/* submit button styles */
+/* submit button specific styles */
 .form-btn {
-    border: 0.1rem solid var(--green);
     padding: 0.4rem 0.6rem;
     margin: 0.5rem auto;
     width: 100%;
-    background-color: rgba(60, 60, 60, 0.6);
-    color: white;
-    font-family: 'VT323', monospace;
-    text-transform: uppercase;
     font-size: 1.1rem;
 }
 
