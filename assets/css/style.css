@@ -90,6 +90,7 @@ main {
     color: white;
     font-family: 'VT323', monospace;
     text-transform: uppercase;
+    font-size: 1.1rem;
 }
 
 /*change font color and background color on hover and focus*/
@@ -298,7 +299,6 @@ main {
     border: 0.1rem solid var(--pink);
     padding: 0.6rem;
     margin: 0.2rem;
-    font-size: 1.1rem;
     width: calc(50% - .8rem);
 }
 
@@ -343,7 +343,6 @@ main {
 .key {
     padding: 0.5rem 0.6rem;
     margin: 0.2rem;
-    font-size: 1.1rem;
 }
 
 /*style for disabled keys:before game starts, when letter chosen during game. Attribute added and removed by js*/
@@ -434,7 +433,6 @@ textarea {
     padding: 0.4rem 0.6rem;
     margin: 0.5rem auto;
     width: 100%;
-    font-size: 1.1rem;
 }
 
 /* hover style for submit button */
@@ -573,6 +571,11 @@ textarea:-webkit-autofill:focus {
     }
 
     /*==================== Game Area =======================*/
+    /* increase font-size for all buttons in main section */
+    .main-btn {
+        font-size: 1.4rem;
+    }
+
     .word-area {
         font-size: .9rem;
     }
@@ -587,9 +590,8 @@ textarea:-webkit-autofill:focus {
         width: calc(40% - .8rem);
     }
 
-    /* keys larger font-size and more padding */
+    /* keys more padding and margin */
     .key {
-        font-size: 1.4rem;
         padding: .8rem 1rem;
         margin: .4rem;
     }
@@ -686,17 +688,6 @@ textarea:-webkit-autofill:focus {
         line-height: 2rem;
     }
 
-    /* container for word buttons - extra padding at this size */
-    .word-button-area {
-        padding: 1.6rem 0 .8rem;
-    }
-
-    /* word buttons - larger font-size and padding */
-    .word-btn {
-        font-size: 1.6rem;
-        padding: 1rem;
-    }
-
     /* letters to be guessed - larger font size and spacing */
     .letter-space {
         margin: 0.6rem;
@@ -704,9 +695,23 @@ textarea:-webkit-autofill:focus {
         font-size: 1.4rem;
     }
 
-     /* keys larger font-size and more padding */
-     .key {
+    /* container for word buttons - extra padding at this size */
+    .word-button-area {
+        padding: 1.6rem 0 .8rem;
+    }
+
+    /* increase font-size for all buttons in main section */
+    .main-btn {
         font-size: 1.6rem;
+    }
+
+    /* word buttons - more padding */
+    .word-btn {
+        padding: 1rem;
+    }
+
+     /* keys more padding and margin */
+     .key {
         padding: 1.2rem 1.4rem;
         margin: .6rem;
     }
@@ -762,28 +767,31 @@ textarea:-webkit-autofill:focus {
         line-height: 2.4rem;
     }
 
-    /* word buttons - larger font-size and padding */
-    .word-btn {
-        font-size: 2rem;
-        padding: 1.5rem;
-        letter-spacing: 0.2rem;
-        width: 30%;
-        margin: 1rem;
-    }
-
     /* letters to be guessed - larger font size and spacing */
     .letter-space {
         height: 2.8rem;
         font-size: 1.8rem;
     }
 
+    /* increase font-size for all buttons in main section */
+    .main-btn {
+        font-size: 2rem;
+    }
+
+    /* word buttons - more padding/spacing */
+    .word-btn {
+        padding: 1.5rem;
+        letter-spacing: 0.2rem;
+        width: 30%;
+        margin: 1rem;
+    }
+
+    /* more padding on keyboard and keys */
     .keyboard {
         padding: 3rem 4rem;
     }
 
-     /* keys larger font-size and more padding */
      .key {
-        font-size: 2rem;
         padding: 1.4rem 1.6rem;
     }
 
