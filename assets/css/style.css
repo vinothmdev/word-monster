@@ -73,16 +73,23 @@ main {
     align-items: center;
 }
 
-/* border around each page section, padding and margin */
+/* border around each page section, padding and margin, font-size for main sections */
 .page-section {
     border: 0.1rem solid var(--blue);
     border-radius: 0.1rem;
     padding: 0.5rem;
     margin: 0.5rem auto;
     width: 100%;
+    font-size: 0.75rem;
+    line-height: 1.2rem;
 }
 
-/* general styles for buttons main section (not header/footer) - border, color, font */
+/* padding underneath each p in page sections */
+.page-section p {
+    padding-bottom: 1rem;
+}
+
+/* general styles for buttons in main section (not header/footer) - border, color, font */
 .main-btn {
     border: 0.1rem solid var(--green);
     border-radius: 0.1rem;
@@ -264,15 +271,9 @@ main {
 }
 
 /*==================================== Word Area ==============================================*/
-/* word area - font styles */
+/* word area - centered text */
 .word-area {
-    font-size: 0.75rem;
-    line-height: 1.2rem;
     text-align: center;
-}
-
-.word-area p {
-    padding-bottom: 1rem;
 }
 
 /* font styles for Word, Meaning, Category labels, font is % of parent element */
@@ -385,18 +386,8 @@ h2 {
     line-height: 2rem;
 }
 
-.contact-section {
-    font-size: 0.75rem;
-    line-height: 1.2rem;
-}
-
-.contact-section p {
-    padding-bottom: 1rem;
-}
-
 .contact-section form {
     padding: 0 0.5rem;
-    /* margin: 0 auto; */
 }
 
 /* for input labels to display above inputs */
@@ -576,7 +567,7 @@ textarea:-webkit-autofill:focus {
         font-size: 1.4rem;
     }
 
-    .word-area {
+    .page-section {
         font-size: .9rem;
     }
 
@@ -630,20 +621,16 @@ textarea:-webkit-autofill:focus {
         width: 10%;
     }
 
-    /* less padding and margin between sections in this layout */
+    /* less padding and margin between sections in this layout, change line height */
     .page-section {
         padding: 1rem;
         margin: 1rem auto;
+        line-height: 1.4rem;
     }
 
     /* container for guesses - extra padding at sides to keep centered and adjust icon sizes */    
     .guesses {
         padding: 1rem 3rem;
-    }
-
-    /* font sizing adjustments for word area and game over text */
-    .word-area {
-        line-height: 1.4rem;
     }
 
     .game-over-text {
@@ -673,19 +660,16 @@ textarea:-webkit-autofill:focus {
         padding-top: 2rem;
     }
 
+    /* larger font size for sections, more padding */
     .page-section {
         padding: 2rem;
+        font-size: 1.2rem;
+        line-height: 2rem;
     } 
 
     /* adjust size of icon at game-over stage - larger than previous media query as box has more space */
     .centered > .guess {
         width: 15%;
-    }
-
-    /* larger font size for main word area */
-    .word-area {
-        font-size: 1.2rem;
-        line-height: 2rem;
     }
 
     /* letters to be guessed - larger font size and spacing */
@@ -746,10 +730,13 @@ textarea:-webkit-autofill:focus {
     }
 
     /*==================== Game Area =======================*/
+    /* larger font size for sections, more margin and padding */
     .page-section {
         margin: 1.5rem auto;
         padding: 2.5rem;
-    } 
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+    }
 
     .guesses {
         padding: 3rem 6rem;
@@ -759,12 +746,6 @@ textarea:-webkit-autofill:focus {
         font-size: 2.6rem;
         line-height: 3.6rem;
         letter-spacing: 0.2rem;
-    }
-
-    /* larger font size for main word area */
-    .word-area {
-        font-size: 1.6rem;
-        line-height: 2.4rem;
     }
 
     /* letters to be guessed - larger font size and spacing */
