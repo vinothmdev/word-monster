@@ -10,11 +10,6 @@ ul {
     list-style: none;
 }
 
-/* remove default underline from links */
-a {
-    text-decoration: none;
-}
-
 /*============================= general =============================================*/
 /* colour variables */
 :root {
@@ -39,6 +34,12 @@ body {
     color: white;
 }
 
+/* general style for links - in footer and on form success page - no underline, set colour */
+a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
 /*remove background and border and set button text style, set font */
 button {
     cursor: pointer;
@@ -50,8 +51,8 @@ button {
     letter-spacing: .1rem;
 }
 
-/* hover style for button */
-button:hover, button:focus {
+/* hover style for button and links */
+button:hover, button:focus, a:hover, a:focus {
     color: var(--pink);
 }
 
@@ -374,16 +375,6 @@ footer {
 footer li {
     display: inline;
     padding: 0 0.5rem;
-}
-
-/* social media links color and color on hover and focus below also */
-footer a {
-    color: var(--blue);
-}
-
-footer a:hover,
-footer a:focus {
-    color: var(--pink);
 }
 
 /*==================================== Contact Form ==============================================*/
