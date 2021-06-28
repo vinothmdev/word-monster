@@ -321,7 +321,7 @@ main {
     align-items: center;
 }
 
-/* spans for letters to be guessed - shown when game starts. Correct letters displayed here when guessed*/
+/* spans for letters to be guessed - spacing etc. font-size % so increases in line with parent font size */
 .letter-space {
     width: 8%;
     border-bottom: 0.2rem solid var(--pink);
@@ -329,6 +329,7 @@ main {
     margin: 0.2rem;
     padding-bottom: 0.2rem;
     height: 1.5rem;
+    font-size: 120%;
 }
 
 /*==================================== Keyboard ==============================================*/
@@ -638,11 +639,10 @@ textarea:-webkit-autofill:focus {
         line-height: 2rem;
     }
 
-    /* letters to be guessed - larger font etc at this size */
+    /* letters to be guessed - more space between spans, extra height */
     .letter-space {
         margin: 0.4rem;
         height: 1.8rem;
-        font-size: 1.2rem;
     }
 }
 
@@ -672,11 +672,10 @@ textarea:-webkit-autofill:focus {
         width: 15%;
     }
 
-    /* letters to be guessed - larger font size and spacing */
+    /* letters to be guessed - more space between spans, extra height */
     .letter-space {
         margin: 0.6rem;
         height: 2.4rem;
-        font-size: 1.4rem;
     }
 
     /* container for word buttons - extra padding at this size */
@@ -748,10 +747,9 @@ textarea:-webkit-autofill:focus {
         letter-spacing: 0.2rem;
     }
 
-    /* letters to be guessed - larger font size and spacing */
+    /* letters to be guessed - extra height */
     .letter-space {
         height: 2.8rem;
-        font-size: 1.8rem;
     }
 
     /* increase font-size for all buttons in main section */
