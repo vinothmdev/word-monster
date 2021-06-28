@@ -18,7 +18,9 @@ ul {
     --yellow: #ffff00;
     --blue: #00ffde;
     --pink: #ff00ff;
+    --red: #fb1307;
     --black: #000;
+    --white: #fff;
 }
 
 /* base page font styles and body as flex container */
@@ -31,7 +33,7 @@ body {
     line-height: 1.6rem;
     letter-spacing: 0.04rem;
     background-color: var(--black);
-    color: white;
+    color: var(--white);
 }
 
 /* general style for links - in footer and on form success page - no underline, set colour */
@@ -93,7 +95,7 @@ main {
     border: 0.1rem solid var(--green);
     border-radius: 0.1rem;
     background-color: rgba(60, 60, 60, 0.6);
-    color: white;
+    color: var(--white);
     font-family: 'VT323', monospace;
     text-transform: uppercase;
     font-size: 1.1rem;
@@ -350,7 +352,7 @@ main {
 
 /* font colour on key when incorrect letter guessed */
 .incorrect {
-    color: red;
+    color: var(--red);
 }
 
 /* font colour on key when correct letter guessed */
