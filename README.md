@@ -135,6 +135,7 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
 - Add a timer to the game so that it has to be completed in a certain time. Higher scores could be awarded for winning the game in a shorter amount of time
 
 ## Content Requirements
+---
 - Graphic representing the guesses available:
   - monster character
   - icon representing the guesses
@@ -177,7 +178,10 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
 - [RealFaviconGenerator](https://realfavicongenerator.net/) to convert the PNG graphic into ICO for the favicon
 
 ## Testing
-- ### Code Validation
+### Code Validation
+
+The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS file used for the project. There were no errors found.
+
 - ### Test Cases - user stories
 - ### Features Testing
 ### Fixed Bugs
