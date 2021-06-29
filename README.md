@@ -50,7 +50,7 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
 
     ![colours](docs/colours.png)
     - Green `#32ff00` is used for the logo, for outlining the keyboard buttons, as the 'correct guess' colour of pressed keys, and for outlining valid inputs into the Contact Form.
-    - Turquoise blue `#00ffde` is used as the outline around each section, and for links and the text inside the Contact Form inputs. 
+    - Turquoise blue `#00ffde` is used as the outline around each section, for links, and for the text inside the Contact Form inputs. 
     - Pink `#ff00ff` is used for the 'labels' and buttons within the 'word-area' section of the game, and for links on hover throughout the website.
     - Red `#fb1307` is used for the 'monster' graphic, and as the 'incorrect guess' colour for the pressed keys.
     - Orange `#f78c0e` is used for the 'obstacles' between the monster and the trophy, as well as the outlines for the Contact Form inputs, until they change colour when valid data is entered.
@@ -65,8 +65,10 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
   - Desktop/tablet wireframes:
     - [Homepage](docs/wireframes/home-desktop-tablet.png)
     - [Instructions](docs/wireframes/instructions-desktop-tablet.png)
-    - [Won game](docs/wireframes/won-game-desktop.png)
-    - [Lost game](docs/wireframes/lost-game-desktop.png)
+    - [Game in progress](docs/wireframes/game-in-play-desktop.png)
+     - [Game over - user won game](docs/wireframes/game-over-won-desktop.png)
+    - [Game over - user lost game](docs/wireframes/game-over-lost-desktop.png)
+    - [Contact Form](docs/wireframes/contact-form-desktop.png)
 
   - Mobile wireframes:
     - [Homepage - game not started](docs/wireframes/home-mobile.png)
@@ -74,6 +76,7 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
     - [Game in progress](docs/wireframes/game-in-play-mobile.png)
     - [Game over - user won game](docs/wireframes/game-over-won-mobile.png)
     - [Game over - user lost game](docs/wireframes/game-over-lost-mobile.png)
+    - [Contact Form](docs/wireframes/contact-form-mobile.png)
   - [View all wireframes in pdf here.](docs/wireframes/wireframes-all.pdf)
     
 ## Features
