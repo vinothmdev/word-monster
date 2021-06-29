@@ -165,13 +165,16 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
  - [Eye Dropper](https://eyedropper.org/) extension for Chrome to pick and generate colours for the project
 - [Coolors](https://coolors.co/) to generate a colour palette/see how colours worked beside each other
 - [Webaim Contrast Checker](https://webaim.org/resources/contrastchecker/) to check the contrast for the colour choices 
-- [Adobe Illustrator](https://www.adobe.com/ie/products/illustrator.html) to create the 'monster' graphic
+- [Adobe Illustrator](https://www.adobe.com/ie/products/illustrator.html) to create the 'monster', trophy and 'obstacle' graphics
+- [Font Awesome](https://fontawesome.com/) for the icons used throughout
 - Git for version control, using the [Gitpod](https://www.gitpod.io/) terminal to commit to Git and push to GitHub
 - [GitHub](https://github.com/) to store the project code and host the live project
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) during development and testing to fix issues with the code and check for responsiveness/different device sizes
 - [W3C HTML validator](https://validator.w3.org/) to validate the HTML code
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate the CSS code
+- [JSHint](https://jshint.com/) to check the quality of and check for errors in the JavaScript code
 - [Am I Responsive](http://ami.responsivedesign.is/) to generate the mockup image showing the project on different devices
+- [RealFaviconGenerator](https://realfavicongenerator.net/) to convert the PNG graphic into ICO for the favicon
 
 ## Testing
 - ### Code Validation
