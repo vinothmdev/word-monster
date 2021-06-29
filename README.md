@@ -37,11 +37,11 @@ Note: there is no login or registered users on this site so each user story is f
 9. As a visiting user, I want to know what the word was, if I lose the game, so that I can learn the word or see how it is spelled
 10. As a visiting user, I want to know the meaning of the word at the end of the game, regardless of whether I won or lost, so that I can add the word to my vocabulary 
 11. As a visiting user, I want to know how many games I have won during this session of playing.
+12. As a visiting user, I want to be able to contact the site owners if I come across any issues, have questions on the game or suggestions for improvement.
 
 ### Design
 The design of the Word Monster site and game takes inspiration from 'old-school' arcade video games like Pac-Man and Space Invaders. The simplicity of the 'hangman' style game is reflected in using the same style of simple graphics from these 80s video games. It also brings a sense of nostalgia for older visitors to the site, who may remember both these old video games, as well as playing the paper and pencil version of 'hangman' when they were children. For children, the simple graphics and bright colours should appeal and stand out in a world of realistic graphics and animations! The design of the game will reflect this through the use of colour, typography and graphics. 
-> 
-**Insert note re monster graphic when done.**
+The monster graphic is based on and reminiscent of the characters from Space Invaders and Pac-Man.
 
   - #### Colour scheme
     In keeping with the theme of nostalgic video games, the colour scheme draws on colours similar to those used in these games. The game users a solid black background, white text and bright primary colours for the graphics. These colours against the black background also give good contrast for accessibility.
@@ -113,6 +113,17 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
   - The keyboard letters are always displayed but are only active when the game is in the 'in-play' stage 
 - #### Footer:
   - contains the social media links: Facebook, Instagram and Twitter, represented by icons. 
+  - on the home page, this contains the Contact Us link to the Contact Form page. This link is not shown while the game is in the in-play stage, because leaving the main page would lose progress in the game. 
+  - on the Contact Form page, footer contains Back to Game link in place of the Contact Us link
+- #### Contact Form:
+  - contains the following inputs (all are mandatory) and validations:
+    - First name: text
+    - Surname: text
+    - Email address: must be valid format for email address
+    - Message: text
+  - the border on inputs changes colour to indicate when a valid input is received
+  - button called Send Message to submit the form
+  - Success page is displayed after submitting, showing the first name that was input into the form First Name field 
 
 ### Future Features
 - Extend the range of available word categories to choose from 
@@ -121,7 +132,6 @@ The design of the Word Monster site and game takes inspiration from 'old-school'
 - The option for a user to register with a username and have a user profile where they can see their score among other things
 - The option to have a Scoreboard showing different user's scores in particular categories/difficulty levels
 - The option for a user to be awarded with a 'badge' on successful completion of a certain number of games in a particular difficulty level and particular category. The badge would be added to their profile.
-- Contact form, to contact site owner
 - Add a timer to the game so that it has to be completed in a certain time. Higher scores could be awarded for winning the game in a shorter amount of time
 
 ## Content Requirements
