@@ -179,8 +179,11 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
 
 ## Testing
 ### Code Validation
-
+The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML on every page of the project. There was an error in relation to using `aria-label="hidden"` instead of `aria-hidden="true"`, this was as a result of human error and was rectified. After fixing this error the code validates with no issue.
+>
 The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS file used for the project. There were no errors found.
+>
+[JSHint](https://jshint.com/) was used to check the quality of the JavaScript code and check for errors. Apart from `Missing semicolon` errors which were rectified, there is one error 	`Expected an assignment or function call and instead saw an expression` which is to be investigated.
 
 - ### Test Cases - user stories
 - ### Features Testing
