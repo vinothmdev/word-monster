@@ -180,7 +180,26 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
 - ### Code Validation
 - ### Test Cases - user stories
 - ### Features Testing
-- ### Fixed Bugs
+### Fixed Bugs
+The following bugs were encountered during development and during testing.
+-   **Issue: Keys can be pressed before game has started, i.e. before word is chosen:**
+![keys-active-bug](docs/bugs/keys-active-bug.png)
+>Solution: Moved `eventListener` on the keys inside the `startGame function`, so only listening for click once the game is "in-play". And added `"disabled" attribute` to each key in the `HTML` so that they can't be clicked until game is "in-play", `startGame function` removes this `attribute` to allow clicks. `CSS` was also updated from a user perspective, to reduce the opacity of the keys when the game is not "in-play", so it is clear to the user that they cannot be clicked at this stage. 
+-   **Issue: Correct guessed letters not displaying properly:**
+![guessed-letters-bug](docs/bugs/guessed-letters-bug.png)
+>Solution: Created a parent container `div` for the `spans` (which represent the letters to be guessed) to be inside. Set this as a flex container, `align-items: center` and added `height` to the `span` elements for some extra space. 
+-   **Issue: Hint text still displayed on new game if hint button was clicked in previous game:**
+![hint-text-bug](docs/bugs/hint-text-bug.png)
+>Solution: Instead of just hiding the `"word-area-in-play" div` which contains the Hint button, the Hint button itself needs to be 'reset'. Updated the `resetGame function` to remove the `"hidden" class` from the Hint button, and to add the `"hidden" class` to the Hint text, i.e. put them back in the position they were before the game originally started. 
+-   **Issue: Letter-spaces created in previous game appearing at start of new game:**
+![letter-spaces-bug](docs/bugs/letter-spaces-bug.png)
+>Solution: The spans that were created during the game, based on number of letters in the word, need to be removed when resetting the game, they will be creating again on a new game based on the new word. Updated resetGame function with a `while loop` on the container `div`, to `removeChild` (`firstChild`) while the container `div` `hasChildNodes`.   
+-   **Issue: Contact Form autocomplete information styles over-riding form styles:**
+![contact-form-autocomplete-bug](docs/bugs/contact-form-autocomplete-bug.png)
+>Solution: Updated the CSS to over-ride the browser autocomplete font colour and background colour styles, based on [this post from CSS Tricks](https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/). 
+-   **Issue: Name from Contact Form not appearing in Form Success message:**
+![docs/bugs/form-success-name-bug.png](docs/bugs/form-success-name-bug.png)
+>Solution: Used `sessionStorage` to store (`setItem`) the name value from the form in `contact.html`, and then `getItem` to display it in the `form-success.html` page (also used this method to store and get the Score in the header when the user changes between pages).   
 - ### Other Testing (links etc.)
 - ### Supported Screens and Browsers
 ## Deployment
