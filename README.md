@@ -8,23 +8,23 @@
 
 ## Purpose
 ---
-Word Monster is a game based on the classic 'hangman' game, where the user has to figure out a word by guessing one letter at a time. The game is over when the user has guessed incorrectly 7 times, or when they have revealed the word by guessing all the correct letters. For this version, instead of drawing part of the hangman for each wrong guess, there is a 'monster' character with obstacles between it and the trophy. Each wrong guess erases an obstacle and the monster claims the trophy on the seventh wrong guess. The reason for using this character instead of the classic hangman is to make it a bit more friendly and light-hearted. 
+Word Monster is a game based on the classic 'hangman' game, where the user has to figure out a word by guessing one letter at a time. The game is over when the user has guessed incorrectly 7 times, or when they have revealed the word by guessing all the correct letters. For this version, instead of drawing part of the hangman for each wrong guess (as is the case for the classic version of the game), there is a 'monster' character with obstacles between it and the trophy. Each wrong guess erases an obstacle and the monster claims the trophy on the seventh wrong guess. The reason for using this character instead of the classic hangman is to make it a bit more friendly and light-hearted, bearing in mind the target audience. 
 
-The game is aimed at school-age children as a way of helping them to learn words and how they are spelled, in a fun way. It is also designed to appeal to adults in a nostalgic way, since many played hangman as children and the style of the game is reminiscent of old video games.
+The game is aimed at school-age children as a fun way of helping them to learn words and how they are spelled. It is also designed to appeal to adults in a nostalgic way, since many played hangman as children and the style of the game is reminiscent of old video games.
 
-#### User’s goals:
+### User’s goals:
 - the game's users want to practice their spelling
 - they want to improve their vocabulary
 - they want to exercise their brain in a fun way
 - they want a fun, nostalgic game to divert attention for a few minutes of their day
 
-#### Site owner’s goal:
+### Site owner’s goal:
 - the goal of the website is to provide a game for use by school-age children to help with learning the correct spelling of words, and to improve their vocabulary by exposing them to different words in the game. 
 - And to provide a game for adults who want to brush up on their spelling and/or vocabulary, or just want to exercise their brain a little bit, or play the game for a few minutes of distraction from daily life.
 
 ## User Experience (UX)
 ---
-- ### User stories
+### User stories
 Note: there is no login or registered users on this site so each user story is from the point of view of a visiting user.
 1. As a visiting user, I want to find out how to play the game so that I can start to play
 2. As a visiting user, I want to be able to select the category from which the random word will be chosen so that I know which type of word it is to help guide my guesses
@@ -38,21 +38,30 @@ Note: there is no login or registered users on this site so each user story is f
 10. As a visiting user, I want to know the meaning of the word at the end of the game, regardless of whether I won or lost, so that I can add the word to my vocabulary 
 11. As a visiting user, I want to know how many games I have won during this session of playing.
 
-- ### Design
+### Design
 The design of the Word Monster site and game takes inspiration from 'old-school' arcade video games like Pac-Man and Space Invaders. The simplicity of the 'hangman' style game is reflected in using the same style of simple graphics from these 80s video games. It also brings a sense of nostalgia for older visitors to the site, who may remember both these old video games, as well as playing the paper and pencil version of 'hangman' when they were children. For children, the simple graphics and bright colours should appeal and stand out in a world of realistic graphics and animations! The design of the game will reflect this through the use of colour, typography and graphics. 
 > 
 **Insert note re monster graphic when done.**
 
   - #### Colour scheme
-    In keeping with theme of nostalgic video games, the colour scheme draws on colours similar to those used in these games. A black background, white text and bright primary colours for the graphics. 
+    In keeping with the theme of nostalgic video games, the colour scheme draws on colours similar to those used in these games. The game users a solid black background, white text and bright primary colours for the graphics. These colours against the black background also give good contrast for accessibility.
     >
-    **Insert colour palette here**
-    
+    Colour palette:
+
+    ![colours](docs/colours.png)
+    - Green `#32ff00` is used for the logo, for outlining the keyboard buttons, as the 'correct guess' colour of pressed keys, and for outlining valid inputs into the Contact Form.
+    - Turquoise blue `#00ffde` is used as the outline around each section, and for links and the text inside the Contact Form inputs. 
+    - Pink `#ff00ff` is used for the 'labels' and buttons within the 'word-area' section of the game, and for links on hover throughout the website.
+    - Red `#fb1307` is used for the 'monster' graphic, and as the 'incorrect guess' colour for the pressed keys.
+    - Orange `#f78c0e` is used for the 'obstacles' between the monster and the trophy, as well as the outlines for the Contact Form inputs, until they change colour when valid data is entered.
+    - Yellow `#ffff00` is used for the trophy and the Score.
+    - Black `#000` is used for the background and White `#fff` for body text.
+
   - #### Typography
-    - **VT323** is used for the headings. This font is based on square pixels and so fits well with the style of this game
+    - **VT323** is used for the logo, headings, game buttons and the 'game over' text. This font is based on square pixels and so fits well with the style of this game. However it would not be very readable for large blocks of text so it is used sparingly here.
     - **IBM Plex Mono** is used for the body text. As a monospaced font with a squared off appearance it is reminiscent of old computer typefaces so fits with the theme, while also being readable.
 
-- ### Wireframes
+### Wireframes
   - Desktop/tablet wireframes:
     - [Homepage](docs/wireframes/home-desktop-tablet.png)
     - [Instructions](docs/wireframes/instructions-desktop-tablet.png)
