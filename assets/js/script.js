@@ -1,3 +1,6 @@
+/* this file contains functionality for the game in index.html, and for showing the instructions modal
+and storing the score in sessionStorage for all html pages. 
+Note: getWord() function is in separate words.js file, which also contains the words for the game */
 
 /**
  * listen for click on Category Buttons, on click hide the clicked button and run getWord using wordCategory
@@ -13,8 +16,11 @@ function initialiseCategories() {
 }
 
 /**
- * show word-area-in-play, show wordCategory, create letter spaces for word, enable keyboard, eventListener on Hint btn, hide contact us link 
- * @param {*string} wordCategory Verb or Adjective
+ * show word-area-in-play, show wordCategory, create letter spaces using word from wordObject, 
+ * store word, meaning and hint from wordObject to be displayed later,
+ * enable keyboard, add eventListener on Hint btn, hide Contact Us link
+ * @param {string} wordCategory Verb or Adjective
+ * @param {Object} wordObject word, hint, definition
  */
 function startGame(wordCategory, wordObject) {
     toggleElementVisibility("word-area-in-play");
@@ -28,7 +34,8 @@ function startGame(wordCategory, wordObject) {
 }
 
 /**
- * create blank spaces (spans) for letters in word to be guessed in span-container div, add the letter as a data-attribute (used later to check guesses)
+ * create blank spaces (spans) for letters in word to be guessed in span-container div, 
+ * add the letter as a data-attribute (used later to check guesses)
  * @param {string} word from wordObject
  */
 function createLetterSpaces(word) {
@@ -41,7 +48,8 @@ function createLetterSpaces(word) {
 }
 
 /**
- * store the hint, word and definition properties of wordObject in the relevant html elements, to be shown later at different stages of game
+ * store the word, meaning and hint properties of wordObject in the relevant html elements, 
+ * to be shown later: hint shown when Hint btn clicked; word + meaning shown when game over 
  * @param {Object} wordObject word, hint, definition
  */
 function storeWordProperties(wordObject) {
@@ -52,14 +60,14 @@ function storeWordProperties(wordObject) {
 
 /**
  * add or remove the "hidden" class from element
- * @param {string} elementId 
+ * @param {string} elementId id of the element to show or hide
  */
 function toggleElementVisibility(elementId) {
     document.getElementById(elementId).classList.toggle("hidden");
 }
 
 /**
- * change keyboard state, depending on the value of update
+ * change keyboard state, depending on the value of update parameter
  * @param {string} update can be enable, disable or revertColours 
  */
 function updateKeyboard(update) {
@@ -77,7 +85,7 @@ function updateKeyboard(update) {
 }
 
 /**
- * hide Hint button, show p tag which holds hint text
+ * when Hint button is clicked, hide the button, show p tag which holds hint text
  */
 function giveHint() {
     this.classList.add("hidden");
@@ -85,30 +93,29 @@ function giveHint() {
 }
 
 /**
- * disable the key pressed, check if wrong or right guess and run appropriate handleGuess function
+ * When key in keyboard is clicked, disable the key pressed, 
+ * check if wrong or right guess and run appropriate handleGuess function
  */
 function checkLetter() {
     let keyPressed = this;
     keyPressed.setAttribute("disabled", true);
     let wordToGuess = document.querySelector(".word").textContent.toUpperCase();
-    console.log(wordToGuess);
-    //wrong guess will be if indexOf is -1, i.e. letter is not in the word
+    // it's a wrong guess if indexOf is -1, i.e. letter is not in the word
     let isWrongGuess = wordToGuess.indexOf(keyPressed.innerHTML) === -1;
-    // if it's a wrong guess, run handleIncorrectGuess function, otherwise run correctGuess function
+    // if it's a wrong guess, run handleIncorrectGuess function, otherwise run handleCorrectGuess function
     isWrongGuess ? handleIncorrectGuess(keyPressed) : handleCorrectGuess(keyPressed);
 }
 
 /**
- * add red colour to keyPressed, decrease chancesRemaining, animate monster, check if game lost
+ * Add red colour to keyPressed, decrease chancesRemaining, animate monster, check if game lost
+ * @param {string} keyPressed the letter clicked on for that guess
  */
 function handleIncorrectGuess(keyPressed) {
     keyPressed.classList.add("incorrect");
     //chances remaining is the number of imgs with data-guess attribute that are not already hidden
     let chancesRemaining = document.querySelectorAll(`img[data-guess]:not(.hidden)`).length;
-    console.log(chancesRemaining);
     //decrease chancesRemaining by 1 and hide the img element with corresponding data-guess value
     document.querySelector(`img[data-guess="${chancesRemaining--}"]`).classList.add("hidden");
-    console.log(chancesRemaining);
     animateMonster();    
     //if no chances remaining, game is lost, run endGame function with wonGame value of false
     if (chancesRemaining === 0) {
@@ -117,7 +124,7 @@ function handleIncorrectGuess(keyPressed) {
 }
 
 /**
- * animate monster graphic by adding jump class for 150ms
+ * animate monster graphic for wrong guess, by adding jump class for 150ms
  */
 function animateMonster() {
     document.querySelector(".monster").classList.add("jump");
@@ -127,8 +134,8 @@ function animateMonster() {
 }
 
 /**
- * add correct colour to keyPressed, update letter on screen in appropriate span space, check if game won
- * @param {*} keyPressed the letter clicked on
+ * add green colour to keyPressed, update letter on screen in appropriate span space, check if game won
+ * @param {string} keyPressed the letter clicked on for that guess
  */
 function handleCorrectGuess(keyPressed) {
     keyPressed.classList.add("correct");
@@ -144,7 +151,8 @@ function handleCorrectGuess(keyPressed) {
 }
 
 /**
- * If all letters have been guessed, show letters for 300ms then run endGame with isWon true
+ * if letters guessed correctly equals the word, then the game is won.
+ * show all correct letters for 300ms then run endGame with isWon parameter value of true
  */
 function checkIfGameWon() {
     let correctLetters = document.getElementById("span-container").textContent;
@@ -156,7 +164,8 @@ function checkIfGameWon() {
 }
 
 /**
- * show the game over message, show word & meaning, disable keyboad, add evenListener on Play Again button, show Contact Us link
+ * show the relevant game over message depending on if game won or not, show word & meaning, 
+ * disable keyboad, add evenListener on Play Again button, show Contact Us link 
  * @param {boolean} gameWon true or false  
  */
 function endGame(gameWon) {
@@ -174,7 +183,7 @@ function endGame(gameWon) {
 }
 
 /**
- * show game-over box, add centered class, show text of won or lost msg parameter passed from endGame 
+ * show game-over box, add centered class, show text of won or lost msg passed from endGame 
  * @param {string} msg won or lost message
  */
 function showGameOverMsg(msg) {
@@ -192,7 +201,8 @@ function showWordMeaning() {
 }
 
 /**
- * add 1 to Score at endGame when status is won. Get previous score and add 1 to it. Set score as a sessionStorage Item
+ * If game won, get previous Score and add 1 to it. 
+ * Set score as a sessionStorage Item so that score can be shown when moving between pages
  */
 function updateScore() {
     let score = parseInt(document.getElementById("score").textContent);
@@ -201,7 +211,8 @@ function updateScore() {
 }
 
 /**
- * Show trophy and hide other guess imgs, animate trophy by adding .shake class and removing after 1second
+ * If game won, hide all .guess imgs, except for .trophy img 
+ * animate trophy by adding .shake class and removing after 1 second
  */
 function showTrophy() {
     let guesses = document.querySelectorAll("img.guess:not(.trophy)");
@@ -214,7 +225,8 @@ function showTrophy() {
 }
 
 /**
- * show 'at-start', hide 'game-over' word areas, resetGuesses, removeLetterSpaces, resetHintBtn, remove colours from pressedKeys
+ * when Play Again button clicked, show 'at-start' and hide 'game-over' word areas, reset .guess imgs,
+ * removeLetterSpaces created at start of game, resetHintBtn, remove colours from pressedKeys
  */
 function resetGame() {
     toggleElementVisibility("word-area-at-start");
@@ -226,7 +238,7 @@ function resetGame() {
 }
 
 /**
- * reset Guesses area, hide game-over-text, show all the .guess graphics and remove centred class, re-set wrong guesses counter
+ * hide game-over-text, show all the .guess graphics and remove centred class
  */
 function resetGuesses() {
     toggleElementVisibility("game-over-text-box");
@@ -236,7 +248,7 @@ function resetGuesses() {
 }
 
 /**
- * // remove spans for letter spaces that were created at startGame
+ * remove spans for letter spaces that were created at startGame
  */
 function removeLetterSpaces() {
     let spanContainer = document.getElementById("span-container");
@@ -246,9 +258,10 @@ function removeLetterSpaces() {
 }
 
 /**
- * Hide the hint text, show the hint button
+ * Hide the hint text, show the Hint button
  */
-//Note: not using toggle class because hint btn/text might already be visible/hidden depending on whether hint shown in game
+/* Note: not using toggle classList because hint btn/text might already be visible/hidden 
+depending on whether hint shown during game so toggle could remove/add wrong class at this stage */
 function resetHintBtn() {
     let hintButton = document.getElementById("hint");
     hintButton.classList.remove("hidden");
@@ -256,7 +269,7 @@ function resetHintBtn() {
 }
 
 /**
- * open or close instructions Modal when clicked
+ * open instructions Modal box when Instructions button clicked, close it on click of close button or on window
  */
 function initialiseModal() {
     // on click add visible class to instructions-modal, put focus on close btn so user can press enter to close
@@ -283,7 +296,8 @@ function initialiseModal() {
 }
 
 /**
- * if score from sessionStorage is more than 0, show it in Score on loading page, for user switching between pages
+ * to show correct Score in header for user switching between pages,
+ * if score in sessionStorage is more than 0, show it in Score when page loads
  */
 function showStoredScore() {
     let score = document.getElementById("score");
@@ -293,7 +307,8 @@ function showStoredScore() {
     }
 }
 
-//when DOM has loaded, listen for click on Category Buttons to start game, on instructions-open button to open modal, and show session score
+/* when DOM has loaded, listen for click on Category Buttons to start game, 
+listen for click on instructions-open button to open modal, and show session score in Score in header */
 document.addEventListener("DOMContentLoaded", function () {
     initialiseCategories();
     initialiseModal();
