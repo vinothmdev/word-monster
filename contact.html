@@ -18,34 +18,35 @@
     <title>Contact Us - Word Monster</title>
 </head>
 <body>
-    <!--header for the page, contain Logo, Score and Instructions button-->
+    <!--header for the page, containing Logo, Score and Instructions button-->
     <header class="page-header">
         <a href="index.html">
             <h1 class="logo">Word Monster</h1>
         </a>
         <!--ul containing Score and Instructions button-->
         <ul>
-            <!--only icon and number shown initially, word 'Score' shown at larger screen size -->
+            <!--Icon initially, word 'Score' shown at larger screen size. Score updated by script.js -->
             <li>
                 <i class="fas fa-trophy" role="img" aria-label="Score"></i> <span class="hide-text">Score:
                 </span><span id="score">0</span>
             </li>
-            <!--button to open instructions-modal, js uses id to access. Only icon shown initially-->
+            <!--button to open instructions-modal, script.js uses id to access. Only icon shown initially-->
             <li>
-                <button type="button" id="instructions-open" class="header-footer-btn" aria-label="Click to open instructions box"><i
-                        class="fas fa-lightbulb" aria-hidden="true"></i><span class="hide-text" aria-hidden="true">
-                        Instructions</span></button>
+                <button type="button" id="instructions-open" class="header-footer-btn"
+                    aria-label="Click to open instructions box"><i class="fas fa-lightbulb" aria-hidden="true"></i><span
+                        class="hide-text" aria-hidden="true"> Instructions</span></button>
             </li>
         </ul>
     </header>
-    <!--outer modal when the Instructions button is clicked, retrieved by id in js-->
+    <!--outer modal when the Instructions button is clicked, retrieved by id in script.js-->
     <div class="modal" role="dialog" id="instructions-modal">
         <!--content of modal box-->
         <div class="modal-content">
             <!--modal header with title and close button-->
             <header class="modal-header">
                 <h2>Instructions</h2>
-                <button type="button" class="modal-close" aria-label="Close instructions box" id="close-modal">&times;</button>
+                <button type="button" class="modal-close" aria-label="Close instructions box"
+                    id="close-modal">&times;</button>
             </header>
             <!--modal text with intro text and instruction list-->
             <div class="modal-text">
@@ -76,13 +77,14 @@
         </div>
     </div>
     <!--end of modal section-->
-    <!--game area containing 3 divs: monster/guesses area, word/button area and keyboard area-->
+    <!-- main contains one div with contact form -->
     <main>
-        <!--div with form -->
+        <!--div with contact form -->
         <div class="page-section contact-section">
             <h2>Contact Us</h2>
             <p>Fill in your details and message below and we'll be back to you soon!</p>
             <p><em>All fields must be completed.</em></p>
+            <!-- first-name value from contact-form retrieved by form.js to be shown in form-success message -->
             <form id="contact-form" action="form-success.html">
                 <label for="first-name">First name</label>
                 <input type="text" id="first-name" name="first-name" required>
@@ -96,7 +98,7 @@
             </form>
         </div>
     </main>
-    <!-- footer contains two divs, one for social media links, one for Contact Us link -->
+    <!-- footer contains two divs, one for social media links, one for Back to Game link -->
     <footer>
         <!-- social media links -->
         <div>
@@ -125,7 +127,7 @@
     </footer>
     <!--script for the fontawesome icons-->
     <script src="https://kit.fontawesome.com/f92ca5e5ec.js" crossorigin="anonymous"></script>    
-    <!--script for page functionality and game functionality -->
+    <!--script for page functionality - Instructions Modal and to show Score across different pages -->
     <script src="assets/js/script.js"></script>
     <!--script to handle contact form submit-->
     <script src="assets/js/form.js"></script>
