@@ -18,7 +18,7 @@
     <title>Word Monster</title>
 </head>
 <body>
-    <!--header for the page, contain Logo, Score and Instructions button-->
+    <!--header for the page, containing Logo, Score and Instructions button-->
     <header class="page-header">
         <a href="index.html">
             <h1 class="logo">Word Monster</h1>
@@ -32,20 +32,22 @@
             </li>
             <!--button to open instructions-modal, js uses id to access. Only icon shown initially-->
             <li>
-                <button type="button" id="instructions-open" class="header-footer-btn" aria-label="Click to open instructions box"><i
-                        class="fas fa-lightbulb" aria-hidden="true"></i><span class="hide-text" aria-hidden="true">
+                <button type="button" id="instructions-open" class="header-footer-btn"
+                    aria-label="Click to open instructions box"><i class="fas fa-lightbulb" aria-hidden="true"></i><span
+                        class="hide-text" aria-hidden="true">
                         Instructions</span></button>
             </li>
         </ul>
     </header>
-    <!--outer modal when the Instructions button is clicked, retrieved by id in js-->
+    <!--outer modal when the Instructions button is clicked, retrieved by id in script.js-->
     <div class="modal" role="dialog" id="instructions-modal">
         <!--content of modal box-->
         <div class="modal-content">
             <!--modal header with title and close button-->
             <header class="modal-header">
                 <h2>Instructions</h2>
-                <button type="button" class="modal-close" aria-label="Close instructions box" id="close-modal">&times;</button>
+                <button type="button" class="modal-close" aria-label="Close instructions box"
+                    id="close-modal">&times;</button>
             </header>
             <!--modal text with intro text and instruction list-->
             <div class="modal-text">
@@ -76,41 +78,35 @@
         </div>
     </div>
     <!--end of modal section-->
-    <!--game area containing 3 divs: monster/guesses area, word/button area and keyboard area-->
+    <!--game area containing 3 divs: monster/guesses/trophy area, word/button area and keyboard area-->
     <main>
-        <!--div with graphics for monster and chances for wrong guesses, represented by circles and trophy-->
+        <!--monster/guesses/trophy area, div for game over message, imgs for monster,guess,trophy. Updated by script.js -->
         <div class="guesses page-section" aria-live="polite" aria-atomic=”true”>
-            <!-- text to be displayed when game is over, initially hidden -->
+            <!-- text to be displayed when game is over by script.js, initially hidden -->
             <div class="game-over-text hidden" id="game-over-text-box">
                 <p>GAME OVER!</p>
-                <!-- msg varies depending on if won or lost - will be shown by js -->
+                <!-- msg varies depending on if won or lost - handled by script.js -->
                 <p id="won-or-lost-msg"></p>
             </div>
             <!--all img.guess are shown at game start. During game, each wrong guess adds hidden class to img.guess-->
             <img src="assets/images/monster.png" alt="monster" class="guess monster">
-            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess"
-                data-guess="7">
-            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess"
-                data-guess="6">
-            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess"
-                data-guess="5">
-            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess"
-                data-guess="4">
-            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess"
-                data-guess="3">
-            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess"
-                data-guess="2">
+            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess" data-guess="7">
+            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess" data-guess="6">
+            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess" data-guess="5">
+            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess" data-guess="4">
+            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess" data-guess="3">
+            <img src="assets/images/circle.png" alt="obstacle between monster and trophy" class="guess" data-guess="2">
             <!--img.trophy is shown with the winning msg at game over stage if game won-->
             <img src="assets/images/trophy.png" alt="trophy" class="guess trophy" data-guess="1">
         </div>
-        <!-- end of guesses div -->
-        <!-- word area - content changes depending on game stage (3 stages), each div is shown or hidden -->
+        <!-- end of monster/guesses/trophy div -->
+        <!-- word area - 3 child divs shown/hidden by script.js depending on stage of game (start, in play, over)-->
         <div class="page-section word-area" aria-live="polite" aria-atomic=”true”>
-            <!-- word area before game is started, this div is shown on page loading and after Play Again btn click -->
+            <!-- word area before game started, shown on page loading and after Play Again btn click -->
             <div id="word-area-at-start">
                 <p>Can you guess the word and beat the monster to win the trophy?</p>
                 <p>Pick a category below to start the game!</p>
-                <!-- button area - before game is started - each button represents word category -->
+                <!-- button area - category buttons, game starts when user clicks one of the buttons -->
                 <div class="word-button-area">
                     <button type="button" class="word-btn main-btn category-btn">adjective</button>
                     <button type="button" class="word-btn main-btn category-btn">verb</button>
@@ -118,36 +114,38 @@
             </div>
             <!-- word area when game is in play, initially hidden -->
             <div class="hidden" id="word-area-in-play">
+                <!-- chosen category displayed in span with id=category, by script.js -->
                 <p><span class="span-label"><i class="fas fa-list-ul" aria-hidden="true"></i> Category:
                     </span><span id="category"></span></p>
                 <p>Use the keyboard on screen to guess the letters</p>
-                <!-- div containing the word to be guessed. Child spans generated by js for each letter -->
+                <!-- div containing the word to be guessed. Child spans generated by script.js for each letter -->
                 <div id="span-container" class="letter-space-container"></div>
                 <!-- button area - when game in play - Hint button -->
                 <div class="word-button-area">
                     <button type="button" class="word-btn main-btn" id="hint">Hint?</button>
-                    <!-- text of hint - hidden initially - only shown when Hint button clicked -->
+                    <!-- text of hint - hidden initially - shown when Hint button clicked -->
                     <p class="hidden"><span class="span-label"><i class="far fa-hand-point-right"
-                        aria-hidden="true"></i> Hint:
+                                aria-hidden="true"></i> Hint:
                         </span><span></span></p>
                 </div>
             </div>
             <!--word area when game over, initially hidden-->
             <div class="hidden" id="word-area-game-over">
+                <!-- word and meaning retrieved by script.js, displayed in relevant spans below -->
                 <p><span class="span-label"><i class="fas fa-book-open" aria-hidden="true"></i> The word was:
                     </span><span class="word"></span></p>
                 <p><span class="span-label"><i class="fas fa-question-circle" aria-hidden="true"></i> Meaning:
                     </span><span class="definition"></span></p>
-                <!-- button area - when game over - Play Again button - to reset the game -->
+                <!-- button area - when game over - Play Again button to reset the game -->
                 <div class="word-button-area">
                     <button type="button" class="word-btn main-btn" id="reset">Play Again</button>
                 </div>
             </div>
         </div>
-        <!-- end of word divs -->
-        <!--keyboard-->
+        <!-- end of word area divs -->
+        <!-- keyboard for user to guess letters -->
         <div class="keyboard page-section">
-            <!--buttons for letters A-Z. Initially disabled, disabled attribute removed by js when game started. -->
+            <!--buttons for letters A-Z. Initially disabled, disabled attribute removed by script.js when game in-play. -->
             <button type="button" class="key main-btn" disabled>A</button>
             <button type="button" class="key main-btn" disabled>B</button>
             <button type="button" class="key main-btn" disabled>C</button>
@@ -179,7 +177,7 @@
     </main>
     <!-- footer contains two divs, one for social media links, one for Contact Us link -->
     <footer>
-        <!-- div with social media links -->
+        <!-- social media links -->
         <div>
             <ul>
                 <li>
@@ -206,7 +204,7 @@
     </footer>
     <!--script for the fontawesome icons-->
     <script src="https://kit.fontawesome.com/f92ca5e5ec.js" crossorigin="anonymous"></script>
-    <!--script holding array of word objects for random word, hint, meaning -->
+    <!--script holding array of word objects (with hint, meaning, type) from which random word is chosen by type -->
     <script src="assets/js/words.js"></script>
     <!--script for page functionality and game functionality -->
     <script src="assets/js/script.js"></script>
