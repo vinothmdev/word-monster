@@ -1,9 +1,14 @@
+/* this file is used by index.html to get the random word by category when the category is chosen 
+from the initialiseCategories function in script.js and the getWord function is called.
+There is only one function in this file and it also contains all the words for the game.
+Split out from script.js for readability */
+
 /**
- * Get random word from array of Word Objects(word, type, hint, meaning) then run startGame
+ * Get random word by category from array of Word Objects(word, type, hint, meaning) then run startGame
  * @param {string} wordCategory Verb or Adjective
  */
 function getWord(wordCategory) {
-
+//array of word objects, each one has word, type, hint and meaning
 const words = [{
     word: "eat",
     type: "verb",
@@ -205,10 +210,9 @@ const words = [{
     hint: "the third colour of a rainbow",
     meaning: "of a colour like that of a lemon or gold or the sun"
 }];
-
+// filter the words array into a new array, by the chosen category
 let wordsByType = words.filter(word => word.type === wordCategory);
-    //get a random word object from the wordsByType array 
+    //get a random word object from the wordsByType array, pass this to startGame function 
     let wordObject = wordsByType[Math.floor(Math.random() * wordsByType.length)];
     startGame(wordCategory, wordObject);
-
 }

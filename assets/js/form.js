@@ -1,3 +1,6 @@
+/* this file is used by contact.html to store firstname submitted in form into sessionStorage, 
+so form-success.html can get it from sessionStorage for form success message */
+
 /**
  * when submit event happens, run handleSubmit function
  */
