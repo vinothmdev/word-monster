@@ -392,6 +392,7 @@ form {
 /* for input labels to display above inputs */
 label {
     display: block;
+    line-height: 1.2rem;
 }
 
 /* form inputs and textarea - layout, spacing */
@@ -485,6 +486,11 @@ textarea:-webkit-autofill:focus {
     /* slightly larger margin between keys */
     .key {
         margin: 0.3rem;
+    }
+
+    /* increase padding around form */
+    form {
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -588,6 +594,24 @@ textarea:-webkit-autofill:focus {
     .key {
         padding: .8rem 1rem;
         margin: .4rem;
+    }
+
+    /*==================== Contact Form =======================*/
+    /* extra spacing around inputs */
+    form input,
+    textarea {
+        margin-bottom: 1rem;
+    }
+
+    /* increase line-height to create gap between label and input*/
+    form label {
+        line-height: 2rem;
+    }
+
+    /* submit button extra padding and margin */
+    .form-btn {
+        padding: 0.8rem 0;
+        margin: 1rem auto;
     }
 }
 
