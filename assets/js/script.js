@@ -13,7 +13,7 @@ function initialiseCategories() {
 }
 
 /**
- * show word-area-in-play, show wordCategory, create letter spaces for word, enable keyboard, eventListener on Hint btn 
+ * show word-area-in-play, show wordCategory, create letter spaces for word, enable keyboard, eventListener on Hint btn, hide contact us link 
  * @param {*string} wordCategory Verb or Adjective
  */
 function startGame(wordCategory, wordObject) {
@@ -24,6 +24,7 @@ function startGame(wordCategory, wordObject) {
     storeWordProperties(wordObject);
     updateKeyboard("enable");
     document.getElementById("hint").addEventListener("click", giveHint);
+    toggleElementVisibility("contact-btn");
 }
 
 /**
@@ -155,7 +156,7 @@ function checkIfGameWon() {
 }
 
 /**
- * show the game over message, show word & meaning, disable keyboad, add evenListener on Play Again button
+ * show the game over message, show word & meaning, disable keyboad, add evenListener on Play Again button, show Contact Us link
  * @param {boolean} gameWon true or false  
  */
 function endGame(gameWon) {
@@ -169,6 +170,7 @@ function endGame(gameWon) {
     showWordMeaning();
     updateKeyboard("disable");
     document.getElementById("reset").addEventListener("click", resetGame);
+    toggleElementVisibility("contact-btn");
 }
 
 /**
