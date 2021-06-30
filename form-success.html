@@ -18,27 +18,27 @@
     <title>Form Success - Word Monster</title>
 </head>
 <body>
-    <!--header for the page, contain Logo, Score and Instructions button-->
+    <!--header for the page, containing Logo, Score and Instructions button-->
     <header class="page-header">
         <a href="index.html">
             <h1 class="logo">Word Monster</h1>
         </a>
         <!--ul containing Score and Instructions button-->
         <ul>
-            <!--only icon and number shown initially, word 'Score' shown at larger screen size -->
+            <!--Icon initially, word 'Score' shown at larger screen size. Score updated by script.js -->
             <li>
                 <i class="fas fa-trophy" role="img" aria-label="Score"></i> <span class="hide-text">Score:
                 </span><span id="score">0</span>
             </li>
-            <!--button to open instructions-modal, js uses id to access. Only icon shown initially-->
+            <!--button to open instructions-modal, script.js uses id to access. Only icon shown initially-->
             <li>
-                <button type="button" id="instructions-open" class="header-footer-btn" aria-label="Click to open instructions box"><i
-                        class="fas fa-lightbulb" aria-hidden="true"></i><span class="hide-text" aria-hidden="true">
-                        Instructions</span></button>
+                <button type="button" id="instructions-open" class="header-footer-btn"
+                    aria-label="Click to open instructions box"><i class="fas fa-lightbulb" aria-hidden="true"></i><span
+                        class="hide-text" aria-hidden="true"> Instructions</span></button>
             </li>
         </ul>
     </header>
-    <!--outer modal when the Instructions button is clicked, retrieved by id in js-->
+    <!--outer modal when the Instructions button is clicked, retrieved by id in script.js-->
     <div class="modal" role="dialog" id="instructions-modal">
         <!--content of modal box-->
         <div class="modal-content">
@@ -76,9 +76,9 @@
         </div>
     </div>
     <!--end of modal section-->
-    <!--game area containing 3 divs: monster/guesses area, word/button area and keyboard area-->
+    <!-- main contains one div with thank you message -->
     <main>
-        <!--div with thank you message, name entered in contact form to be displayed by JS in span below -->
+        <!--div with thank you message, name entered in contact form displayed by form-msg.js in span below -->
         <div class="page-section">
             <h2>Thank you, <span id="show-name"></span>!</h2>
             <p>Your message has been received and we'll get back to you very shortly.</p>
@@ -119,7 +119,7 @@
     </footer>
     <!--script for the fontawesome icons-->
     <script src="https://kit.fontawesome.com/f92ca5e5ec.js" crossorigin="anonymous"></script>    
-    <!--script for page functionality and game functionality -->
+    <!--script for page functionality - to show Score across different pages -->
     <script src="assets/js/script.js"></script>
     <!--script to show name from form in form success message-->
     <script src="assets/js/form-msg.js"></script>
