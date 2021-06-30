@@ -81,7 +81,7 @@
     <!--game area containing 3 divs: monster/guesses area, word/button area and keyboard area-->
     <main>
         <!--div with graphics for monster and chances for wrong guesses, represented by circles and trophy-->
-        <div class="guesses page-section">
+        <div class="guesses page-section" aria-live="polite" aria-atomic=”true”>
             <!-- text to be displayed when game is over, initially hidden -->
             <div class="game-over-text hidden" id="game-over-text-box">
                 <p>GAME OVER!</p>
@@ -107,7 +107,7 @@
         </div>
         <!-- end of guesses div -->
         <!-- word area - content changes depending on game stage (3 stages), each div is shown or hidden -->
-        <div class="page-section word-area">
+        <div class="page-section word-area" aria-live="polite" aria-atomic=”true”>
             <!-- word area before game is started, this div is shown on page loading and after Play Again btn click -->
             <div id="word-area-at-start">
                 <p>Can you guess the word and beat the monster to win the trophy?</p>
