@@ -36,6 +36,14 @@ body {
     color: var(--white);
 }
 
+/* h2 general font styles */
+h2 {
+    font-size: 1.6rem;
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.1rem;
+    line-height: 2rem;
+}
+
 /* general style for links - in footer and on form success page - no underline, set colour */
 a {
     text-decoration: none;
@@ -376,14 +384,8 @@ footer li {
 }
 
 /*==================================== Contact Form ==============================================*/
-h2 {
-    font-size: 1.6rem;
-    font-family: 'VT323', monospace;
-    letter-spacing: 0.1rem;
-    line-height: 2rem;
-}
-
-.contact-section form {
+/* padding around form within div */
+form {
     padding: 0 0.5rem;
 }
 
@@ -392,9 +394,9 @@ label {
     display: block;
 }
 
-/*for inputs except checkbox; and for textarea - layout, spacing*/
+/* form inputs and textarea - layout, spacing */
 form input,
-form textarea {
+textarea {
     display: block;
     border: 0.1rem solid var(--orange);
     background-color: var(--black);
@@ -402,15 +404,18 @@ form textarea {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-}
-
-form input,
-textarea {
     border-radius: 0.05rem;
     font-family: inherit;
+    font-size: inherit;
 }
 
-/*placeholder colour*/
+/* textarea size and disable resize option */
+textarea {
+    resize: none;
+    height: 6rem;
+}
+
+/* placeholder colour for inputs and textarea */
 ::placeholder {
     color: var(--blue);
     opacity: 1;
@@ -436,6 +441,7 @@ textarea:focus {
     border: 0.1rem solid var(--blue);
 }
 
+/* change border colour on inputs and textarea when valid data entered */
 form input:valid,
 textarea:valid {
     border: 0.1rem solid var(--green);
