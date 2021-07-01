@@ -28,12 +28,12 @@ The game is aimed at school-age children as a fun way of helping them to learn w
 Note: there is no login or registered users on this site so each user story is from the point of view of a visiting user.
 1. As a visiting user, I want to find out how to play the game so that I can start to play
 2. As a visiting user, I want to be able to select the category from which the random word will be chosen so that I know which type of word it is to help guide my guesses
-3. As a visting user, I want to know how many letters are in the word to be guessed so that I can make a decision on which letters might be in the word
+3. As a visiting user, I want to know how many letters are in the word to be guessed so that I can make a decision on which letters might be in the word
 4. As a visiting user, I want to know which letters I have already guessed when playing the game so that I can decide my next guess
-5. As a visting user, I want to know if my guess was correct or not so that I can plan my next guess
+5. As a visiting user, I want to know if my guess was correct or not so that I can plan my next guess
 6. As a visiting user, I want to see the correctly guessed letters displayed in the correct place in the word, so that I can plan my next guess
 7. As a visiting user, I want to know how many chances I have left to guess incorrectly so that I can try to avoid losing the game
-8. As a visting user, I want to be able to get a hint to help me guess the word
+8. As a visiting user, I want to be able to get a hint to help me guess the word
 9. As a visiting user, I want to know what the word was, if I lose the game, so that I can learn the word or see how it is spelled
 10. As a visiting user, I want to know the meaning of the word at the end of the game, regardless of whether I won or lost, so that I can add the word to my vocabulary 
 11. As a visiting user, I want to know how many games I have won during this session of playing.
@@ -186,7 +186,7 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used 
 [JSHint](https://jshint.com/) was used to check the quality of the JavaScript code and check for errors. Apart from `Missing semicolon` errors which were rectified, there is one error 	`Expected an assignment or function call and instead saw an expression` which is to be investigated.
 
 ### Test Cases - user stories
-This section covers testing the user stories from the [User Experience (UX)](#user-experience--ux-) section. All users are visiting users since there is no user registration/login to the website.
+This section covers testing the user stories from the [User Experience (UX)](#user-experience-ux) section. All users are visiting users since there is no user registration/login to the website.
 
 1. **Expectation:** *As a visiting user, I want to find out how to play the game so that I can start to play*
 >**Result:** Pass
@@ -210,7 +210,7 @@ This section covers testing the user stories from the [User Experience (UX)](#us
   - the letter inside the button is coloured differently (green if correct, red if incorrect) and 
   - the button is disabled so cannot be clicked again. 
 - See screenprint below which covers user stories 4, 5, 6 and 7.
-5. **Expectation:** *As a visting user, I want to know if my guess was correct or not so that I can plan my next guess*
+5. **Expectation:** *As a visiting user, I want to know if my guess was correct or not so that I can plan my next guess*
 - During the game, after the user clicks on a letter from the onscreen keyboard to make a guess, the resulting changes on screen differ depending on whether the guess was correct or not, thus indicating to the user if they were correct or not. 
 - If the guess was correct:
   - the letter is displayed in the appropriate place in the word
@@ -236,7 +236,7 @@ This section covers testing the user stories from the [User Experience (UX)](#us
 - In the example below, there are two obstacles and the trophy remaining, so three wrong guesses remaining. This is reinforced by the fact that there are four red letters on the keyboard, so four wrong guesses already 
 - See screenprint below which covers user stories 4, 5, 6 and 7.
 ![user story 4, 5, 6, 7 - guesses](docs/user-stories/guesses.png)
-8. **Expectation:** *As a visting user, I want to be able to get a hint to help me guess the word*
+8. **Expectation:** *As a visiting user, I want to be able to get a hint to help me guess the word*
 >**Result:** Pass
 - Throughout the game, the Hint button is displayed in the middle of the screen under the blank letter spaces representing the word to be guessed (shown in the previous screenprint).
 - When the user clicks on the Hint button, a hint for that word is shown in place of the Hint button
@@ -262,7 +262,8 @@ This section covers testing the user stories from the [User Experience (UX)](#us
 - This is also referenced in the Instructions
 - On clicking the link the user is brought to the Contact Us page where they can complete the form
 ![user story 12 - contact form](docs/user-stories/contact-form.png)
-- ### Features Testing
+### Features Testing
+
 ### Fixed Bugs
 The following bugs were encountered during development and during testing.
 -   **Issue: Keys can be pressed before game has started, i.e. before word is chosen:**
