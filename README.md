@@ -185,7 +185,83 @@ The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used 
 >
 [JSHint](https://jshint.com/) was used to check the quality of the JavaScript code and check for errors. Apart from `Missing semicolon` errors which were rectified, there is one error 	`Expected an assignment or function call and instead saw an expression` which is to be investigated.
 
-- ### Test Cases - user stories
+### Test Cases - user stories
+This section covers testing the user stories from the [User Experience (UX)](#user-experience--ux-) section. All users are visiting users since there is no user registration/login to the website.
+
+1. **Expectation:** *As a visiting user, I want to find out how to play the game so that I can start to play*
+>**Result:** Pass
+- The header on all pages shows an Instructions button in the top right (lightbulb icon on smaller screens), on clicking this the user is shown a screen entitled Instructions, and the steps to play the game. 
+- If the user already knows how to play, the home page shows two buttons "Adjective" and "Verb" above which states "Pick a category below to start the game". 
+![user story 1 - instructions](docs/user-stories/instructions.png)
+2. **Expectation:** *As a visiting user, I want to be able to select the category from which the random word will be chosen so that I know which type of word it is to help guide my guesses*
+>**Result:** Pass
+- The home page shows two buttons "Adjective" and "Verb" above which states "Pick a category below to start the game". 
+- Throughout the game the user has a reminder of which category they chose, since this is displayed above the word they have to guess.
+![user story 2 - categories](docs/user-stories/categories.png)
+3. **Expectation:** *As a visiting user, I want to know how many letters are in the word to be guessed so that I can make a decision on which letters might be in the word*
+>**Result:** Pass
+- As shown in the previous user story, the number of letters in the word are shown on screen after the category is chosen. 
+- The letters are represented by dashes _ separated from each other by a space.
+- In the example shown above, there are 5 letters in the word
+4. **Expectation:** *As a visiting user, I want to know which letters I have already guessed when playing the game so that I can decide my next guess*
+>**Result:** Pass
+- Throughout the game, letters in the keyboard that have been guessed already are visually different from the remaining letters:
+  - the button has reduced opacity, 
+  - the letter inside the button is coloured differently (green if correct, red if incorrect) and 
+  - the button is disabled so cannot be clicked again. 
+- See screenprint below which covers user stories 4, 5, 6 and 7.
+5. **Expectation:** *As a visting user, I want to know if my guess was correct or not so that I can plan my next guess*
+- During the game, after the user clicks on a letter from the onscreen keyboard to make a guess, the resulting changes on screen differ depending on whether the guess was correct or not, thus indicating to the user if they were correct or not. 
+- If the guess was correct:
+  - the letter is displayed in the appropriate place in the word
+  - the letter in the keyboard is coloured green
+  - the 'monster graphic' does not move
+- If the guess was incorrect:
+  - the letter in the keyboard is coloured red
+  - one 'obstacle' graphic disappears 
+  - and the 'monster' graphic jumps one place closer to the trophy.
+- This is also explained in the Instructions for the user.
+- See screenprint below which covers user stories 4, 5, 6 and 7.
+>**Result:** Pass
+6. **Expectation:** *As a visiting user, I want to see the correctly guessed letters displayed in the correct place in the word, so that I can plan my next guess*
+- Throughout the game, any letters that have been guessed correctly are displayed in the appropriate place in the word
+- See screenprint below which covers user stories 4, 5, 6 and 7.
+>**Result:** Pass
+7. **Expectation:** *As a visiting user, I want to know how many chances I have left to guess incorrectly so that I can try to avoid losing the game*
+>**Result:** Pass
+- Throughout the game, the monster, obstacle and trophy graphics are shown at the top of the page
+- The obstacles between the monster and trophy, plus the trophy itself, represent the chances remaining for wrong guesses (this is also explained in the Instructions)
+- Each time there is a wrong guess, one of the obstacles (circles) disappears and the monster gets closer to the trophy
+- The user can see how many obstacles are remaining at all times during the game 
+- In the example below, there are two obstacles and the trophy remaining, so three wrong guesses remaining. This is reinforced by the fact that there are four red letters on the keyboard, so four wrong guesses already 
+- See screenprint below which covers user stories 4, 5, 6 and 7.
+![user story 4, 5, 6, 7 - guesses](docs/user-stories/guesses.png)
+8. **Expectation:** *As a visting user, I want to be able to get a hint to help me guess the word*
+>**Result:** Pass
+- Throughout the game, the Hint button is displayed in the middle of the screen under the blank letter spaces representing the word to be guessed (shown in the previous screenprint).
+- When the user clicks on the Hint button, a hint for that word is shown in place of the Hint button
+- The Hint remains on screen until the game is over
+![user story 8 - hint](docs/user-stories/hint.png)
+9. **Expectation:** *As a visiting user, I want to know what the word was, if I lose the game, so that I can learn the word or see how it is spelled*
+>**Result:** Pass
+- When the game is over, the word is revealed as shown below
+![user story 9 - word shown when game over](docs/user-stories/word-revealed.png)
+10. **Expectation:** *As a visiting user, I want to know the meaning of the word at the end of the game, regardless of whether I won or lost, so that I can add the word to my vocabulary*
+>**Result:** Pass
+- When the game is over, the word and its meaning are shown on screen, regardless of whether the game was won or lost.
+![user story 10 - word meaning shown when game over](docs/user-stories/word-meaning.png)
+11. **Expectation:** *As a visiting user, I want to know how many games I have won during this session of playing*
+>**Result:** Pass
+- The user's score during this browsing session in this window is shown in the page header
+- This remains constant across all pages
+- On a new session or opening in a new window, the score resets to 0
+![user story 11 - score shown in header](docs/user-stories/score.png)
+12. **Expectation:** *As a visiting user, I want to be able to contact the site owners if I come across any issues, have questions on the game or suggestions for improvement.*
+>**Result:** Pass
+- The footer on the home page contains a Contact Us link to the contact form
+- This is also referenced in the Instructions
+- On clicking the link the user is brought to the Contact Us page where they can complete the form
+![user story 12 - contact form](docs/user-stories/contact-form.png)
 - ### Features Testing
 ### Fixed Bugs
 The following bugs were encountered during development and during testing.
