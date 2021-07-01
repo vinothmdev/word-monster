@@ -420,6 +420,7 @@ textarea {
 ::placeholder {
     color: var(--blue);
     opacity: 1;
+    font-size: inherit;
 }
 
 /* submit button specific styles */
@@ -723,6 +724,30 @@ textarea:-webkit-autofill:focus {
      .key {
         padding: 1.2rem 1.4rem;
         margin: .6rem;
+    }
+
+    /*==================== Contact Form =======================*/
+    /* extra spacing around inputs and in inputs */
+    form input,
+    textarea {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+    }
+
+    /* increase height of textarea as more vertical space available on screen */
+    textarea {
+        height: 8rem;
+    }
+
+    /* increase line-height on label above input */
+    form label {
+        line-height: 3rem;
+    }
+
+    /* submit button extra padding and margin */
+    .form-btn {
+        padding: 1rem 0;
+        margin: 1.5rem auto;
     }
 }
 
