@@ -10,7 +10,7 @@ ul {
     list-style: none;
 }
 
-/*============================= general =============================================*/
+/*================================= general styles ================================================*/
 /* colour variables */
 :root {
     --green: #32ff00;
@@ -23,7 +23,7 @@ ul {
     --white: #fff;
 }
 
-/* base page font styles and body as flex container */
+/* base page font styles, colour, set body as flex container */
 body {
     height: 100vh;
     display: flex;
@@ -38,41 +38,13 @@ body {
 
 /* h2 general font styles */
 h2 {
-    font-size: 1.6rem;
+    font-size: 200%;
     font-family: 'VT323', monospace;
     letter-spacing: 0.1rem;
-    line-height: 2rem;
+    line-height: 150%;
 }
 
-/* general style for links - in footer and on form success page - no underline, set colour */
-a {
-    text-decoration: none;
-    color: var(--blue);
-}
-
-/*remove background and border and set button text style, set font */
-button {
-    cursor: pointer;
-    color: var(--blue);
-    background: transparent;
-    border: none;
-    outline: none;
-    font-family: inherit;
-}
-
-/* hover style for button and links */
-button:hover, button:focus, a:hover, a:focus {
-    color: var(--pink);
-}
-
-/* contact us link in footer and instructions button in header - border */
-.header-footer-btn {
-    border: 0.1rem solid var(--pink);
-    padding: 0.2rem 0.4rem;
-}
-
-/*flex settings so it expands to fill the space and push footer to bottom*/
-/* main is flex container for page content, also width and centered */
+/* flex settings so main expands to push footer to bottom. Flex container for page content. Centered, items centered */
 main {
     flex: 1 0 auto;
     width: 90%;
@@ -82,7 +54,7 @@ main {
     align-items: center;
 }
 
-/* border around each page section, padding and margin, font-size for main sections */
+/* border around each page section inside main, padding and margin, font-size */
 .page-section {
     border: 0.1rem solid var(--blue);
     border-radius: 0.1rem;
@@ -98,6 +70,35 @@ main {
     padding-bottom: 1rem;
 }
 
+/* general style for links - in footer and on form success page - no underline, set colour */
+a {
+    text-decoration: none;
+    color: var(--blue);
+}
+
+/*=========================== general buttons settings ====================================*/
+
+/*remove default background, border and outline. set font, set base font colour to blue, change cursor */
+button {
+    cursor: pointer;
+    color: var(--blue);
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
+
+/* general hover style for button, and for links */
+button:hover, button:focus, a:hover, a:focus {
+    color: var(--pink);
+}
+
+/* contact us link in footer and instructions button in header - specific border colour and padding */
+.header-footer-btn {
+    border: 0.1rem solid var(--pink);
+    padding: 0.2rem 0.4rem;
+}
+
 /* general styles for buttons in main section (not header/footer) - border, color, font */
 .main-btn {
     border: 0.1rem solid var(--green);
@@ -110,15 +111,15 @@ main {
     letter-spacing: .1rem;
 }
 
-/*change font color and background color on hover and focus*/
+/* change font color and background color (lighter) on hover and focus */
 .main-btn:hover,
 .main-btn:focus {
     background-color: rgba(60, 60, 60, 0.9);
     color: var(--green);
 }
 
-/*============================= header =============================================*/
-/* flex container for logo and li - li has score and instructions button */
+/*==================================== Page Header =============================================*/
+/* flex container for logo and li (score + instructions btn) aligned, spaced to each side */
 .page-header {
     display: flex;
     flex-wrap: wrap;
@@ -127,7 +128,7 @@ main {
     align-items: center;
 }
 
-/* score and instructions in page header font, layout styles */
+/* score and instructions in page header - font, layout styles */
 .page-header li {
     display: inline;
     font-size: .8rem;
@@ -144,18 +145,20 @@ main {
     letter-spacing: .15rem;
 }
 
+/* logo colour on hover/focus */
 .logo:hover,
 .logo:focus {
-    color: var(--orange);
+    color: var(--yellow);
 }
 
-/* text for Score and Instructions - hidden at small screen size */
+/* text for Score and Instructions - hidden at small screen size, icons only shown */
 .hide-text {
     display: none;
 }
 
 /*==================================== Instructions Modal ==============================================*/
-/* modal outer box - not visible by default, fixed position when opened full width and height */
+/* modal outer box - not visible by default, fixed position when opened, full width and height 
+overflow to allow scroll down, z-index to place on top of other content, background opacity */
 .modal {
     visibility: hidden;
     position: fixed;
@@ -163,22 +166,23 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: auto; /*in case need to scroll down to read all instructions*/
-    z-index: 1; /*on top of other content*/
-    background-color: rgba(60, 60, 60, 0.9); /*opacity*/
+    overflow: auto; 
+    z-index: 1; 
+    background-color: rgba(60, 60, 60, 0.9); 
 }
 
-/*modal with class visible added, when button clicked*/
+/*modal with class visible added, when Instructions button clicked*/
 .modal.visible {
     visibility: visible;
 }
 
-/*box holding the modal header and content */
+/*box holding the modal header and content - background, padding, margin, font */
 .modal-content {
     margin: 1.5rem auto;
     padding: 1rem .8rem;
     width: 90%;
     background-color: var(--black);
+    font-size: 100%;
 }
 
 /* heading and close button contained in this - flex container */
@@ -186,23 +190,22 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: .6rem;
     padding-bottom: .5rem;
 }
 
-/* line-height to match header, this is for x to close the modal */
+/* font-size for X button to close the modal */
 .modal-close {
     font-size: 1.8rem;
     line-height: 2rem;
 }
 
-/* padding for text section of modal*/
+/* padding for text section of modal (more on left because of bullet numbers) */
 .modal-text ol {
     padding-left: 1.6rem;
     padding-right: .4rem;
 }
 
-/*==================================== Game Area - general ==============================================*/
+/*========================== Game Area (Guesses/Word/Keyboard) - General ================================*/
 /* for sections that are not shown initally and only shown at different game stages */
 .hidden {
     display: none;
@@ -228,7 +231,7 @@ main {
     transition: all .15s ease;
 }
 
-/* class added to monster graphic by js when a life is lost, to animate it */
+/* class added to monster graphic by JS when a life is lost, to animate it - increase size + move up */
 .jump {
     transform: scale(1.25) translateY(-12%);
 }
@@ -239,7 +242,8 @@ main {
     animation-iteration-count: infinite;
 }
 
-/*keyframes to create the shake animation, from w3schools https://www.w3schools.com/howto/howto_css_shake_image.asp */
+/*keyframes to create the shake animation, 
+from w3schools https://www.w3schools.com/howto/howto_css_shake_image.asp */
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -254,7 +258,7 @@ main {
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-/* to center the text and img when game is over, class added via js to guesses div */
+/* to center the text and img when game is over (previously flex-end), class added via js to guesses div */
 .centered {
     justify-content: center;
     flex-wrap: wrap;
@@ -265,7 +269,7 @@ main {
     width: 20%;
 }
 
-/* styles for the text-displayed when game over */
+/* styles for the text that is displayed when game over */
 .game-over-text {
     font-family: 'VT323', monospace;
     font-size: .9rem;
@@ -287,19 +291,19 @@ main {
     font-size: 110%;
 }
 
-/* to display the correct word when game over */
+/* font styles for displaying the correct word when game over */
 .word {
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: 0.08rem;
 }
 
-/* to display the correct definition when game over */
+/* font style for displaying the word definition when game over */
 .definition {
     font-style: italic;
 }
 
-/* buttons in word area - specific styles */
+/* buttons in word area - specific styles - border colour, padding, width */
 .word-btn {
     border: 0.1rem solid var(--pink);
     padding: 0.6rem;
@@ -317,7 +321,7 @@ main {
     padding: .5rem 0;
 }
 
-/*div holding the spans for the letters to guess when game has started*/
+/* div holding the spans for the letters to guess when game has started - flex container for spans */
 .letter-space-container {
     padding: .5rem 0 1rem;
     display: flex;
@@ -337,7 +341,7 @@ main {
 }
 
 /*==================================== Keyboard ==============================================*/
-/*div holding keyboard - flex container, center the keys within it*/
+/* div holding keys - flex container, center the keys within it */
 .keyboard {
     display: flex;
     flex-wrap: wrap;
@@ -345,31 +349,31 @@ main {
     align-items: center;
 }
 
-/* each letter in keyboad -  specific padding, font size and margin */
+/* each letter in keyboad -  specific padding, font size and margin, other styles from main-btn */
 .key {
     padding: 0.5rem 0.6rem;
     margin: 0.2rem;
 }
 
-/*style for disabled keys:before game starts, when letter chosen during game. Attribute added and removed by js*/
-/*reduced opacity and no pointer events so no hover effects/tabs etc. */
+/*style for disabled keys: before game starts, when letter chosen during game. Attribute added and removed by JS
+Reduced opacity and no pointer events so no hover effects/tabs etc. */
 .key[disabled] {
     opacity: 0.5;
     pointer-events: none;
 }
 
-/* font colour on key when incorrect letter guessed */
+/* font colour on key when incorrect letter guessed, added by JS */
 .incorrect {
     color: var(--red);
 }
 
-/* font colour on key when correct letter guessed */
+/* font colour on key when correct letter guessed, added by JS */
 .correct {
     color: var(--green);
 }
 
 /*==================================== Footer ==============================================*/
-/*flex container for ul, centered, font-size for the fontawesome icons*/
+/* flex container for ul, centered, font-size for the fontawesome icons */
 footer {
     display: flex;
     justify-content: space-between;
@@ -377,7 +381,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/*display the social media icons*/
+/* social media icons - display inline, padding */
 footer li {
     display: inline;
     padding: 0 0.5rem;
@@ -389,13 +393,13 @@ form {
     padding: 0 0.5rem;
 }
 
-/* for input labels to display above inputs */
+/* display block so that input labels are above inputs */
 label {
     display: block;
     line-height: 1.2rem;
 }
 
-/* form inputs and textarea - layout, spacing */
+/* form inputs and textarea - layout, spacing, font */
 form input,
 textarea {
     display: block;
@@ -420,9 +424,10 @@ textarea {
 ::placeholder {
     color: var(--blue);
     opacity: 1;
+    font-size: inherit;
 }
 
-/* submit button specific styles */
+/* submit button specific styles, others from main-btn */
 .form-btn {
     padding: 0.4rem 0.6rem;
     margin: 0.5rem auto;
@@ -460,6 +465,7 @@ textarea:-webkit-autofill:focus {
 }
 
 /*==================================== MEDIA QUERIES ==============================================*/
+/*================================ mid phone size ====================================*/
 @media screen and (min-width: 360px) {
     /* increased padding on header */
     .page-header {
@@ -494,13 +500,12 @@ textarea:-webkit-autofill:focus {
     }
 }
 
+/*================================ large phone size ====================================*/
 @media screen and (min-width: 400px) {
     /* increased font-size, padding and margin for instructions modal box */
     .modal-content {
         margin: 2rem auto;
         padding: 1.2rem 1rem;
-        font-size: .8rem;
-        line-height: 1.6rem;
     }
 
     /* container for buttons - extra padding at this size */
@@ -514,7 +519,7 @@ textarea:-webkit-autofill:focus {
     }
 }
 
-/*================================ larger phone size ====================================*/
+/*================================ breakpoint to keep content centered ==================================*/
 /* constrain width of main, to keep content in center and appropriately sized */
 @media screen and (min-width: 500px) {
     main {
@@ -525,13 +530,13 @@ textarea:-webkit-autofill:focus {
 /*================================ tablet width ==========================================*/
 @media screen and (min-width: 768px) {
 
-    /*======================== Page header ==========================*/
+    /*======================== Page header + footer ==========================*/
     /* show the Score and Instructions text that was hidden at mobile size */
     .hide-text {
         display: inline;
     }
 
-    /* increase padding, font size in header items below */
+    /* increase padding, font size in header + footer and their contents */
     .page-header, footer {
         padding: 2rem;
     }
@@ -554,13 +559,10 @@ textarea:-webkit-autofill:focus {
     /* increased font-size, padding and margin container box */
     .modal-content {
         padding: 2rem 3rem;
-        font-size: 1rem;
-        line-height: 2rem;
     }
 
     /* increased font size and padding underneath */
     .modal-header {
-        font-size: 1rem;
         padding-bottom: 1rem;
     }
 
@@ -643,12 +645,7 @@ textarea:-webkit-autofill:focus {
         width: calc(12.5% - .8rem);
     }
 
-    /* adjust size of icon at game-over stage */
-    .centered > .guess {
-        width: 10%;
-    }
-
-    /* less padding and margin between sections in this layout, change line height */
+    /* less padding and margin between sections, change line height */
     .page-section {
         padding: 1rem;
         margin: 1rem auto;
@@ -669,6 +666,11 @@ textarea:-webkit-autofill:focus {
     .letter-space {
         margin: 0.4rem;
         height: 1.8rem;
+    }
+
+    /* increase padding around form */
+    form {
+        padding: 1rem 1.5rem;
     }
 }
 
@@ -693,7 +695,7 @@ textarea:-webkit-autofill:focus {
         line-height: 2rem;
     } 
 
-    /* adjust size of icon at game-over stage - larger than previous media query as box has more space */
+    /* adjust size of icon at game-over stage */
     .centered > .guess {
         width: 15%;
     }
@@ -724,6 +726,30 @@ textarea:-webkit-autofill:focus {
         padding: 1.2rem 1.4rem;
         margin: .6rem;
     }
+
+    /*==================== Contact Form =======================*/
+    /* extra spacing around inputs and in inputs */
+    form input,
+    textarea {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+    }
+
+    /* increase height of textarea as more vertical space available on screen */
+    textarea {
+        height: 8rem;
+    }
+
+    /* increase line-height on label above input */
+    form label {
+        line-height: 2.5rem;
+    }
+
+    /* submit button extra padding and margin */
+    .form-btn {
+        padding: 1rem 0;
+        margin: 1.5rem auto;
+    }
 }
 
 
@@ -740,6 +766,13 @@ textarea:-webkit-autofill:focus {
     main {
         width: 50%;
     }
+
+    /*==================== Contact Form =======================*/
+    /* increase padding around form */
+    form {
+        padding: 2rem 4rem;
+    }
+
 }
 
 /*============================= extra large screen ======================================*/
@@ -763,10 +796,12 @@ textarea:-webkit-autofill:focus {
         line-height: 2.4rem;
     }
 
+    /* padding around guess images */
     .guesses {
         padding: 3rem 6rem;
     }
 
+    /* increased font sizing for text showed at game over stage */
     .game-over-text {
         font-size: 2.6rem;
         line-height: 3.6rem;
@@ -796,12 +831,13 @@ textarea:-webkit-autofill:focus {
         padding: 3rem 4rem;
     }
 
+    /* more padding on keyboard keys */
      .key {
         padding: 1.4rem 1.6rem;
     }
 
     /*==================== Footer and Header =======================*/
-    /* increase font size and padding  */
+    /* increase font size and padding on header/footer and their contents */
     footer {
         padding: 2rem 4rem;
     }
