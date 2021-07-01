@@ -667,6 +667,11 @@ textarea:-webkit-autofill:focus {
         margin: 0.4rem;
         height: 1.8rem;
     }
+
+    /* increase padding around form */
+    form {
+        padding: 1rem 1.5rem;
+    }
 }
 
 /*============================= large tablet - longer screen ======================================*/
@@ -737,7 +742,7 @@ textarea:-webkit-autofill:focus {
 
     /* increase line-height on label above input */
     form label {
-        line-height: 3rem;
+        line-height: 2.5rem;
     }
 
     /* submit button extra padding and margin */
@@ -761,6 +766,13 @@ textarea:-webkit-autofill:focus {
     main {
         width: 50%;
     }
+
+    /*==================== Contact Form =======================*/
+    /* increase padding around form */
+    form {
+        padding: 2rem 4rem;
+    }
+
 }
 
 /*============================= extra large screen ======================================*/
