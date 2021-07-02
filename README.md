@@ -263,7 +263,90 @@ This section covers testing the user stories from the [User Experience (UX)](#us
 - On clicking the link the user is brought to the Contact Us page where they can complete the form
 ![user story 12 - contact form](docs/user-stories/contact-form.png)
 ### Features Testing
-
+- #### **Header: Expectations**
+  - Top of the page, contains game name on the left, Score and Instructions on the right.
+  - Fixed to the top of the page so that score is always visible
+  - Instructions: when clicked displays the instructions on how to play the game, X in top right corner to close and return to game page
+  - Score: displays a number indicating to the user how many games they have won during this session of playing. Display only, not clickable.
+  - At smaller screen size, icons are shown for the Score (trophy) and Instructions (lightbulb) 
+>**Result:** Pass
+- All of the above are present, as shown below:
+![features testing - header](docs/features-testing/header.png)
+- #### **Game Area: Expectations**
+  - Consists of three sections: Monster/guesses section; Word section; Keyboard section. 
+  - The features of each vary depending on which stage the game is in: not-started, in-play, or over.
+  - The full game area should always be visible on the screen for supported devices, without having to scroll down
+>**Result:** Pass
+- All of the above are present, as shown below
+- The three sections are present and change accordingly, depending on the game stage
+- the full game area is visible on screen for supported devices at all game stages
+- The [file linked here shows the game area visible in full at the three game stages, on supported devices](docs/features-testing/game-area-supported-devices.pdf) while the below shows just the laptop screen for reference
+![features testing - game area](docs/features-testing/game-area.png)
+- #### **Game Area - Guesses section: Expectations**
+  - At the 'not-started' stage of the game there is a 'monster' character and 6 obstacles between it and the trophy icon
+  - For each wrong guess, one obstacle disappears and the monster moves into its place, thereby getting closer to the trophy
+  - On the seventh wrong guess, the trophy disappears, meaning the game has been lost. The game is now in the 'over' state and a message is displayed: "Game Over. You Lost"
+  - If the user guessed the letters correctly before the monster gets to the trophy, the game also enters the 'over' state and a message is displayed: "Game Over! You Won the Trophy!".
+>**Result:** Pass
+- All of the above are present, as shown below
+- For each wrong guess, an obstacle disappears and the monster takes it place. 
+- The relevant messages are shown at game over stage
+- Seven wrong guesses means the game is lost
+- Less than seven wrong guesses, and guessing the correct letters means the game is won
+![features testing - game area guesses section](docs/features-testing/game-area-guesses.png)
+- #### **Game Area - Word section: Expectations**
+  - contains a text box and a button area, these change depending on the stage of the game
+  - At the 'not-started' stage, the text box instructs user to choose a category from the two buttons below it - Adjective or Verb. 
+  - Once one of these buttons is pressed/clicked on, the game starts and is in the 'in-play' stage
+  - The text box now displays the chosen word category, with a number of dashes underneath, representing the letters in the word to be guessed.
+  - correctly guessed letters are shown in the relevant place in the word, above the dash
+  - A Hint button is shown underneath the word to be guessed
+  - When the Hint button is clicked, it displays a hint, which then remains displayed on the page until the game is over
+  - When the game enters the 'over' stage, the text box shows a message confirming what the word was and its meaning.
+  - The button is now a "Play Again" button
+>**Result:** Pass
+- All of the above are present, the content of the Word area changes as the game stages change, as shown below
+- Before starting: text and category buttons
+- In Play: Category, dashes for letters, Hint button
+- Hint is displayed when Hint button clicked and remains on screen
+- Game over: Word and Meaning is shown and Play again button 
+![features testing - game area word section](docs/features-testing/game-area-word.png)
+- #### **Game Area - Keyboard section: Expectations**
+  - below the word to be guessed and contains a keyboard of letters from A to Z
+  - Once a letter has been guessed it cannot be pressed/clicked on again, and it visually displays a different color to show it was already used
+  - The keyboard letters are always displayed but are only active when the game is in the 'in-play' stage
+>**Result:** Pass
+- All of the above are present:
+- keyboard is below Word section
+- letters already guessed have reduced opacity, the letter is a different colour (green/red instead of white) and is disabled so can't be clicked again
+- keyboard is disabled before Verb/Adjective button is clicked and at game-over stage. So only active while 'in-play' stage.
+![features testing - keyboard section](docs/features-testing/game-area-keyboard.png)
+- #### **Game Area - Footer: Expectations**
+  - contains the social media links: Facebook, Instagram and Twitter, represented by icons.
+  - on the home page, this contains the Contact Us link to the Contact Form page. This link is not shown while the game is in the in-play stage.
+  - on the Contact Form and Form Success page, footer contains Back to Game link in place of the Contact Us link
+>**Result:** Pass
+- All of the above are present:
+- Social media icons always present
+- Contact Us link present on home page, not present when game is in play
+- Back to Game present on Contact and Form Success pages
+![features testing - footer](docs/features-testing/footer.png)
+- #### **Game Area - Footer: Expectations**
+  - contains the following inputs (all are mandatory) and validations:
+    - First name: text
+    - Surname: text
+    - Email address: must be valid format for email address
+    - Message: text
+  - the border on inputs changes colour to indicate when a valid input is received
+  - button called Send Message to submit the form
+  - Success page is displayed after submitting, showing the first name that was input into the form First Name field
+>**Result:** Pass
+- All fields present on form
+- All fields are mandatory, a message appears if I try to Send Message without all fields completed
+- the border around the input/textarea changes to green when valid data is entered
+- An error is shown if data is not valid e.g. no '@' in email field
+- After submitting, a success message is shown, which includes the firstname that was entered onto the form
+![features testing - contact form](docs/features-testing/form.png)
 ### Fixed Bugs
 The following bugs were encountered during development and during testing.
 -   **Issue: Keys can be pressed before game has started, i.e. before word is chosen:**
