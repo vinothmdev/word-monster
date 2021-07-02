@@ -368,7 +368,26 @@ The following bugs were encountered during development and during testing.
 ![docs/bugs/form-success-name-bug.png](docs/bugs/form-success-name-bug.png)
 >Solution: Used `sessionStorage` to store (`setItem`) the name value from the form in `contact.html`, and then `getItem` to display it in the `form-success.html` page (also used this method to store and get the Score in the header when the user changes between pages).   
 - ### Other Testing (links etc.)
-- ### Supported Screens and Browsers
+### Supported Screens and Browsers
+The project was developed using Chrome as the baseline browser.  
+
+The website and the game functionality has been tested on my personal mobile device Galaxy A40 and a 15 inch MacBook Pro.
+
+Using the [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) simulator, the website has been tested on the following screen sizes (px) equating to the phone models listed. *Note these have been tested on the simulator only and not the actual devices*:
+- Moto G4, Galaxy S5:  360 x 640
+- Pixel 2: 411 x 731
+- Pixel 2 XL: 411 x 823
+- iPhone 5/SE: 320 x 568
+- iPhone 6/7/8: 375 x 667
+- iPhone 6/7/8 Plus: 414 x 736
+- iPhone X: 375 x 812
+- iPad: 768 x 1024
+- iPad Pro: 1024 x 1366
+- Surface Duo: 540 x 720
+- Galaxy Fold 280 x 653
+
+The website and the game functionality has been tested in Chrome as mentioned above, and also in Firefox and Safari. 
+
 ## Deployment
 ---
 ### Gitpod - during development
