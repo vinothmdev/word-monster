@@ -6,6 +6,39 @@
 
 ![device mockup](docs/device-mockup.png)
 
+## Table of Contents
+- [Purpose](#purpose)
+- [User Experience (UX)](#user-experience--ux-)
+  * [User stories](#user-stories)
+  * [Design](#design)
+    + [Colour scheme](#colour-scheme)
+    + [Typography](#typography)
+  * [Wireframes](#wireframes)
+- [Features](#features)
+  * [Existing Features](#existing-features)
+  * [Future Features](#future-features)
+- [Content Requirements](#content-requirements)
+- [Technology](#technology)
+  * [Languages](#languages)
+  * [Frameworks, Libraries, Programmes and Tools](#frameworks--libraries--programmes-and-tools)
+- [Testing](#testing)
+  * [Code Validation](#code-validation)
+  * [Test Cases - user stories](#test-cases---user-stories)
+  * [Features Testing](#features-testing)
+  * [Fixed Bugs](#fixed-bugs)
+  * [Other Testing (links etc.)](#other-testing--links-etc-)
+  * [Supported Screens and Browsers](#supported-screens-and-browsers)
+- [Deployment](#deployment)
+  * [Gitpod - during development](#gitpod---during-development)
+  * [GitHub Pages - Deployment](#github-pages---deployment)
+  * [Forking the GitHub Repository](#forking-the-github-repository)
+  * [Cloning the GitHub Repository](#cloning-the-github-repository)
+- [Credits](#credits)
+  * [Code](#code)
+  * [Content](#content)
+  * [Media](#media)
+- [Acknowledgements](#acknowledgements)
+
 ## Purpose
 ---
 Word Monster is a game based on the classic 'hangman' game, where the user has to figure out a word by guessing one letter at a time. The game is over when the user has guessed incorrectly 7 times, or when they have revealed the word by guessing all the correct letters. For this version, instead of drawing part of the hangman for each wrong guess (as is the case for the classic version of the game), there is a 'monster' character with obstacles between it and the trophy. Each wrong guess erases an obstacle and the monster claims the trophy on the seventh wrong guess. The reason for using this character instead of the classic hangman is to make it a bit more friendly and light-hearted, bearing in mind the target audience. 
