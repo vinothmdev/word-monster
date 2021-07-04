@@ -4,7 +4,7 @@
 
 [View the live website here](https://fiona-t.github.io/word-monster/)
 
-![device mockup to be added]()
+![device mockup](docs/device-mockup.png)
 
 ## Purpose
 ---
@@ -101,7 +101,7 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
   - At the 'not-started' stage of the game, the text box instructs user to choose a category from the two buttons below it - Adjective or Verb. These are the word categories from which the random word will be chosen.
   - Once one of these buttons is pressed/clicked on, the game starts and is in the 'in-play' stage
   - The text box now displays the chosen word category, and underneath this it shows a number of dashes representing the letters in the word to be guessed. 
-  - When letters are guessed correctly, these are shown in the relevant place in the word, replacing the dash
+  - When letters are guessed correctly, these are shown in the relevant place in the word, above the dash
   - A Hint button is shown underneath the word to be guessed
   - When the Hint button is clicked, it displays a hint to help the user determine what the word might be. The hint then remains displayed on the page until the game is over
   - When the game enters the 'over' stage, the text box shows a message confirming what the word was and its meaning. 
@@ -222,11 +222,10 @@ This section covers testing the user stories from the [User Experience (UX)](#us
   - and the 'monster' graphic jumps one place closer to the trophy.
 - This is also explained in the Instructions for the user.
 - See screenprint below which covers user stories 4, 5, 6 and 7.
->**Result:** Pass
 6. **Expectation:** *As a visiting user, I want to see the correctly guessed letters displayed in the correct place in the word, so that I can plan my next guess*
+>**Result:** Pass
 - Throughout the game, any letters that have been guessed correctly are displayed in the appropriate place in the word
 - See screenprint below which covers user stories 4, 5, 6 and 7.
->**Result:** Pass
 7. **Expectation:** *As a visiting user, I want to know how many chances I have left to guess incorrectly so that I can try to avoid losing the game*
 >**Result:** Pass
 - Throughout the game, the monster, obstacle and trophy graphics are shown at the top of the page
@@ -331,7 +330,7 @@ This section covers testing the user stories from the [User Experience (UX)](#us
 - Contact Us link present on home page, not present when game is in play
 - Back to Game present on Contact and Form Success pages
 ![features testing - footer](docs/features-testing/footer.png)
-- #### **Game Area - Footer: Expectations**
+- #### **Game Area - Contact Form: Expectations**
   - contains the following inputs (all are mandatory) and validations:
     - First name: text
     - Surname: text
