@@ -100,10 +100,12 @@ function checkLetter() {
     let keyPressed = this;
     keyPressed.setAttribute("disabled", true);
     let wordToGuess = document.querySelector(".word").textContent.toUpperCase();
-    // it's a wrong guess if indexOf is -1, i.e. letter is not in the word
-    let isWrongGuess = wordToGuess.indexOf(keyPressed.innerHTML) === -1;
-    // if it's a wrong guess, run handleIncorrectGuess function, otherwise run handleCorrectGuess function
-    isWrongGuess ? handleIncorrectGuess(keyPressed) : handleCorrectGuess(keyPressed);
+    //wrong guess if indexOf is -1 (letter not in the word) run handleIncorrectGuess, otherwise handleCorrectGuess
+    if (wordToGuess.indexOf(keyPressed.innerHTML) === -1) {
+        handleIncorrectGuess(keyPressed);
+    } else {
+        handleCorrectGuess(keyPressed);
+    }
 }
 
 /**
