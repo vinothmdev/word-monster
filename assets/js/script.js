@@ -167,7 +167,7 @@ function checkIfGameWon() {
 
 /**
  * show the relevant game over message depending on if game won or not, show word & meaning, 
- * disable keyboad, add evenListener on Play Again button, show Contact Us link 
+ * disable keyboad, add evenListener on Play Again button, put focus on it, show Contact Us link 
  * @param {boolean} gameWon true or false  
  */
 function endGame(gameWon) {
@@ -180,6 +180,7 @@ function endGame(gameWon) {
     }
     showWordMeaning();
     updateKeyboard("disable");
+    document.getElementById("reset").focus();
     document.getElementById("reset").addEventListener("click", resetGame);
     toggleElementVisibility("contact-btn");
 }
@@ -227,11 +228,12 @@ function showTrophy() {
 }
 
 /**
- * when Play Again button clicked, show 'at-start' and hide 'game-over' word areas, reset .guess imgs,
- * removeLetterSpaces created at start of game, resetHintBtn, remove colours from pressedKeys
+ * when Play Again button clicked, show 'at-start', hide 'game-over' word areas, put focus on first category btn,
+ * reset .guess imgs, removeLetterSpaces created at start of game, resetHintBtn, remove colours from pressedKeys
  */
 function resetGame() {
     toggleElementVisibility("word-area-at-start");
+    document.getElementsByClassName("category-btn")[0].focus();
     toggleElementVisibility("word-area-game-over");
     resetGuesses();
     removeLetterSpaces();
