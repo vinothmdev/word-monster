@@ -420,6 +420,8 @@ Using the [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) simula
 
 The website and the game functionality has been tested in Chrome as mentioned above, and also in Firefox and Safari. 
 
+*Note:* there is a bug on Firefox as follows: when an incorrect letter is clicked, the colour of the letter does not update to red until the next letter is clicked. In the dev tools, I could see that the 'incorrect' class (which contains the change of colour to red) was being added to the pressed key as expected, however the color from the 'incorrect' class is not applied until the next click. The 'guesses' section functions correctly, so it is still clear to the user that the guess was incorrect. 
+
 ## Deployment
 ---
 ### Gitpod - during development
