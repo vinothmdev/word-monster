@@ -222,7 +222,18 @@ The [W3C Markup Validation Service](https://validator.w3.org/) was used to valid
 >
 The [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS file used for the project. There were no errors found.
 >
-[JSHint](https://jshint.com/) was used to check the quality of the JavaScript code and check for errors. Apart from `Missing semicolon` errors which were rectified, there is one error 	`Expected an assignment or function call and instead saw an expression` which is to be investigated.
+[JSHint](https://jshint.com/) was used to check the quality of the JavaScript code and check for errors. Apart from `Missing semicolon` errors which were rectified, there was one error:
+> 	`Expected an assignment or function call and instead saw an expression` 
+
+The code causing the error was in `script.js` in `function checkLetter()`:
+>`isWrongGuess ? handleIncorrectGuess(keyPressed) : handleCorrectGuess(keyPressed);`
+
+This was amended to the `if/else statement` shown below and there is no longer any error.
+>`if (wordToGuess.indexOf(keyPressed.innerHTML) === -1) {
+        handleIncorrectGuess(keyPressed);
+    } else {
+        handleCorrectGuess(keyPressed);
+    }`
 
 ### Test Cases - user stories
 This section covers testing the user stories from the [User Experience (UX)](#user-experience-ux) section. All users are visiting users since there is no user registration/login to the website.
