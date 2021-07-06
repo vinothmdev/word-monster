@@ -111,7 +111,11 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
     - [Game over - user lost game](docs/wireframes/game-over-lost-mobile.png)
     - [Contact Form](docs/wireframes/contact-form-mobile.png)
   - [View all wireframes in pdf here.](docs/wireframes/wireframes-all.pdf)
-    
+  - Changes from Original Wireframe Designs:
+    - In the Header, the Score and Instructions are represented by icons only at smaller screen sizes. 
+    - Previous versions of wireframes showed a 2 column layout for the game at larger screen sizes. This layout was developed accordingly, however folowing feedback from my mentor and others, it was decided to keep the one column layout for the game at all screen sizes
+    - Originally the website was one page and did not contain a Contact Form. This was added as a feature later in the project and Wireframes were updated. At this point Session Storage was introduced as a feature also, so that Score could be retained when moving between pages.
+
 ## Features
 ---
 ### Existing Features
@@ -119,10 +123,11 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
   - Top of the page, contains game name on the left, Score and Instructions on the right.
   - Fixed to the top of the page so that score is always visible
   - Instructions: when clicked displays the instructions on how to play the game, X in top right corner to close and return to game page
-  - Score: displays a number and a trophy beside it, the number indicates to the user how many games they have won during this session of playing. Each trophy is a correct word guessed i.e. a game won. Display only, not clickable.
+  - Score: displays a number indicating to the user how many games they have won during this session of playing. Display only, not clickable.
+  - Since there is more than one page, session storage to be used to retain the user's score when moving between the Game and the Contact Form/Form Success pages
 - #### Game area:
   - Consists of three sections: Monster/guesses section; Word section; Keyboard section. The features of each vary depending on which stage the game is in: not-started, in-play, or over.
-  - the full game area should always be visible on the screen without having to scroll down
+  - the full game area should always be visible on the screen without having to scroll down, where possible. This is especially important for mobile screens viewing, for supported devices.
 - #### Game area - 'Monster/guesses remaining' section:
   - At the 'not-started' stage of the game there is a 'monster' character and 6 obstacles between it and the trophy icon
   - During the 'in-play' stage, wrong guesses are represented visually by this monster character getting closer to the trophy icon
@@ -142,12 +147,13 @@ The monster graphic is based on and reminiscent of the characters from Space Inv
 - #### Game area - 'Keyboard' section:
   - This section is below the word to be guessed and contains a keyboard of letters from A to Z
   - The user guesses a letter by pressing/clicking on one of the letters
-  - Once a letter has been guessed it cannot be pressed/clicked on again, and it visually displays a different color to show it was already used
+  - Once a letter has been guessed it cannot be pressed/clicked on again, and it visually displays a different color to show if it was correct or incorrect
   - The keyboard letters are always displayed but are only active when the game is in the 'in-play' stage 
+  - *Note:* The use of this keyboard on screen instead of using the keyboard of the device serves two purposes: allowing the keyboard to be enabled or disabled at different stages of the game, and visually displaying the already guessed letters during the game.
 - #### Footer:
   - contains the social media links: Facebook, Instagram and Twitter, represented by icons. 
-  - on the home page, this contains the Contact Us link to the Contact Form page. This link is not shown while the game is in the in-play stage, because leaving the main page would lose progress in the game. 
-  - on the Contact Form page, footer contains Back to Game link in place of the Contact Us link
+  - on the home page, contains the Contact Us link to the Contact Form page. This link is not shown while the game is in the in-play stage, because leaving the main page would lose progress in the game. 
+  - on the Contact Form page and Form Success page, footer contains Back to Game link in place of the Contact Us link
 - #### Contact Form:
   - contains the following inputs (all are mandatory) and validations:
     - First name: text
