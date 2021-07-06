@@ -41,10 +41,10 @@ function startGame(wordCategory, wordObject) {
  * @param {string} word from wordObject
  */
 function createLetterSpaces(word) {
-    for (let i = 0; i < word.length; i++) {
+    for (let letter in word) {
         let span = document.createElement("span");
         span.setAttribute("class", "letter-space");
-        span.setAttribute("data-letter", word[i]);
+        span.setAttribute("data-letter", word[letter]);
         document.getElementById("span-container").appendChild(span);
     }
 }
