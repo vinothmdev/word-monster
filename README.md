@@ -416,7 +416,12 @@ The following bugs were encountered during development and during testing.
 -   **Issue: Name from Contact Form not appearing in Form Success message:**
 ![docs/bugs/form-success-name-bug.png](docs/bugs/form-success-name-bug.png)
 >Solution: Used `sessionStorage` to store (`setItem`) the name value from the form in `contact.html`, and then `getItem` to display it in the `form-success.html` page (also used this method to store and get the Score in the header when the user changes between pages).   
-- ### Other Testing (links etc.)
+### Other Testing (links etc.)
+Verified that all links work, external links open in a new page so as not to direct user away from the site. Manually tested the game to ensure that it functions as intended, further to what is already shown in the [User Stories Testing](#test-cases---user-stories) and [Features Testing](#features-testing) sections:
+- tested that both category buttons work
+- tested that the Play Again button works and the category buttons function after pressing the Play Again button
+- tested that the Score increments successfully and maintains across pages
+
 ### Supported Screens and Browsers
 The project was developed using Chrome as the baseline browser.  
 
