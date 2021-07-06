@@ -3,7 +3,8 @@ and storing the score in sessionStorage for all html pages.
 Note: getWord() function is in separate words.js file, which also contains the words for the game */
 
 /**
- * listen for click on Category Buttons, on click hide the clicked button and run getWord using wordCategory
+ * listen for click on Category Buttons, on click hide the clicked button, run getWord to get the 
+ * wordObject by wordCategory, then run startGame using wordObject and wordCategory
  */
 function initialiseCategories() {
     let categoryButtons = document.getElementsByClassName("category-btn");
@@ -11,7 +12,8 @@ function initialiseCategories() {
     Array.from(categoryButtons).forEach(button => button.addEventListener("click", function () {
         let wordCategory = this.innerHTML;
         this.parentElement.parentElement.classList.add("hidden");
-        getWord(wordCategory);
+        let wordObject = getWord(wordCategory);
+        startGame(wordCategory, wordObject);
     }));
 }
 
